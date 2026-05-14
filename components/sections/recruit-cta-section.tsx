@@ -1,6 +1,7 @@
 "use client";
 
 import type React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Search, Phone, ArrowRight } from "lucide-react";
@@ -15,6 +16,33 @@ const JOB_CATEGORIES = [
   "設備メンテナンス",
   "物流・倉庫",
   "外国人材（特定技能）",
+];
+
+const ZIGZAG_IMAGES = [
+  {
+    src: "/images/services/job.jpg",
+    alt: "製造業派遣の現場",
+    fromLeft: true,
+    yShift: "mt-0",
+    rotate: "-2deg",
+    floatDelay: 0.8,
+  },
+  {
+    src: "/images/services/service3.png",
+    alt: "工場請負の現場",
+    fromLeft: false,
+    yShift: "mt-8",
+    rotate: "1.5deg",
+    floatDelay: 1.1,
+  },
+  {
+    src: "/images/services/job2.jpeg",
+    alt: "特定技能・外国人材支援",
+    fromLeft: true,
+    yShift: "mt-2",
+    rotate: "-1deg",
+    floatDelay: 1.4,
+  },
 ];
 
 export function RecruitCtaSection() {
@@ -45,6 +73,7 @@ export function RecruitCtaSection() {
       />
 
       <div className="content-max relative px-4 sm:px-6 lg:px-8">
+        {/* ── For Job Seekers CTA ── */}
         <motion.div
           variants={container}
           initial="hidden"
@@ -118,12 +147,62 @@ export function RecruitCtaSection() {
           </motion.p>
         </motion.div>
 
-        {/* For companies — secondary strip */}
+        {/* ── Zigzag service images ── */}
+        <div
+          className="mt-14 mb-2 flex items-start justify-center gap-4 sm:gap-6 lg:gap-10"
+          aria-hidden="true"
+        >
+          {ZIGZAG_IMAGES.map((img, i) => (
+            <motion.div
+              key={img.src}
+              className={img.yShift}
+              initial={{ opacity: 0, x: img.fromLeft ? -56 : 56 }}
+              animate={
+                inView
+                  ? { opacity: 1, x: 0 }
+                  : { opacity: 0, x: img.fromLeft ? -56 : 56 }
+              }
+              transition={{
+                duration: 0.75,
+                delay: prefersReducedMotion ? 0 : i * 0.22,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
+            >
+              {/* Floating wrapper — perpetual gentle bob */}
+              <motion.div
+                animate={
+                  inView && !prefersReducedMotion
+                    ? { y: [0, -9, 0] }
+                    : { y: 0 }
+                }
+                transition={{
+                  duration: 3.8 + i * 0.4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: img.floatDelay,
+                }}
+                style={{ rotate: img.rotate }}
+                className="overflow-hidden rounded-2xl ring-2 ring-white/25 shadow-xl shadow-amber-900/30"
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  width={176}
+                  height={132}
+                  className="block w-24 h-18 sm:w-36 sm:h-28 lg:w-44 lg:h-32 object-cover"
+                  sizes="(max-width: 640px) 96px, (max-width: 1024px) 144px, 176px"
+                />
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* ── For Companies strip ── */}
         <motion.div
           variants={item}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="mt-16 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-sm p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6"
+          className="mt-12 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-sm p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6"
         >
           <div>
             <p className="text-xs font-semibold uppercase tracking-widest text-white/60 mb-1">
