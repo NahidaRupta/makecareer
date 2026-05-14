@@ -1,0 +1,279 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─────────────────────────────────────────────
+// LEAD / CONTACT MANAGEMENT
+// ─────────────────────────────────────────────
+
+model ContactLead {
+  id              String     @id @default(cuid())
+  name            String
+  company         String?
+  email           String
+  phone           String?
+  serviceInterest String?
+  message         String
+  ipAddress       String?
+  userAgent       String?
+  status          LeadStatus @default(NEW)
+  source          String?
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+
+  @@index([email])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model DownloadLead {
+  id           String   @id @default(cuid())
+  name         String
+  email        String
+  resourceSlug String
+  ipAddress    String?
+  downloadedAt DateTime @default(now())
+
+  @@index([email])
+  @@index([resourceSlug])
+}
+
+model NewsletterSubscriber {
+  id             String           @id @default(cuid())
+  email          String           @unique
+  status         SubscriberStatus @default(ACTIVE)
+  source         String?
+  subscribedAt   DateTime         @default(now())
+  unsubscribedAt DateTime?
+
+  @@index([status])
+}
+
+// ─────────────────────────────────────────────
+// JOB SEEKER PORTAL
+// ─────────────────────────────────────────────
+
+model JobSeeker {
+  id           String        @id @default(cuid())
+  email        String        @unique
+  passwordHash String
+  nameEn       String?
+  nameJa       String?
+  phone        String?
+  nationality  String?
+  languageJa   LanguageLevel @default(NONE)
+  visaType     String?
+  resumeUrl    String?
+  status       SeekerStatus  @default(ACTIVE)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  deletedAt    DateTime?
+
+  applications JobApplication[]
+
+  @@index([email])
+  @@index([status])
+}
+
+model JobListing {
+  id                 String         @id @default(cuid())
+  titleEn            String
+  titleJa            String?
+  slug               String         @unique
+  descriptionEn      String
+  descriptionJa      String?
+  industry           String
+  employmentType     EmploymentType
+  locationCity       String?
+  locationPrefecture String?
+  salaryMin          Int?
+  salaryMax          Int?
+  salaryCurrency     String         @default("JPY")
+  requiresJapanese   Boolean        @default(false)
+  japaneseLevel      LanguageLevel?
+  visaSponsorship    Boolean        @default(false)
+  status             JobStatus      @default(DRAFT)
+  publishedAt        DateTime?
+  closesAt           DateTime?
+  serviceType        String?
+  createdAt          DateTime       @default(now())
+  updatedAt          DateTime       @updatedAt
+
+  applications JobApplication[]
+
+  @@index([status, publishedAt])
+  @@index([industry])
+  @@index([employmentType])
+}
+
+model JobApplication {
+  id        String            @id @default(cuid())
+  jobId     String
+  seekerId  String?
+  name      String
+  email     String
+  phone     String?
+  coverNote String?
+  resumeUrl String?
+  status    ApplicationStatus @default(RECEIVED)
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+
+  job    JobListing @relation(fields: [jobId], references: [id])
+  seeker JobSeeker? @relation(fields: [seekerId], references: [id])
+
+  @@index([jobId])
+  @@index([seekerId])
+  @@index([status])
+}
+
+// ─────────────────────────────────────────────
+// EVENTS & SEMINARS
+// ─────────────────────────────────────────────
+
+model Event {
+  id              String      @id @default(cuid())
+  slug            String      @unique
+  titleEn         String
+  titleJa         String?
+  descriptionEn   String
+  descriptionJa   String?
+  format          EventFormat
+  startAt         DateTime
+  endAt           DateTime?
+  capacity        Int?
+  registrationUrl String?
+  status          EventStatus @default(UPCOMING)
+  coverImageUrl   String?
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  registrations EventRegistration[]
+
+  @@index([startAt])
+  @@index([status])
+}
+
+model EventRegistration {
+  id        String   @id @default(cuid())
+  eventId   String
+  name      String
+  email     String
+  company   String?
+  phone     String?
+  createdAt DateTime @default(now())
+
+  event Event @relation(fields: [eventId], references: [id])
+
+  @@unique([eventId, email])
+  @@index([eventId])
+}
+
+// ─────────────────────────────────────────────
+// SITE CONTENT (DB-backed)
+// ─────────────────────────────────────────────
+
+model SeminarRegistration {
+  id        String   @id @default(cuid())
+  eventSlug String
+  eventName String
+  name      String
+  email     String
+  company   String?
+  phone     String?
+  ipAddress String?
+  createdAt DateTime @default(now())
+
+  @@unique([eventSlug, email])
+  @@index([eventSlug])
+  @@index([email])
+  @@index([createdAt])
+}
+
+model NewsAnnouncement {
+  id          String   @id @default(cuid())
+  titleEn     String
+  titleJa     String?
+  bodyEn      String?
+  bodyJa      String?
+  publishedAt DateTime @default(now())
+  createdAt   DateTime @default(now())
+
+  @@index([publishedAt])
+}
+
+// ─────────────────────────────────────────────
+// ENUMS
+// ─────────────────────────────────────────────
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  QUALIFIED
+  CONVERTED
+  CLOSED
+}
+
+enum SubscriberStatus {
+  ACTIVE
+  UNSUBSCRIBED
+  BOUNCED
+}
+
+enum SeekerStatus {
+  ACTIVE
+  INACTIVE
+  PLACED
+}
+
+enum JobStatus {
+  DRAFT
+  PUBLISHED
+  CLOSED
+  ARCHIVED
+}
+
+enum EmploymentType {
+  DISPATCH
+  DIRECT_HIRE
+  CONTRACT
+  SPECIFIED_SKILLS
+  INTERNSHIP
+}
+
+enum ApplicationStatus {
+  RECEIVED
+  REVIEWING
+  SHORTLISTED
+  INTERVIEW_SCHEDULED
+  OFFERED
+  REJECTED
+  WITHDRAWN
+}
+
+enum LanguageLevel {
+  NONE
+  N5
+  N4
+  N3
+  N2
+  N1
+  NATIVE
+}
+
+enum EventFormat {
+  ONLINE
+  OFFLINE
+  HYBRID
+}
+
+enum EventStatus {
+  UPCOMING
+  ONGOING
+  COMPLETED
+  CANCELLED
+}

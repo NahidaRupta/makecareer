@@ -1,9 +1,56 @@
 {
+  "env": {
+    "ECC_DISABLED_HOOKS": "pre:edit-write:gateguard-fact-force"
+  },
   "permissions": {
     "allow": [
       "WebFetch(domain:www.careerlinkfactory.co.jp)",
       "Bash(npm --version)",
-      "Bash(npx create-next-app@latest *)"
+      "Bash(npx create-next-app@latest *)",
+      "Bash(npm install *)",
+      "Bash(npx prisma *)",
+      "Bash(export ECC_GATEGUARD=off)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); hooks=d.get\\('hooks',{}\\); print\\(json.dumps\\({k: list\\(v\\) if isinstance\\(v,list\\) else v for k,v in hooks.items\\(\\)}, indent=2\\)\\)\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d, indent=2\\)\\)\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); [print\\(h.get\\('id','?'\\), '-', h.get\\('event','?'\\), '-', h.get\\('name','?'\\)\\) for h in d.get\\('hooks',[]\\)]\")",
+      "Read(//home/rupta/.gateguard/**)",
+      "Bash(npm run *)",
+      "Read(//tmp/**)",
+      "Bash(kill %1)",
+      "Bash(grep *)",
+      "Bash(python3 -c \"import json; d=json.load\\(open\\('/home/rupta/.claude/settings.json'\\)\\); print\\(json.dumps\\(d.get\\('env', {}\\), indent=2\\)\\)\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "Bash(npx tsc *)",
+      "Bash(node *)",
+      "Bash(pg_isready)",
+      "Bash(psql -U postgres -c '\\\\l')",
+      "Bash(psql -U rupta -c '\\\\l')",
+      "Bash(sudo *)",
+      "Bash(pg_lsclusters)",
+      "Bash(pg_isready -U postgres)",
+      "Bash(PGPASSWORD=postgres psql *)",
+      "Bash(psql *)",
+      "Bash(npx tsx *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/contact)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/api/contact)",
+      "Bash(curl -s -o /dev/null -w \"/ → %{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null -w \"/blog → %{http_code}\\\\n\" http://localhost:3000/blog)",
+      "Bash(curl -s -o /dev/null -w \"/services → %{http_code}\\\\n\" http://localhost:3000/services)",
+      "Bash(curl -s -o /dev/null -w \"/seminars → %{http_code}\\\\n\" http://localhost:3000/seminars)",
+      "Bash(curl -s -o /dev/null -w \"/faq → %{http_code}\\\\n\" http://localhost:3000/faq)",
+      "Bash(curl -s -o /dev/null -w \"/blog/dispatch-vs-contract-2025 → %{http_code}\\\\n\" http://localhost:3000/blog/dispatch-vs-contract-2025)",
+      "Bash(curl -s -o /dev/null -w \"/services/haken → %{http_code}\\\\n\" http://localhost:3000/services/haken)",
+      "Bash(curl -s -o /dev/null -w \"/seminars/2025-06-haken-basics → %{http_code}\\\\n\" http://localhost:3000/seminars/2025-06-haken-basics)",
+      "Bash(curl -s -o /dev/null -w \"/downloads/service-brochure → %{http_code}\\\\n\" http://localhost:3000/downloads/service-brochure)",
+      "Bash(curl -s -o /dev/null -w \"/case-studies/automotive-line-expansion → %{http_code}\\\\n\" http://localhost:3000/case-studies/automotive-line-expansion)",
+      "Bash(curl -s -X POST http://localhost:3000/api/contact -H 'Content-Type: application/json' -d '{\"name\":\"テスト 太郎\",\"email\":\"test@example.com\",\"message\":\"テスト送信です。動作確認のためのメッセージです。\"}')",
+      "Bash(python3 -m json.tool)",
+      "Bash(python3 -c \"from PIL import Image; print\\('PIL ok'\\)\")",
+      "Bash(convert --version)",
+      "Bash(python3 -c \"import struct,zlib; print\\('stdlib ok'\\)\")",
+      "Bash(python3 *)",
+      "Bash(curl -s -I http://localhost:3000/)"
     ]
   }
 }
