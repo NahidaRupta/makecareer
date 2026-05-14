@@ -105,8 +105,8 @@ export function CompanySection() {
             animate={inView ? "visible" : "hidden"}
             className="relative"
           >
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-neutral-100">
-              <div className="absolute inset-0 bg-[url('/images/company-office.jpg')] bg-cover bg-center" />
+            <div className="relative aspect-4/3 rounded-2xl overflow-hidden bg-neutral-100">
+              <div className="absolute inset-0 bg-[url('/images/company.jpeg')] bg-cover bg-center" />
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
                 <Building2 size={48} strokeWidth={1} className="text-neutral-300" aria-hidden="true" />
                 <p className="text-xs text-neutral-400">会社・事務所写真（準備中）</p>

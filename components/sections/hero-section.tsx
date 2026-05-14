@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Phone } from "lucide-react";
 import { fadeInUp, staggerContainer, safeVariant } from "@/lib/motion/variants";
@@ -25,7 +26,7 @@ export function HeroSection() {
       {/* Factory image overlay — swap src once assets are ready */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[url('/images/hero-factory.jpg')] bg-cover bg-center opacity-20 mix-blend-luminosity"
+        className="absolute inset-0 bg-[url('/images/hero/hero.png')] bg-cover bg-center opacity-20 mix-blend-luminosity"
       />
       {/* Radial glow */}
       <div
