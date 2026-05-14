@@ -1,6 +1,7 @@
 "use client";
 
 import type React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, TrendingUp } from "lucide-react";
@@ -65,9 +66,31 @@ export function CaseStudiesSection() {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       aria-labelledby="cases-heading"
-      className="bg-navy-950 section-padding"
+      className="relative overflow-hidden section-padding"
     >
-      <div className="content-max px-4 sm:px-6 lg:px-8">
+      {/* ── Background image + layered overlays ── */}
+      <div className="absolute inset-0 z-0" aria-hidden="true">
+        <Image
+          src="/images/case-study.png"
+          alt=""
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+          quality={85}
+        />
+        {/* Base dark wash */}
+        <div className="absolute inset-0 bg-navy-950/50" />
+        {/* Cinematic gradient: dark top → clear mid → dark bottom */}
+        <div className="absolute inset-0 bg-linear-to-b from-navy-950/70 via-navy-950/20 to-navy-950/65" />
+        {/* Horizontal vignette for depth */}
+        <div className="absolute inset-0 bg-linear-to-r from-navy-950/40 via-transparent to-navy-950/40" />
+        {/* Subtle amber tint line near the top */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-amber-500/40 to-transparent" />
+      </div>
+
+      {/* ── Content ── */}
+      <div className="relative z-10 content-max px-4 sm:px-6 lg:px-8">
+        {/* Section header */}
         <motion.div
           variants={container}
           initial="hidden"
@@ -92,6 +115,7 @@ export function CaseStudiesSection() {
           </motion.p>
         </motion.div>
 
+        {/* Cards */}
         <motion.div
           variants={container}
           initial="hidden"
@@ -102,61 +126,67 @@ export function CaseStudiesSection() {
             <motion.div
               key={cs.slug}
               variants={item}
-              className={`group flex flex-col rounded-2xl border p-7 transition-all hover:-translate-y-1 ${
+              className={`group flex flex-col rounded-2xl border p-7 transition-all duration-300 hover:-translate-y-1.5 backdrop-blur-md ${
                 index === 0
-                  ? "border-amber-500/40 bg-amber-500/10"
-                  : "border-white/10 bg-white/5"
+                  ? "border-amber-500/35 bg-amber-500/[0.07] shadow-lg shadow-amber-500/10 hover:border-amber-400/50 hover:shadow-amber-500/20"
+                  : "border-white/10 bg-white/6 shadow-lg shadow-black/30 hover:border-white/20 hover:bg-white/9"
               }`}
             >
+              {/* Industry badge + company profile */}
               <div className="mb-5">
-                <span className="inline-block rounded-full bg-navy-700/60 px-3 py-1 text-[10px] font-semibold text-amber-300 mb-2">
+                <span className="inline-block rounded-full bg-navy-800/70 border border-white/10 px-3 py-1 text-[10px] font-semibold text-amber-300 mb-2 backdrop-blur-sm">
                   {cs.industry}
                 </span>
                 <p className="text-[11px] text-white/40">{cs.companyProfile}</p>
               </div>
 
-              <div className="flex items-center gap-2 mb-5">
+              {/* Stat */}
+              <div className="flex items-center gap-2 mb-5 p-3 rounded-xl bg-navy-950/40 border border-white/8 backdrop-blur-sm">
                 <TrendingUp size={16} className="text-amber-400 shrink-0" aria-hidden="true" />
                 <div>
-                  <span className="text-2xl font-extrabold text-amber-400">{cs.stat}</span>
+                  <span className="text-2xl font-extrabold text-amber-400 tabular-nums">{cs.stat}</span>
                   <span className="ml-1 text-xs font-medium text-white/60">{cs.statLabel}</span>
                 </div>
               </div>
 
+              {/* Challenge */}
               <div className="mb-4 flex-1">
-                <p className="text-[10px] font-semibold uppercase tracking-wider text-white/30 mb-1.5">
+                <p className="text-[10px] font-semibold uppercase tracking-wider text-white/40 mb-1.5">
                   課題
                 </p>
                 <p className="text-sm text-white/70 leading-relaxed">{cs.challenge}</p>
               </div>
 
+              {/* Solution */}
               <div className="mb-6">
-                <p className="text-[10px] font-semibold uppercase tracking-wider text-white/30 mb-1.5">
+                <p className="text-[10px] font-semibold uppercase tracking-wider text-white/40 mb-1.5">
                   解決策
                 </p>
                 <p className="text-sm text-white/70 leading-relaxed">{cs.solution}</p>
               </div>
 
+              {/* CTA link */}
               <Link
                 href={{ pathname: `/case-studies/${cs.slug}` }}
-                className="flex items-center gap-1.5 text-sm font-semibold text-amber-400 hover:text-amber-300 transition-colors"
+                className="flex items-center gap-1.5 text-sm font-semibold text-amber-400 hover:text-amber-300 transition-colors group-hover:gap-2.5"
               >
                 詳しく読む
-                <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />
+                <ArrowRight size={14} strokeWidth={2} aria-hidden="true" className="transition-transform group-hover:translate-x-0.5" />
               </Link>
             </motion.div>
           ))}
         </motion.div>
 
+        {/* View all link */}
         <motion.div
           variants={item}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="mt-10 flex justify-center"
+          className="mt-12 flex justify-center"
         >
           <Link
             href={{ pathname: "/case-studies" }}
-            className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-6 py-3 text-sm font-semibold text-white/80 hover:bg-white/5 hover:text-white transition-all"
+            className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 backdrop-blur-sm px-7 py-3.5 text-sm font-semibold text-white/80 hover:bg-white/10 hover:border-white/25 hover:text-white transition-all duration-200 shadow-lg shadow-black/20"
           >
             すべての導入事例を見る
             <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />

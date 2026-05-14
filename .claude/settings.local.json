@@ -50,7 +50,8 @@
       "Bash(convert --version)",
       "Bash(python3 -c \"import struct,zlib; print\\('stdlib ok'\\)\")",
       "Bash(python3 *)",
-      "Bash(curl -s -I http://localhost:3000/)"
+      "Bash(curl -s -I http://localhost:3000/)",
+      "mcp__plugin_everything-claude-code_playwright__browser_navigate"
     ]
   }
 }
