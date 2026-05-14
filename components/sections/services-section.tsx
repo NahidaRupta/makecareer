@@ -1,16 +1,11 @@
 "use client";
 
 import type React from "react";
+import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import {
-  Factory,
-  Wrench,
-  ClipboardList,
-  Globe,
-  Truck,
-  ArrowRight,
-} from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Factory, Globe, ClipboardList, ArrowRight } from "lucide-react";
 import { useInView } from "@/lib/hooks/use-in-view";
 import { useReducedMotion } from "@/lib/hooks/use-reduced-motion";
 import { safeVariant, staggerContainer, fadeInUp } from "@/lib/motion/variants";
@@ -55,29 +50,74 @@ const SERVICES: ServiceCard[] = [
       "End-to-end support for accepting foreign workers — from visa applications to post-arrival follow-up.",
     href: "/services/ginoujisshu",
   },
-  {
-    slug: "maintenance",
-    icon: Wrench,
-    titleJa: "設備メンテナンス人材",
-    titleEn: "Maintenance Staffing",
-    descriptionJa:
-      "設備保全・電気・機械メンテナンスに特化したスタッフを提供。生産設備の安定稼働を支えます。",
-    descriptionEn:
-      "Specialist staff for equipment maintenance, electrical, and mechanical work — keeping your lines stable.",
-    href: "/services/maintenance",
-  },
-  {
-    slug: "butsuryu",
-    icon: Truck,
-    titleJa: "物流・倉庫作業",
-    titleEn: "Logistics & Warehousing",
-    descriptionJa:
-      "ピッキング・梱包・在庫管理など物流・倉庫業務に対応したスタッフを派遣。繁忙期の変動にも対応します。",
-    descriptionEn:
-      "Picking, packing, and inventory staff for logistics and warehouse operations — scalable for peak periods.",
-    href: "/services/butsuryu",
-  },
 ];
+
+const CAROUSEL_IMAGES = [
+  "/images/services/service1.png",
+  "/images/services/service2.png",
+  "/images/services/service3.png",
+];
+
+const ROTATE_INTERVAL = 4000;
+
+function ServiceCarousel({ prefersReducedMotion }: { prefersReducedMotion: boolean }) {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    if (prefersReducedMotion) return;
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % CAROUSEL_IMAGES.length);
+    }, ROTATE_INTERVAL);
+    return () => clearInterval(timer);
+  }, [prefersReducedMotion]);
+
+  return (
+    <div className="relative w-full h-72 sm:h-96 lg:h-full lg:min-h-120 rounded-3xl overflow-hidden shadow-2xl shadow-navy-950/30">
+      {/* Images */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={activeIndex}
+          initial={{ opacity: 0, scale: 1.04 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.97 }}
+          transition={{ duration: 0.7, ease: "easeInOut" }}
+          className="absolute inset-0"
+        >
+          <Image
+            src={CAROUSEL_IMAGES[activeIndex]}
+            alt={`サービスイメージ ${activeIndex + 1}`}
+            fill
+            className="object-cover object-center"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            priority={activeIndex === 0}
+            quality={90}
+          />
+          {/* Bottom gradient for dot readability */}
+          <div className="absolute inset-0 bg-linear-to-t from-navy-950/60 via-transparent to-transparent" />
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Dot indicators */}
+      <div className="absolute bottom-5 left-0 right-0 flex justify-center gap-2 z-10">
+        {CAROUSEL_IMAGES.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setActiveIndex(i)}
+            aria-label={`画像 ${i + 1} を表示`}
+            className="relative h-1.5 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
+            style={{ width: i === activeIndex ? "2rem" : "0.375rem" }}
+          >
+            <span
+              className={`block h-full w-full rounded-full transition-colors duration-300 ${
+                i === activeIndex ? "bg-amber-400" : "bg-white/40"
+              }`}
+            />
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export function ServicesSection() {
   const { ref, inView } = useInView({ once: true });
@@ -93,7 +133,7 @@ export function ServicesSection() {
       className="bg-white section-padding"
     >
       <div className="content-max px-4 sm:px-6 lg:px-8">
-        {/* Section header */}
+        {/* Section header — full width */}
         <motion.div
           variants={container}
           initial="hidden"
@@ -113,94 +153,97 @@ export function ServicesSection() {
           >
             サービス一覧
           </motion.h2>
-          <motion.p
-            variants={item}
-            className="mt-4 text-neutral-600 leading-relaxed"
-          >
-            製造業に関わるあらゆる人材ニーズに対応する、
-            MakeCareerのサービスをご紹介します。
+          <motion.p variants={item} className="mt-4 text-neutral-600 leading-relaxed">
+            製造業に関わるあらゆる人材ニーズに対応する、MakeCareerのサービスをご紹介します。
           </motion.p>
         </motion.div>
 
-        {/* Services grid */}
+        {/* Two-column body */}
         <motion.div
           variants={container}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center"
         >
-          {SERVICES.map((service, index) => {
-            const Icon = service.icon;
-            const isFeatured = index === 0;
+          {/* Left — image carousel */}
+          <motion.div variants={item}>
+            <ServiceCarousel prefersReducedMotion={prefersReducedMotion} />
+          </motion.div>
 
-            return (
-              <motion.div key={service.slug} variants={item}>
-                <Link
-                  href={{ pathname: service.href }}
-                  className={`group flex flex-col h-full rounded-2xl border transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(10,22,40,0.1)] ${
-                    isFeatured
-                      ? "bg-navy-950 border-navy-800"
-                      : "bg-white border-neutral-200"
-                  }`}
-                >
-                  <div className="flex flex-col flex-1 p-7">
-                    {/* Icon */}
-                    <div
-                      className={`mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl transition-colors ${
-                        isFeatured
-                          ? "bg-amber-500/20 text-amber-400 group-hover:bg-amber-500/30"
-                          : "bg-navy-50 text-navy-500 group-hover:bg-navy-500 group-hover:text-white"
-                      }`}
-                    >
-                      <Icon size={22} strokeWidth={1.5} aria-hidden="true" />
+          {/* Right — service cards */}
+          <div className="flex flex-col gap-4">
+            {SERVICES.map((service, index) => {
+              const Icon = service.icon;
+              const isFeatured = index === 0;
+
+              return (
+                <motion.div key={service.slug} variants={item}>
+                  <Link
+                    href={{ pathname: service.href }}
+                    className={`group flex flex-col h-full rounded-2xl border transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(10,22,40,0.1)] ${
+                      isFeatured
+                        ? "bg-navy-950 border-navy-800"
+                        : "bg-white border-neutral-200"
+                    }`}
+                  >
+                    <div className="flex items-start gap-5 p-6">
+                      {/* Icon */}
+                      <div
+                        className={`shrink-0 inline-flex h-11 w-11 items-center justify-center rounded-xl transition-colors ${
+                          isFeatured
+                            ? "bg-amber-500/20 text-amber-400 group-hover:bg-amber-500/30"
+                            : "bg-navy-50 text-navy-500 group-hover:bg-navy-500 group-hover:text-white"
+                        }`}
+                      >
+                        <Icon size={20} strokeWidth={1.5} aria-hidden="true" />
+                      </div>
+
+                      {/* Text */}
+                      <div className="flex-1 min-w-0">
+                        <h3
+                          className={`text-base font-bold leading-snug mb-0.5 ${
+                            isFeatured ? "text-white" : "text-navy-950"
+                          }`}
+                        >
+                          {service.titleJa}
+                        </h3>
+                        <p
+                          className={`text-xs font-medium mb-2.5 ${
+                            isFeatured ? "text-amber-400/70" : "text-neutral-400"
+                          }`}
+                        >
+                          {service.titleEn}
+                        </p>
+                        <p
+                          className={`text-sm leading-relaxed ${
+                            isFeatured ? "text-white/70" : "text-neutral-600"
+                          }`}
+                        >
+                          {service.descriptionJa}
+                        </p>
+
+                        <div
+                          className={`mt-4 flex items-center gap-1.5 text-sm font-semibold transition-colors ${
+                            isFeatured
+                              ? "text-amber-400 group-hover:text-amber-300"
+                              : "text-navy-500 group-hover:text-navy-700"
+                          }`}
+                        >
+                          詳しく見る
+                          <ArrowRight
+                            size={13}
+                            strokeWidth={2}
+                            className="transition-transform group-hover:translate-x-0.5"
+                            aria-hidden="true"
+                          />
+                        </div>
+                      </div>
                     </div>
-
-                    {/* Title */}
-                    <h3
-                      className={`text-base font-bold leading-snug mb-1 ${
-                        isFeatured ? "text-white" : "text-navy-950"
-                      }`}
-                    >
-                      {service.titleJa}
-                    </h3>
-                    <p
-                      className={`text-xs font-medium mb-3 ${
-                        isFeatured ? "text-amber-400/70" : "text-neutral-400"
-                      }`}
-                    >
-                      {service.titleEn}
-                    </p>
-
-                    {/* Description */}
-                    <p
-                      className={`text-sm leading-relaxed flex-1 ${
-                        isFeatured ? "text-white/70" : "text-neutral-600"
-                      }`}
-                    >
-                      {service.descriptionJa}
-                    </p>
-
-                    {/* CTA link */}
-                    <div
-                      className={`mt-6 flex items-center gap-1.5 text-sm font-semibold transition-colors ${
-                        isFeatured
-                          ? "text-amber-400 group-hover:text-amber-300"
-                          : "text-navy-500 group-hover:text-navy-700"
-                      }`}
-                    >
-                      詳しく見る
-                      <ArrowRight
-                        size={14}
-                        strokeWidth={2}
-                        className="transition-transform group-hover:translate-x-0.5"
-                        aria-hidden="true"
-                      />
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            );
-          })}
+                  </Link>
+                </motion.div>
+              );
+            })}
+          </div>
         </motion.div>
 
         {/* Footer CTA */}
