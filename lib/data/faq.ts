@@ -12,115 +12,115 @@ export interface FaqCategory {
 export const FAQ_CATEGORIES: FaqCategory[] = [
   {
     id: "general",
-    label: "サービスについて",
+    label: "About Our Services",
     items: [
       {
-        question: "MakeCareerはどのような業種・業務に対応していますか？",
+        question: "Which industries and job types does MakeCareer cover?",
         answer:
-          "自動車・電機・電子・食品・化学・樹脂・物流・倉庫など、幅広い製造業に対応しています。業務内容はライン作業・組立・検査・梱包・設備メンテナンス・フォークリフト操作など多岐にわたります。",
+          "We cover automotive, electronics, food processing, chemicals, plastics, logistics, and warehousing, among others. Job types include line assembly, inspection, packing, equipment maintenance, and forklift operation.",
       },
       {
-        question: "対応可能なエリアを教えてください。",
+        question: "Which areas of Japan do you operate in?",
         answer:
-          "全国47都道府県に対応しています。主要拠点は愛知県名古屋市（本社）・東京・大阪・福岡ですが、全国の製造業集積エリアへの対応実績があります。まずはご相談ください。",
+          "We operate across all 47 prefectures. Our main offices are in Nagoya (head office), Tokyo, Osaka, and Fukuoka, but we have placement experience throughout Japan's major manufacturing regions. Contact us to discuss your location.",
       },
       {
-        question: "初めて人材派遣を利用するのですが、どこに相談すればよいですか？",
+        question: "We've never used a staffing agency before. Where do we start?",
         answer:
-          "まずはお電話（0120-000-000）またはお問い合わせフォームよりご連絡ください。専任のコンサルタントが丁寧にヒアリングし、貴社に最適なサービスをご提案します。費用のご説明から始めますので、お気軽にどうぞ。",
+          "Simply call us on 0120-000-000 or send an enquiry via our contact form. A dedicated consultant will listen to your needs and walk you through the options and costs — no pressure, no obligation.",
       },
       {
-        question: "派遣・請負・職業紹介の違いを教えてください。",
+        question: "What is the difference between dispatch, outsourcing, and direct placement?",
         answer:
-          "派遣は御社の指揮命令のもとでスタッフが業務を行う形態です。請負は業務の成果をMakeCareerが責任を持って完遂します。職業紹介は求職者と企業様をマッチングし、直接雇用を成立させる形態です。それぞれのメリット・デメリットは担当者がご説明します。",
+          "Dispatch means workers operate under your direction. Outsourcing means MakeCareer manages the workers and delivers an agreed output — your team doesn't direct them directly. Direct placement is a matching service that results in the worker being hired directly by your company. Our team will explain the pros and cons of each.",
       },
     ],
   },
   {
     id: "for-companies",
-    label: "企業の方へ",
+    label: "For Employers",
     items: [
       {
-        question: "依頼してからどれくらいで就業開始できますか？",
+        question: "How quickly can workers start after we place a request?",
         answer:
-          "ご要望のスキル・人数・タイミングによって異なりますが、最短翌営業日での対応実績もあります。通常は1〜3営業日でご紹介が可能です。繁忙期は早めのご相談をお勧めします。",
+          "It depends on the skills and headcount required, but we have placed workers as early as the next business day. Typically, introductions happen within 1–3 business days. For peak periods, we recommend contacting us as early as possible.",
       },
       {
-        question: "スタッフのスキルや経験を事前に確認できますか？",
+        question: "Can we review a candidate's skills and experience before they start?",
         answer:
-          "ご紹介前に職務経歴書・保有資格・過去の業務経験をご確認いただけます。ご希望があれば事前面談も設定可能です（有料職業紹介の場合）。",
+          "Yes — we provide work histories, qualifications, and relevant experience before placement. Pre-placement interviews can also be arranged for direct placement roles.",
       },
       {
-        question: "派遣スタッフが仕事を辞めてしまった場合はどうなりますか？",
+        question: "What happens if a dispatch worker leaves?",
         answer:
-          "代替スタッフの手配を迅速に行います。また、就業開始後の定期フォローにより問題の早期発見に努め、離職リスクを最小化しています。",
+          "We arrange a replacement promptly. Our regular check-ins are designed to catch issues early, minimising the likelihood of sudden departures in the first place.",
       },
       {
-        question: "料金はどのように設定されていますか？",
+        question: "How is pricing structured?",
         answer:
-          "料金はスタッフの時給・職種・期間などによって異なります。派遣料金は時間単価で設定されることが一般的です。まずはお見積もりをご依頼ください。無料でご提案いたします。",
+          "Dispatch pricing is based on an hourly rate that reflects the role, skills, and duration. We will provide a transparent quote for your specific requirements at no cost.",
       },
       {
-        question: "外国人材の受け入れを初めて検討しています。何から始めればよいですか？",
+        question: "We're thinking about hiring foreign workers for the first time. What's the first step?",
         answer:
-          "まずは現状の人員状況・求める職種・受け入れ可能な住環境などをヒアリングさせてください。制度の説明から始め、最適なプランをご提案します。無料相談会も定期開催しています。",
+          "Start by sharing your current staffing situation, the roles you need, and your housing availability. We'll explain the relevant programmes and put together a plan tailored to your business. Free consultations are available regularly.",
       },
     ],
   },
   {
     id: "for-jobseekers",
-    label: "求職者の方へ",
+    label: "For Job Seekers",
     items: [
       {
-        question: "登録から仕事開始まで、どれくらいかかりますか？",
+        question: "How long does it take from registration to starting work?",
         answer:
-          "登録完了後、最短3日で就業開始が可能なケースもあります。ご希望の職種・勤務地・開始時期をお聞かせいただければ、具体的なスケジュールをご案内します。",
+          "In some cases, you can start within three days of registering. Share your preferred role, location, and start date and we'll give you a realistic timeline.",
       },
       {
-        question: "未経験でも応募できますか？",
+        question: "Can I apply if I have no manufacturing experience?",
         answer:
-          "はい、未経験歓迎の求人を多数ご用意しています。製造業が初めての方も、専任コーディネーターがしっかりサポートします。",
+          "Absolutely. We have many roles that welcome first-timers. A dedicated coordinator will support you every step of the way.",
       },
       {
-        question: "寮・社宅は用意されていますか？",
+        question: "Is accommodation available?",
         answer:
-          "多くの求人で寮・社宅完備（無料または格安）のプランをご用意しています。引っ越し費用の補助が出る求人もありますので、ご相談ください。",
+          "Many of our positions come with company housing (free or heavily subsidised), and some include a moving allowance. Ask us about the options in your area.",
       },
       {
-        question: "派遣スタッフとして働く際の給与・待遇はどうなりますか？",
+        question: "What are the pay and benefits like for dispatch workers?",
         answer:
-          "給与はMakeCareerからお支払いします。社会保険・有給休暇・各種手当も完備しています。就業中は専任コーディネーターが定期的にフォローするので、困ったことがあればいつでも相談できます。",
+          "MakeCareer pays your wages directly. Social insurance, paid leave, and various allowances are all included. Your coordinator checks in regularly so you always have someone to turn to if something comes up.",
       },
       {
-        question: "外国籍でも応募できますか？",
+        question: "Can I apply if I am not Japanese?",
         answer:
-          "就労可能な在留資格をお持ちの方は応募いただけます。特定技能・技能実習の方も歓迎しています。日本語が不安な方には多言語サポートも行っています（ベトナム語・英語など）。",
+          "Yes, provided you hold a work-eligible residence status. We welcome applicants on Specified Skills and Technical Intern visas. For those less confident in Japanese, we offer multilingual support in Vietnamese, English, and more.",
       },
     ],
   },
   {
     id: "contract",
-    label: "料金・契約について",
+    label: "Pricing & Contracts",
     items: [
       {
-        question: "料金の見積もりは無料ですか？",
+        question: "Is a cost estimate free?",
         answer:
-          "はい、お見積もりは無料です。ご要望をお聞かせいただければ、詳細な費用を試算してご提示します。",
+          "Yes, all estimates are completely free. Share your requirements and we will provide a detailed breakdown.",
       },
       {
-        question: "最低契約期間はありますか？",
+        question: "Is there a minimum contract length?",
         answer:
-          "派遣の場合、1日からのスポット対応も可能です。長期契約の場合は条件によって料金優遇もございます。",
+          "For dispatch, single-day spot placements are possible. Longer contracts may qualify for preferential rates — ask us for details.",
       },
       {
-        question: "契約締結から就業開始までの流れを教えてください。",
+        question: "What is the process from signing the contract to work starting?",
         answer:
-          "ヒアリング → お見積もり → 労働者派遣契約締結 → スタッフ選定・ご紹介 → 就業前確認 → 就業開始、という流れです。通常1〜5営業日程度で完了します。",
+          "The typical flow is: consultation → estimate → contract → candidate selection → pre-start confirmation → first day. The whole process usually takes 1–5 business days.",
       },
       {
-        question: "契約途中で人数を増減できますか？",
+        question: "Can we adjust headcount mid-contract?",
         answer:
-          "はい、繁忙期の増員・閑散期の縮小など、状況に合わせた柔軟な人数調整が可能です。変更の際はお早めにご連絡いただけるとスムーズです。",
+          "Yes — scaling up for a busy period or scaling down in quieter months is straightforward. Please give us as much notice as possible so we can plan accordingly.",
       },
     ],
   },

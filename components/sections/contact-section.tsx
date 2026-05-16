@@ -18,41 +18,41 @@ import {
 import { contactSchema, type ContactInput } from "@/lib/validations/contact";
 
 const SERVICE_OPTIONS: { value: ContactInput["serviceInterest"]; label: string }[] = [
-  { value: "staffing", label: "人材派遣" },
-  { value: "team-dispatch", label: "チーム派遣（工場請負）" },
-  { value: "specified-skills", label: "特定技能・技能実習" },
-  { value: "contract", label: "業務委託・請負" },
-  { value: "internship", label: "技能実習" },
-  { value: "consulting", label: "採用コンサルティング" },
-  { value: "other", label: "その他・未定" },
+  { value: "staffing", label: "Manufacturing Staffing" },
+  { value: "team-dispatch", label: "Team Dispatch (Factory Outsourcing)" },
+  { value: "specified-skills", label: "Specified Skills / Technical Intern" },
+  { value: "contract", label: "Contract Outsourcing" },
+  { value: "internship", label: "Technical Intern Training" },
+  { value: "consulting", label: "Recruitment Consulting" },
+  { value: "other", label: "Other / Not Yet Decided" },
 ];
 
 const CONTACT_INFO = [
   {
     icon: Phone,
-    label: "お電話",
+    label: "Phone",
     value: "0120-000-000",
-    note: "（無料）",
+    note: "(Free call)",
     href: "tel:0120000000",
   },
   {
     icon: Mail,
-    label: "メール",
+    label: "Email",
     value: "info@makecareer.jp",
-    note: "24時間受付",
+    note: "Available 24 hours",
     href: "mailto:info@makecareer.jp",
   },
   {
     icon: MapPin,
-    label: "所在地",
-    value: "愛知県名古屋市中村区名駅3丁目11番22号",
-    note: "名古屋駅徒歩5分",
+    label: "Address",
+    value: "3-11-22 Meieki, Nakamura-ku, Nagoya, Aichi",
+    note: "5 min walk from Nagoya Station",
   },
   {
     icon: Clock,
-    label: "受付時間",
-    value: "平日 9:00〜18:00",
-    note: "土日祝は翌営業日に対応",
+    label: "Office Hours",
+    value: "Mon–Fri, 9:00–18:00",
+    note: "Weekends & holidays: reply next business day",
   },
 ];
 
@@ -88,13 +88,13 @@ export function ContactSection() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      if (!res.ok) throw new Error("送信に失敗しました");
+      if (!res.ok) throw new Error("Submission failed");
       setSubmitState({ status: "success" });
       reset();
     } catch {
       setSubmitState({
         status: "error",
-        message: "送信に失敗しました。お電話またはメールでご連絡ください。",
+        message: "Submission failed. Please contact us by phone or email.",
       });
     }
   }
@@ -128,12 +128,12 @@ export function ContactSection() {
             variants={item}
             className="text-3xl sm:text-4xl font-extrabold text-navy-950 tracking-tight"
           >
-            お問い合わせ
+            Contact Us
           </motion.h2>
           <motion.p variants={item} className="mt-4 text-neutral-600 leading-relaxed">
-            採用のご相談・求人のご登録など、お気軽にお問い合わせください。
+            Whether you have a hiring enquiry or want to register as a job seeker, we&apos;re here to help.
             <br className="hidden sm:block" />
-            担当者より1営業日以内にご連絡いたします。
+            A member of our team will respond within one business day.
           </motion.p>
         </motion.div>
 
@@ -146,7 +146,7 @@ export function ContactSection() {
             className="lg:col-span-2"
           >
             <div className="rounded-2xl bg-navy-950 p-8 h-full">
-              <h3 className="text-lg font-bold text-white mb-8">お問い合わせ先</h3>
+              <h3 className="text-lg font-bold text-white mb-8">Get in Touch</h3>
               <ul className="space-y-7">
                 {CONTACT_INFO.map((info) => {
                   const Icon = info.icon;
@@ -176,8 +176,8 @@ export function ContactSection() {
 
               <div className="mt-10 pt-8 border-t border-white/10">
                 <p className="text-xs text-white/40 leading-relaxed">
-                  ご入力いただいた個人情報は、お問い合わせへの回答および
-                  弊社サービスのご案内にのみ使用いたします。
+                  Personal information you provide will be used solely to respond to your enquiry
+                  and to share relevant information about our services.
                 </p>
               </div>
             </div>
@@ -194,10 +194,10 @@ export function ContactSection() {
               <div className="flex flex-col items-center justify-center h-full text-center py-20 gap-4">
                 <CheckCircle2 size={56} strokeWidth={1.5} className="text-emerald-500" />
                 <h3 className="text-xl font-bold text-navy-950">
-                  送信が完了しました
+                  Message sent successfully
                 </h3>
                 <p className="text-neutral-600 leading-relaxed max-w-sm">
-                  お問い合わせありがとうございます。担当者より1営業日以内にご連絡いたします。
+                  Thank you for getting in touch. A member of our team will respond within one business day.
                 </p>
               </div>
             ) : (
@@ -208,13 +208,13 @@ export function ContactSection() {
                 {/* Name */}
                 <div>
                   <label htmlFor="name" className="block text-xs font-semibold text-navy-950 mb-1.5">
-                    お名前 <span className="text-red-500 ml-0.5">*</span>
+                    Full Name <span className="text-red-500 ml-0.5">*</span>
                   </label>
                   <input
                     id="name"
                     type="text"
                     autoComplete="name"
-                    placeholder="山田 太郎"
+                    placeholder="Taro Yamada"
                     className={`${inputBase} ${errors.name ? errorBorder : ""}`}
                     {...register("name")}
                   />
@@ -229,13 +229,13 @@ export function ContactSection() {
                 {/* Company */}
                 <div>
                   <label htmlFor="company" className="block text-xs font-semibold text-navy-950 mb-1.5">
-                    会社名・組織名
+                    Company / Organisation
                   </label>
                   <input
                     id="company"
                     type="text"
                     autoComplete="organization"
-                    placeholder="株式会社〇〇製作所"
+                    placeholder="Acme Manufacturing Co., Ltd."
                     className={inputBase}
                     {...register("company")}
                   />
@@ -245,7 +245,7 @@ export function ContactSection() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
                     <label htmlFor="email" className="block text-xs font-semibold text-navy-950 mb-1.5">
-                      メールアドレス <span className="text-red-500 ml-0.5">*</span>
+                      Email Address <span className="text-red-500 ml-0.5">*</span>
                     </label>
                     <input
                       id="email"
@@ -264,7 +264,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <label htmlFor="phone" className="block text-xs font-semibold text-navy-950 mb-1.5">
-                      電話番号
+                      Phone Number
                     </label>
                     <input
                       id="phone"
@@ -280,14 +280,14 @@ export function ContactSection() {
                 {/* Service interest */}
                 <div>
                   <label htmlFor="serviceInterest" className="block text-xs font-semibold text-navy-950 mb-1.5">
-                    ご興味のあるサービス
+                    Service of Interest
                   </label>
                   <select
                     id="serviceInterest"
                     className={`${inputBase} cursor-pointer`}
                     {...register("serviceInterest")}
                   >
-                    <option value="">選択してください（任意）</option>
+                    <option value="">Select one (optional)</option>
                     {SERVICE_OPTIONS.map((opt) => (
                       <option key={opt.value} value={opt.value}>
                         {opt.label}
@@ -299,12 +299,12 @@ export function ContactSection() {
                 {/* Message */}
                 <div>
                   <label htmlFor="message" className="block text-xs font-semibold text-navy-950 mb-1.5">
-                    お問い合わせ内容 <span className="text-red-500 ml-0.5">*</span>
+                    Your Message <span className="text-red-500 ml-0.5">*</span>
                   </label>
                   <textarea
                     id="message"
                     rows={5}
-                    placeholder="ご質問・ご相談内容をできるだけ詳しくお書きください。"
+                    placeholder="Please describe your question or enquiry in as much detail as possible."
                     className={`${inputBase} resize-none ${errors.message ? errorBorder : ""}`}
                     {...register("message")}
                   />
@@ -330,11 +330,11 @@ export function ContactSection() {
                   disabled={isSubmitting}
                   className="w-full rounded-lg bg-amber-500 px-6 py-4 text-sm font-bold text-white hover:bg-amber-600 disabled:opacity-60 disabled:cursor-not-allowed transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
                 >
-                  {isSubmitting ? "送信中..." : "送信する（無料）"}
+                  {isSubmitting ? "Sending..." : "Send Message (Free)"}
                 </button>
 
                 <p className="text-center text-xs text-neutral-400">
-                  送信後、自動返信メールをお送りします
+                  You will receive an automated confirmation email after submitting.
                 </p>
               </form>
             )}

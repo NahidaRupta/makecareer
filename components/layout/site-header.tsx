@@ -10,7 +10,7 @@ import type { NavItem } from "@/types";
 
 const NAV_ITEMS: NavItem[] = [
   { label: "Services", labelJa: "サービス", href: "/services" },
-  { label: "Jobs", labelJa: "採用情報", href: "/jobs" },
+  { label: "Jobs", labelJa: "求人情報", href: "/jobs" },
   { label: "For Companies", labelJa: "企業の方へ", href: "/for-companies" },
   { label: "News", labelJa: "ニュース", href: "/news" },
   { label: "About", labelJa: "会社概要", href: "/about" },
@@ -64,7 +64,7 @@ export function SiteHeader() {
           <Link
             href="/"
             className="shrink-0 mr-6 xl:mr-10"
-            aria-label="MakeCareer ホームへ"
+            aria-label="MakeCareer Home"
           >
             <span
               className={`text-xl font-extrabold tracking-tight transition-colors duration-300 ${
@@ -78,7 +78,7 @@ export function SiteHeader() {
           {/* Desktop nav */}
           <nav
             className="hidden lg:flex items-center gap-0.5 flex-1"
-            aria-label="メインナビゲーション"
+            aria-label="Main navigation"
           >
             {NAV_ITEMS.map((item) => (
               <Link
@@ -91,9 +91,6 @@ export function SiteHeader() {
                 }`}
               >
                 <span className="block font-medium leading-tight">
-                  {item.labelJa}
-                </span>
-                <span className="block text-[10px] opacity-50 leading-tight">
                   {item.label}
                 </span>
               </Link>
@@ -117,14 +114,14 @@ export function SiteHeader() {
               href={{ pathname: "/contact" }}
               className="inline-flex items-center rounded-md bg-amber-500 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-amber-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
             >
-              お問い合わせ
+              Contact Us
             </Link>
           </div>
 
           {/* Mobile hamburger */}
           <button
             type="button"
-            aria-label={mobileOpen ? "メニューを閉じる" : "メニューを開く"}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
             aria-controls="mobile-nav"
             className={`lg:hidden ml-auto p-2 rounded-md transition-colors ${
@@ -170,7 +167,7 @@ export function SiteHeader() {
               exit="exit"
               role="dialog"
               aria-modal="true"
-              aria-label="ナビゲーションメニュー"
+              aria-label="Navigation menu"
               className="fixed right-0 top-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl flex flex-col lg:hidden"
               style={{ zIndex: 202 }}
             >
@@ -181,7 +178,7 @@ export function SiteHeader() {
                 </span>
                 <button
                   type="button"
-                  aria-label="メニューを閉じる"
+                  aria-label="Close menu"
                   onClick={() => setMobileOpen(false)}
                   className="rounded-md p-1.5 text-neutral-500 hover:text-neutral-700 hover:bg-neutral-100 transition-colors"
                 >
@@ -192,7 +189,7 @@ export function SiteHeader() {
               {/* Nav links */}
               <nav
                 className="flex-1 overflow-y-auto py-2 px-3"
-                aria-label="モバイルナビゲーション"
+                aria-label="Mobile navigation"
               >
                 {NAV_ITEMS.map((item) => (
                   <Link
@@ -203,9 +200,6 @@ export function SiteHeader() {
                   >
                     <div className="flex-1">
                       <div className="font-medium text-sm leading-tight">
-                        {item.labelJa}
-                      </div>
-                      <div className="text-xs text-neutral-400 mt-0.5">
                         {item.label}
                       </div>
                     </div>
@@ -227,7 +221,7 @@ export function SiteHeader() {
                   onClick={() => setMobileOpen(false)}
                   className="flex items-center justify-center w-full rounded-xl bg-amber-500 py-3 text-sm font-semibold text-white hover:bg-amber-600 transition-colors"
                 >
-                  お問い合わせ
+                  Contact Us
                 </Link>
               </div>
             </motion.div>

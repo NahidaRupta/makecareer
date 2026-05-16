@@ -7,9 +7,9 @@ import { PageHero } from "@/components/ui/page-hero";
 import { CtaBanner } from "@/components/ui/cta-banner";
 
 export const metadata: Metadata = generatePageMetadata({
-  title: "導入事例 | MakeCareer",
+  title: "Client Success Stories | MakeCareer",
   description:
-    "MakeCareerを活用いただいた製造業・物流業の導入事例をご紹介。課題・解決策・成果を具体的な数字で公開しています。",
+    "Real-world case studies from manufacturers and logistics companies that partnered with MakeCareer. Challenges, solutions, and measurable outcomes.",
   path: "/case-studies",
 });
 
@@ -18,10 +18,10 @@ export default function CaseStudiesPage() {
     <>
       <PageHero
         eyebrow="Case Studies"
-        titleJa="導入事例"
-        titleEn="Customer Success Stories"
-        descriptionJa="実際にMakeCareerをご活用いただいた企業様の課題・解決策・成果をご紹介します。"
-        crumbs={[{ label: "導入事例" }]}
+        titleJa="Client Success Stories"
+        titleEn="Real results from real clients"
+        descriptionJa="Explore how manufacturers and logistics companies solved their most pressing workforce challenges with MakeCareer."
+        crumbs={[{ label: "Case Studies" }]}
       />
 
       {/* Case study list */}
@@ -31,7 +31,7 @@ export default function CaseStudiesPage() {
       >
         <div className="content-max px-4 sm:px-6 lg:px-8">
           <h2 id="cases-list-heading" className="sr-only">
-            事例一覧
+            Case study list
           </h2>
 
           <div className="grid grid-cols-1 gap-8">
@@ -89,7 +89,7 @@ export default function CaseStudiesPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-1">
                     <div>
                       <p className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2">
-                        課題
+                        Challenge
                       </p>
                       <p className="text-sm text-neutral-700 leading-relaxed">
                         {cs.challenge}
@@ -97,7 +97,7 @@ export default function CaseStudiesPage() {
                     </div>
                     <div>
                       <p className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2">
-                        解決策
+                        Solution
                       </p>
                       <p className="text-sm text-neutral-700 leading-relaxed">
                         {cs.solution}
@@ -106,12 +106,12 @@ export default function CaseStudiesPage() {
                   </div>
 
                   <div className="mt-6 flex items-center justify-between border-t border-neutral-100 pt-5">
-                    <p className="text-xs text-neutral-400">詳細な成果・担当者コメントを掲載</p>
+                    <p className="text-xs text-neutral-400">Full outcomes &amp; client comments inside</p>
                     <Link
                       href={{ pathname: `/case-studies/${cs.slug}` }}
                       className="group/link inline-flex items-center gap-1.5 text-sm font-semibold text-navy-600 hover:text-navy-800 transition-colors"
                     >
-                      詳細を見る
+                      Read more
                       <ArrowRight
                         size={14}
                         strokeWidth={2}
@@ -128,11 +128,11 @@ export default function CaseStudiesPage() {
       </section>
 
       <CtaBanner
-        titleJa="貴社でも同様の課題はありませんか？"
-        descriptionJa="MakeCareerでは無料の初回ご相談を承っています。専任担当者が現状をヒアリングし、最適な解決策をご提案します。"
-        primaryLabel="無料で相談する"
+        titleJa="Facing similar workforce challenges?"
+        descriptionJa="MakeCareer offers a free first consultation. Our dedicated team will listen to your situation and recommend the best solution."
+        primaryLabel="Free Consultation"
         primaryHref="/contact"
-        secondaryLabel="サービス一覧を見る"
+        secondaryLabel="View All Services"
         secondaryHref="/services"
         variant="navy"
       />

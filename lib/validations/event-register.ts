@@ -1,8 +1,8 @@
 import { z } from "zod";
 
 export const eventRegisterSchema = z.object({
-  name: z.string().min(1, "お名前を入力してください").max(100),
-  email: z.string().email("有効なメールアドレスを入力してください"),
+  name: z.string().min(1, "Please enter your name").max(100),
+  email: z.string().email("Please enter a valid email address"),
   company: z.string().max(200).optional(),
   phone: z.string().max(20).optional(),
   eventSlug: z.string().min(1),

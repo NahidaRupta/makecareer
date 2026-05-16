@@ -22,36 +22,36 @@ interface CaseStudy {
 const CASE_STUDIES: CaseStudy[] = [
   {
     slug: "automotive-line-expansion",
-    industry: "自動車部品製造",
-    companyProfile: "愛知県・従業員500名規模",
+    industry: "Automotive Parts",
+    companyProfile: "Aichi — 500 employees",
     challenge:
-      "新ラインの立ち上げで急遽20名の組立スタッフが必要になったが、通常の採用では間に合わなかった。",
+      "A new production line launch required 20 assembly staff urgently, but conventional hiring could not meet the timeline.",
     solution:
-      "3日以内に20名を手配。事前研修済みスタッフを配置し、ライン稼働率を落とさずに新体制へ移行。",
+      "20 pre-trained staff placed within 3 days. The new line launched on schedule with zero disruption to existing operations.",
     stat: "3",
-    statLabel: "日以内に20名配置完了",
+    statLabel: "days to fill 20 positions",
   },
   {
     slug: "foreign-worker-integration",
-    industry: "電機・電子部品",
-    companyProfile: "神奈川県・従業員300名規模",
+    industry: "Electronics & Components",
+    companyProfile: "Kanagawa — 300 employees",
     challenge:
-      "国内人材不足を補うため特定技能外国人材の受け入れを検討したが、ビザ申請や生活支援のノウハウがなかった。",
+      "The company wanted to address domestic labour shortages with Specified Skills workers but lacked visa and support know-how.",
     solution:
-      "ビザ申請〜入寮〜日本語サポートまで一括支援。半年間で15名の特定技能人材が安定稼働。",
+      "End-to-end support from visa filing to dormitory setup and Japanese language assistance. 15 workers fully operational within 6 months.",
     stat: "97",
-    statLabel: "%の就業継続率を達成",
+    statLabel: "% retention rate achieved",
   },
   {
     slug: "peak-season-logistics",
-    industry: "物流・倉庫",
-    companyProfile: "大阪府・繁忙期スポット対応",
+    industry: "Logistics & Warehousing",
+    companyProfile: "Osaka — seasonal peak staffing",
     challenge:
-      "年末繁忙期の倉庫作業でピッキングスタッフが50名不足。直前1週間での手配が求められた。",
+      "50 picking staff were needed for the year-end warehouse peak with only one week's notice.",
     solution:
-      "登録スタッフプールから即戦力50名を手配。繁忙期ピーク中の出荷遅延ゼロを達成。",
+      "50 job-ready staff mobilised from our registered pool. Zero shipping delays throughout the busiest period.",
     stat: "50",
-    statLabel: "名を1週間で緊急手配",
+    statLabel: "staff deployed in 1 week",
   },
 ];
 
@@ -108,10 +108,10 @@ export function CaseStudiesSection() {
             variants={item}
             className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight"
           >
-            導入事例
+            Client Success Stories
           </motion.h2>
           <motion.p variants={item} className="mt-4 text-white/60 leading-relaxed">
-            実際にMakeCareerを活用いただいた企業様の成功事例をご紹介します。
+            Real results from companies that have partnered with MakeCareer.
           </motion.p>
         </motion.div>
 
@@ -152,7 +152,7 @@ export function CaseStudiesSection() {
               {/* Challenge */}
               <div className="mb-4 flex-1">
                 <p className="text-[10px] font-semibold uppercase tracking-wider text-white/40 mb-1.5">
-                  課題
+                  Challenge
                 </p>
                 <p className="text-sm text-white/70 leading-relaxed">{cs.challenge}</p>
               </div>
@@ -160,7 +160,7 @@ export function CaseStudiesSection() {
               {/* Solution */}
               <div className="mb-6">
                 <p className="text-[10px] font-semibold uppercase tracking-wider text-white/40 mb-1.5">
-                  解決策
+                  Solution
                 </p>
                 <p className="text-sm text-white/70 leading-relaxed">{cs.solution}</p>
               </div>
@@ -170,7 +170,7 @@ export function CaseStudiesSection() {
                 href={{ pathname: `/case-studies/${cs.slug}` }}
                 className="flex items-center gap-1.5 text-sm font-semibold text-amber-400 hover:text-amber-300 transition-colors group-hover:gap-2.5"
               >
-                詳しく読む
+                Read more
                 <ArrowRight size={14} strokeWidth={2} aria-hidden="true" className="transition-transform group-hover:translate-x-0.5" />
               </Link>
             </motion.div>
@@ -188,7 +188,7 @@ export function CaseStudiesSection() {
             href={{ pathname: "/case-studies" }}
             className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 backdrop-blur-sm px-7 py-3.5 text-sm font-semibold text-white/80 hover:bg-white/10 hover:border-white/25 hover:text-white transition-all duration-200 shadow-lg shadow-black/20"
           >
-            すべての導入事例を見る
+            View all case studies
             <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />
           </Link>
         </motion.div>

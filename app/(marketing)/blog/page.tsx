@@ -7,36 +7,36 @@ import { PageHero } from "@/components/ui/page-hero";
 import { CtaBanner } from "@/components/ui/cta-banner";
 
 export const metadata: Metadata = generatePageMetadata({
-  title: "コラム・お役立ち情報 | MakeCareer",
+  title: "Insights & Resources | MakeCareer",
   description:
-    "製造業の採用・人材活用に役立つ情報を専門家が解説。人材派遣の基礎・外国人材・定着率改善など、採用担当者必見のコラムを掲載しています。",
+    "Expert advice on manufacturing staffing, workforce management, and skilled worker support in Japan. Practical guides for HR managers and factory operators.",
   path: "/blog",
 });
 
-const CATEGORIES = ["すべて", "人材派遣の基礎", "外国人材", "定着率改善"];
+const CATEGORIES = ["All", "Staffing Basics", "Foreign Workers", "Retention"];
 
 export default function BlogPage() {
   return (
     <>
       <PageHero
         eyebrow="Column & Journal"
-        titleJa="コラム・お役立ち情報"
+        titleJa="Insights & Resources"
         titleEn="Expert Knowledge for Manufacturers"
-        descriptionJa="製造業の採用・人材活用に役立つ情報を専門家が解説します。人材派遣・外国人材・定着率など現場で使える知識をお届けします。"
-        crumbs={[{ label: "コラム・お役立ち情報" }]}
+        descriptionJa="Expert advice on staffing, workforce management, and foreign worker support — written by MakeCareer consultants who work on the factory floor every day."
+        crumbs={[{ label: "Insights" }]}
         variant="light"
       />
 
       <section aria-labelledby="blog-list-heading" className="bg-white section-padding">
         <div className="content-max px-4 sm:px-6 lg:px-8">
           {/* Category filter (static for SSR — client filter would be a future enhancement) */}
-          <div className="flex flex-wrap gap-2 mb-10" role="list" aria-label="カテゴリ絞り込み">
+          <div className="flex flex-wrap gap-2 mb-10" role="list" aria-label="Filter by category">
             {CATEGORIES.map((cat) => (
               <span
                 key={cat}
                 role="listitem"
                 className={`rounded-full border px-4 py-1.5 text-sm font-medium cursor-default ${
-                  cat === "すべて"
+                  cat === "All"
                     ? "bg-navy-950 border-navy-950 text-white"
                     : "border-neutral-200 bg-white text-neutral-600"
                 }`}
@@ -47,7 +47,7 @@ export default function BlogPage() {
           </div>
 
           <h2 id="blog-list-heading" className="sr-only">
-            記事一覧
+            Article list
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -67,7 +67,7 @@ export default function BlogPage() {
                     <div className="absolute inset-0 bg-linear-to-t from-navy-950/50 to-transparent" />
                     {index === 0 && (
                       <span className="absolute top-3 left-3 rounded-full bg-amber-500 px-3 py-1 text-[10px] font-bold text-white uppercase tracking-wide">
-                        注目記事
+                        Featured
                       </span>
                     )}
                   </div>
@@ -80,7 +80,7 @@ export default function BlogPage() {
                       </span>
                       <div className="flex items-center gap-1 text-[10px] text-neutral-400">
                         <Clock size={10} aria-hidden="true" />
-                        <span>{post.readMinutes}分で読める</span>
+                        <span>{post.readMinutes} min read</span>
                       </div>
                     </div>
 
@@ -97,7 +97,7 @@ export default function BlogPage() {
                         {post.date}
                       </time>
                       <span className="flex items-center gap-1 text-xs font-semibold text-navy-500 group-hover:text-navy-700 transition-colors">
-                        続きを読む
+                        Read more
                         <ArrowRight
                           size={12}
                           strokeWidth={2}
@@ -115,11 +115,11 @@ export default function BlogPage() {
       </section>
 
       <CtaBanner
-        titleJa="採用のお悩みを専門家に相談しませんか？"
-        descriptionJa="コラムの内容について、より詳しいご相談は専任コンサルタントが承ります。"
-        primaryLabel="無料で相談する"
+        titleJa="Have a staffing question for an expert?"
+        descriptionJa="Our consultants are available for free one-to-one consultations on any workforce challenge."
+        primaryLabel="Free Consultation"
         primaryHref="/contact"
-        secondaryLabel="セミナーに参加する"
+        secondaryLabel="Browse Seminars"
         secondaryHref="/seminars"
         variant="navy"
       />

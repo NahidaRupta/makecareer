@@ -8,9 +8,9 @@ import { Accordion } from "@/components/ui/accordion";
 import { CtaBanner } from "@/components/ui/cta-banner";
 
 export const metadata: Metadata = generatePageMetadata({
-  title: "よくあるご質問（FAQ） | MakeCareer",
+  title: "FAQ | MakeCareer",
   description:
-    "MakeCareerへのよくあるご質問をまとめました。サービス内容・料金・外国人材・求職者向け情報など、カテゴリ別にお答えします。",
+    "Frequently asked questions about MakeCareer's staffing services, pricing, foreign worker support, and job seeker resources — answered by category.",
   path: "/faq",
 });
 
@@ -26,17 +26,17 @@ export default function FaqPage() {
       />
       <PageHero
         eyebrow="FAQ"
-        titleJa="よくあるご質問"
-        titleEn="Frequently Asked Questions"
-        descriptionJa="サービスに関するよくある疑問をカテゴリ別にまとめました。解決しない場合はお気軽にお問い合わせください。"
-        crumbs={[{ label: "よくあるご質問" }]}
+        titleJa="Frequently Asked Questions"
+        titleEn="Everything you need to know"
+        descriptionJa="Common questions about our services, organised by topic. If you can't find what you're looking for, our team is happy to help."
+        crumbs={[{ label: "FAQ" }]}
         variant="light"
       />
 
       <section aria-labelledby="faq-heading" className="bg-white section-padding">
         <div className="content-max px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto">
           <h2 id="faq-heading" className="sr-only">
-            よくあるご質問
+            Frequently asked questions
           </h2>
 
           <div className="space-y-14">
@@ -55,22 +55,22 @@ export default function FaqPage() {
 
           {/* Still have questions */}
           <div className="mt-16 rounded-2xl bg-neutral-50 border border-neutral-200 p-8 text-center">
-            <p className="text-sm font-semibold text-navy-950 mb-2">解決しない場合は</p>
+            <p className="text-sm font-semibold text-navy-950 mb-2">Still have a question?</p>
             <p className="text-xs text-neutral-500 leading-relaxed mb-5">
-              専任コンサルタントが直接お答えします。お気軽にご連絡ください。
+              Our dedicated consultants are ready to help. Get in touch anytime.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href="tel:0120000000"
                 className="inline-flex items-center gap-2 rounded-lg bg-navy-950 px-6 py-3 text-sm font-bold text-white hover:bg-navy-800 transition-colors"
               >
-                0120-000-000（無料）
+                0120-000-000 (Free)
               </a>
               <a
                 href="/contact"
                 className="inline-flex items-center gap-2 rounded-lg border border-navy-300 px-6 py-3 text-sm font-bold text-navy-700 hover:bg-navy-50 transition-colors"
               >
-                メールで問い合わせる
+                Send us an email
               </a>
             </div>
           </div>
@@ -78,11 +78,11 @@ export default function FaqPage() {
       </section>
 
       <CtaBanner
-        titleJa="製造業の採用課題、専門家に相談しましょう"
-        descriptionJa="お見積もり・個別ヒアリングは無料です。まずはお気軽にどうぞ。"
-        primaryLabel="無料で相談する"
+        titleJa="Ready to solve your manufacturing staffing challenge?"
+        descriptionJa="Consultations and cost estimates are free. Our team is here to help."
+        primaryLabel="Free Consultation"
         primaryHref="/contact"
-        secondaryLabel="資料をダウンロード"
+        secondaryLabel="Download Free Guides"
         secondaryHref="/downloads"
         variant="navy"
       />

@@ -6,56 +6,56 @@ import { PageHero } from "@/components/ui/page-hero";
 import { CtaBanner } from "@/components/ui/cta-banner";
 
 export const metadata: Metadata = generatePageMetadata({
-  title: "会社概要 | MakeCareer",
+  title: "Company Profile | MakeCareer",
   description:
-    "MakeCareerの会社概要・経営理念・代表挨拶・沿革をご紹介します。製造業専門の人材会社として全国47都道府県で採用支援を行っています。",
+    "Learn about MakeCareer — Japan's manufacturing staffing specialist. Company history, mission, values, and office locations across Japan.",
   path: "/company",
 });
 
 const PROFILE_ROWS = [
-  { label: "会社名", value: "株式会社MakeCareer（メイクキャリア）" },
-  { label: "設立", value: "2008年4月1日" },
-  { label: "代表取締役", value: "山田 浩二" },
-  { label: "資本金", value: "5,000万円" },
-  { label: "従業員数", value: "450名（2024年10月現在）" },
-  { label: "本社所在地", value: "愛知県名古屋市中村区名駅四丁目1-1 メイクキャリアビル6F" },
-  { label: "拠点", value: "東京・大阪・福岡・名古屋（本社）ほか全国主要都市" },
-  { label: "事業内容", value: "労働者派遣事業、有料職業紹介事業、業務請負事業、特定技能外国人支援事業" },
-  { label: "許可番号", value: "労働者派遣事業許可番号：派 23-XXXXXX　有料職業紹介事業許可番号：23-ユ-XXXXXX" },
-  { label: "加盟団体", value: "一般社団法人日本人材派遣協会（JASSA）" },
+  { label: "Company Name", value: "MakeCareer Co., Ltd." },
+  { label: "Founded", value: "1 April 2008" },
+  { label: "CEO", value: "Koji Yamada" },
+  { label: "Capital", value: "¥50,000,000" },
+  { label: "Employees", value: "450 (as of October 2024)" },
+  { label: "Head Office", value: "MakeCareer Building 6F, 4-1-1 Meieki, Nakamura-ku, Nagoya, Aichi 450-0002" },
+  { label: "Offices", value: "Tokyo · Osaka · Fukuoka · Nagoya (HQ) and other major cities nationwide" },
+  { label: "Business Activities", value: "Worker dispatch, fee-based employment placement, contract outsourcing, Specified Skills foreign worker support" },
+  { label: "Licence Numbers", value: "Worker Dispatch Licence: Haken 23-XXXXXX · Employment Placement Licence: 23-Yu-XXXXXX" },
+  { label: "Memberships", value: "Japan Staffing Services Association (JASSA)" },
 ];
 
 const VALUES = [
   {
     icon: Users,
-    title: "人を中心に",
-    body: "スタッフ・クライアント双方の成長を支える人材エコシステムを構築します。",
+    title: "People First",
+    body: "We build a talent ecosystem that supports the growth of both workers and clients — because when people thrive, businesses do too.",
   },
   {
     icon: ShieldCheck,
-    title: "コンプライアンス最優先",
-    body: "法令遵守と倫理的な事業運営を基本として、信頼される企業を目指します。",
+    title: "Compliance Above All",
+    body: "Legal adherence and ethical business practices are our foundation. We exist to be a partner you can trust completely.",
   },
   {
     icon: Globe,
-    title: "多様性の尊重",
-    body: "国籍・年齢・経験を問わず、すべての人が活躍できる職場づくりを支援します。",
+    title: "Respect for Diversity",
+    body: "We help create workplaces where every person — regardless of nationality, age, or background — can do their best work.",
   },
   {
     icon: TrendingUp,
-    title: "継続的な改善",
-    body: "データと現場知見を掛け合わせ、サービス品質を絶え間なく高め続けます。",
+    title: "Continuous Improvement",
+    body: "We combine field knowledge with data to raise our service quality continuously — never settling for good enough.",
   },
 ];
 
 const HISTORY = [
-  { year: "2008", event: "愛知県名古屋市にて株式会社MakeCareer設立。製造業向け人材派遣事業を開始。" },
-  { year: "2011", event: "有料職業紹介事業の許可取得。直接雇用支援サービス開始。" },
-  { year: "2014", event: "東京・大阪に拠点開設。関東・関西エリアへサービス拡大。" },
-  { year: "2017", event: "業務請負部門設立。製造ラインの一括受託サービスを本格化。" },
-  { year: "2019", event: "特定技能外国人支援事業開始。ベトナム・フィリピンとの連携を強化。" },
-  { year: "2022", event: "福岡拠点開設。九州エリアへのサービス展開を加速。" },
-  { year: "2024", event: "グループ全体の年間稼働スタッフ数が3,000名を突破。" },
+  { year: "2008", event: "MakeCareer Co., Ltd. founded in Nagoya, Aichi. Manufacturing dispatch operations launched." },
+  { year: "2011", event: "Fee-based employment placement licence obtained. Direct hire support services launched." },
+  { year: "2014", event: "Tokyo and Osaka offices opened. Services expanded to Kanto and Kansai regions." },
+  { year: "2017", event: "Contract outsourcing division established. Full production line takeover services launched." },
+  { year: "2019", event: "Specified Skills foreign worker support programme launched. Partnerships with Vietnam and the Philippines established." },
+  { year: "2022", event: "Fukuoka office opened. Service expansion into the Kyushu region accelerated." },
+  { year: "2024", event: "Total active registered workers across the group surpasses 3,000." },
 ];
 
 export default function CompanyPage() {
@@ -63,10 +63,10 @@ export default function CompanyPage() {
     <>
       <PageHero
         eyebrow="Company"
-        titleJa="会社概要"
-        titleEn="About MakeCareer"
-        descriptionJa="製造業に特化した人材会社として、企業と人材の最適なマッチングを通じて日本のものづくりを支えています。"
-        crumbs={[{ label: "会社概要" }]}
+        titleJa="About MakeCareer"
+        titleEn="Japan's manufacturing staffing specialist"
+        descriptionJa="We connect manufacturers with the right people — and support both sides of that relationship every step of the way."
+        crumbs={[{ label: "Company" }]}
         variant="light"
       />
 
@@ -77,11 +77,12 @@ export default function CompanyPage() {
             Mission &amp; Vision
           </p>
           <h2 id="mission-heading" className="text-2xl sm:text-3xl font-extrabold text-white leading-snug mb-6">
-            製造業の「人手不足」を解決し、<br className="hidden sm:block" />
-            日本のものづくりの未来をつくる
+            Solving Japan&apos;s manufacturing labour shortage
+            <br className="hidden sm:block" />
+            and building the future of production.
           </h2>
           <p className="text-white/70 leading-relaxed text-sm sm:text-base max-w-2xl mx-auto">
-            少子化・高齢化が進む日本において、製造業が直面する人材課題は深刻です。MakeCareerは単なる派遣会社にとどまらず、採用・定着・育成の全プロセスで企業を支援するパートナーとして、製造現場の持続的な成長に貢献します。
+            As Japan&apos;s demographic challenges intensify, the staffing pressures facing manufacturers have never been greater. MakeCareer goes beyond placement — we partner with clients across the full cycle of hiring, retention, and development to support the long-term sustainability of the factory floor.
           </p>
         </div>
       </section>
@@ -90,7 +91,7 @@ export default function CompanyPage() {
       <section aria-labelledby="values-heading" className="bg-neutral-50 section-padding">
         <div className="content-max px-4 sm:px-6 lg:px-8">
           <h2 id="values-heading" className="text-2xl font-extrabold text-navy-950 text-center mb-10">
-            私たちの価値観
+            Our Values
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {VALUES.map((v) => (
@@ -113,7 +114,7 @@ export default function CompanyPage() {
             {/* Profile table */}
             <div>
               <h2 id="profile-heading" className="text-2xl font-extrabold text-navy-950 mb-8">
-                会社概要
+                Company Profile
               </h2>
               <dl className="divide-y divide-neutral-100">
                 {PROFILE_ROWS.map((row) => (
@@ -132,7 +133,7 @@ export default function CompanyPage() {
                   href={{ pathname: "/contact" }}
                   className="inline-flex items-center gap-2 rounded-lg bg-amber-500 px-6 py-3 text-sm font-bold text-white hover:bg-amber-600 transition-colors"
                 >
-                  お問い合わせ
+                  Get in Touch
                   <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />
                 </Link>
               </div>
@@ -145,15 +146,15 @@ export default function CompanyPage() {
                   <div className="h-20 w-20 rounded-full bg-navy-100 mx-auto mb-4 flex items-center justify-center">
                     <Users size={32} strokeWidth={1} className="text-navy-300" aria-hidden="true" />
                   </div>
-                  <p className="text-xs text-navy-300">本社外観写真</p>
+                  <p className="text-xs text-navy-300">Head office photo coming soon</p>
                 </div>
               </div>
               <div className="rounded-2xl bg-neutral-50 border border-neutral-200 p-6">
-                <p className="text-xs font-semibold text-neutral-500 mb-1">本社</p>
+                <p className="text-xs font-semibold text-neutral-500 mb-1">Head Office</p>
                 <p className="text-sm font-bold text-navy-950 mb-1">
-                  愛知県名古屋市中村区名駅四丁目1-1
+                  4-1-1 Meieki, Nakamura-ku, Nagoya, Aichi
                 </p>
-                <p className="text-xs text-neutral-500">名古屋駅より徒歩5分</p>
+                <p className="text-xs text-neutral-500">5 min walk from Nagoya Station</p>
               </div>
             </div>
           </div>
@@ -164,7 +165,7 @@ export default function CompanyPage() {
       <section aria-labelledby="history-heading" className="bg-neutral-50 section-padding">
         <div className="content-max px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto">
           <h2 id="history-heading" className="text-2xl font-extrabold text-navy-950 mb-10 text-center">
-            沿革
+            Company History
           </h2>
           <ol className="relative border-l border-neutral-200 space-y-8 ml-4">
             {HISTORY.map((h) => (
@@ -185,11 +186,11 @@ export default function CompanyPage() {
       </section>
 
       <CtaBanner
-        titleJa="製造業の採用パートナーをお探しですか？"
-        descriptionJa="まずは無料相談から。専任コンサルタントが貴社の課題をお伺いします。"
-        primaryLabel="無料で相談する"
+        titleJa="Looking for a manufacturing staffing partner?"
+        descriptionJa="Start with a free consultation. Our dedicated consultants will listen to your challenges and recommend the right approach."
+        primaryLabel="Free Consultation"
         primaryHref="/contact"
-        secondaryLabel="サービス一覧を見る"
+        secondaryLabel="View Our Services"
         secondaryHref="/services"
         variant="navy"
       />

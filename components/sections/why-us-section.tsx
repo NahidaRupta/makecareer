@@ -99,14 +99,14 @@ export function WhyUsSection() {
             variants={item}
             className="text-3xl sm:text-4xl font-extrabold text-navy-950 tracking-tight"
           >
-            選ばれる5つの理由
+            5 Reasons Clients Choose Us
           </motion.h2>
           <motion.p
             variants={item}
             className="mt-4 text-neutral-600 leading-relaxed"
           >
-            製造業の現場を知り尽くした私たちだからこそ提供できる、
-            確かな価値があります。
+            Our deep expertise on the manufacturing floor gives us a genuine
+            edge in finding and placing the right talent.
           </motion.p>
         </motion.div>
 
@@ -124,7 +124,7 @@ export function WhyUsSection() {
 
             return (
               <motion.div
-                key={reason.headingJa}
+                key={reason.headingEn}
                 variants={item}
                 className={`group relative rounded-2xl bg-white border border-neutral-200 p-7 transition-shadow hover:shadow-[0_8px_30px_rgba(10,22,40,0.08)] ${
                   isLastOdd ? "sm:col-span-2 lg:col-span-1" : ""
@@ -144,16 +144,13 @@ export function WhyUsSection() {
                 </div>
 
                 {/* Heading */}
-                <h3 className="text-base font-bold text-navy-950 leading-snug mb-1">
-                  {reason.headingJa}
-                </h3>
-                <p className="text-xs font-medium text-neutral-400 mb-3">
+                <h3 className="text-base font-bold text-navy-950 leading-snug mb-3">
                   {reason.headingEn}
-                </p>
+                </h3>
 
                 {/* Body */}
                 <p className="text-sm text-neutral-600 leading-relaxed">
-                  {reason.bodyJa}
+                  {reason.bodyEn}
                 </p>
               </motion.div>
             );

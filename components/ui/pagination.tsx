@@ -42,13 +42,13 @@ export function Pagination({ currentPage, totalPages, basePath }: PaginationProp
   const btnDisabled = "border border-neutral-100 bg-white text-neutral-300 cursor-not-allowed";
 
   return (
-    <nav aria-label="ページネーション" className="flex items-center justify-center gap-1">
+    <nav aria-label="Pagination" className="flex items-center justify-center gap-1">
       {/* Prev */}
       {currentPage > 1 ? (
         <Link
           href={pageUrl(basePath, currentPage - 1)}
           className={`${btnBase} ${btnInactive}`}
-          aria-label="前のページ"
+          aria-label="Previous page"
         >
           <ChevronLeft size={16} aria-hidden="true" />
         </Link>
@@ -81,7 +81,7 @@ export function Pagination({ currentPage, totalPages, basePath }: PaginationProp
         <Link
           href={pageUrl(basePath, currentPage + 1)}
           className={`${btnBase} ${btnInactive}`}
-          aria-label="次のページ"
+          aria-label="Next page"
         >
           <ChevronRight size={16} aria-hidden="true" />
         </Link>

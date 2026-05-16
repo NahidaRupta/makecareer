@@ -13,57 +13,57 @@ interface FooterColumn {
 
 const NAV_COLUMNS: FooterColumn[] = [
   {
-    heading: "サービス",
+    heading: "Services",
     links: [
-      { label: "製造業 人材派遣", href: "/services/haken" },
-      { label: "工場請負", href: "/services/ukeoi" },
-      { label: "特定技能・技能実習", href: "/services/ginoujisshu" },
-      { label: "設備メンテナンス人材", href: "/services/maintenance" },
-      { label: "物流・倉庫作業", href: "/services/butsuryu" },
+      { label: "Manufacturing Staffing", href: "/services/haken" },
+      { label: "Factory Outsourcing", href: "/services/ukeoi" },
+      { label: "Specified Skills / Technical Intern", href: "/services/ginoujisshu" },
+      { label: "Equipment Maintenance Staff", href: "/services/maintenance" },
+      { label: "Logistics & Warehouse", href: "/services/butsuryu" },
     ],
   },
   {
-    heading: "求職者の方",
+    heading: "Job Seekers",
     links: [
-      { label: "求人を探す", href: "/jobs" },
-      { label: "登録の流れ", href: "/jobs/how-to-register" },
-      { label: "寮・社宅情報", href: "/jobs/dormitory" },
-      { label: "未経験歓迎の求人", href: "/jobs/beginner" },
-      { label: "よくあるご質問", href: "/faq/jobseekers" },
+      { label: "Browse Jobs", href: "/jobs" },
+      { label: "How to Register", href: "/jobs/how-to-register" },
+      { label: "Dormitory & Housing", href: "/jobs/dormitory" },
+      { label: "Entry-Level Positions", href: "/jobs/beginner" },
+      { label: "FAQ", href: "/faq/jobseekers" },
     ],
   },
   {
-    heading: "企業の方",
+    heading: "For Companies",
     links: [
-      { label: "採用のご相談", href: "/contact" },
-      { label: "外国人材受け入れ", href: "/for-companies/foreign-workers" },
-      { label: "導入事例", href: "/case-studies" },
-      { label: "セミナー・説明会", href: "/seminars" },
-      { label: "資料ダウンロード", href: "/downloads" },
+      { label: "Staffing Consultation", href: "/contact" },
+      { label: "Foreign Worker Placement", href: "/for-companies/foreign-workers" },
+      { label: "Case Studies", href: "/case-studies" },
+      { label: "Seminars & Events", href: "/seminars" },
+      { label: "Free Downloads", href: "/downloads" },
     ],
   },
   {
-    heading: "会社情報",
+    heading: "Company",
     links: [
-      { label: "会社概要", href: "/company" },
-      { label: "代表メッセージ", href: "/company/message" },
-      { label: "許認可・コンプライアンス", href: "/company/compliance" },
-      { label: "採用情報（スタッフ募集）", href: "/company/careers" },
-      { label: "お問い合わせ", href: "/contact" },
+      { label: "About Us", href: "/company" },
+      { label: "Message from CEO", href: "/company/message" },
+      { label: "Licenses & Compliance", href: "/company/compliance" },
+      { label: "Careers at MakeCareer", href: "/company/careers" },
+      { label: "Contact", href: "/contact" },
     ],
   },
 ];
 
 const LEGAL_LINKS: FooterLink[] = [
-  { label: "プライバシーポリシー", href: "/legal/privacy" },
-  { label: "利用規約", href: "/legal/terms" },
-  { label: "特定商取引法に基づく表記", href: "/legal/commerce" },
-  { label: "サイトマップ", href: "/sitemap" },
+  { label: "Privacy Policy", href: "/legal/privacy" },
+  { label: "Terms of Use", href: "/legal/terms" },
+  { label: "Specified Commercial Transactions", href: "/legal/commerce" },
+  { label: "Sitemap", href: "/sitemap" },
 ];
 
 export function SiteFooter() {
   return (
-    <footer aria-label="サイトフッター" className="bg-navy-950 text-white">
+    <footer aria-label="Site footer" className="bg-navy-950 text-white">
       {/* Main footer body */}
       <div className="content-max px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
@@ -72,7 +72,7 @@ export function SiteFooter() {
             <Link
               href={{ pathname: "/" }}
               className="inline-flex items-center gap-2 mb-4"
-              aria-label="MakeCareer トップへ"
+              aria-label="MakeCareer Home"
             >
               <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-amber-500 text-white font-extrabold text-base">
                 M
@@ -83,11 +83,11 @@ export function SiteFooter() {
             </Link>
 
             <p className="text-xs text-white/50 leading-relaxed mb-6">
-              製造業・工場に特化した
+              Japan's manufacturing staffing specialist.
               <br />
-              人材派遣・工場請負サービス。
+              Dispatch, outsourcing &amp; skilled worker support.
               <br />
-              全国対応・15年以上の実績。
+              Nationwide coverage · 15+ years of expertise.
             </p>
 
             <ul className="space-y-3">
@@ -97,7 +97,7 @@ export function SiteFooter() {
                   className="flex items-center gap-2 text-xs text-white/60 hover:text-white transition-colors"
                 >
                   <Phone size={13} strokeWidth={1.5} aria-hidden="true" />
-                  0120-000-000（無料）
+                  0120-000-000 (Free)
                 </a>
               </li>
               <li>
@@ -113,9 +113,9 @@ export function SiteFooter() {
                 <address className="not-italic flex items-start gap-2 text-xs text-white/60">
                   <MapPin size={13} strokeWidth={1.5} className="mt-0.5 shrink-0" aria-hidden="true" />
                   <span>
-                    〒450-0002
+                    3-11-22 Meieki, Nakamura-ku,
                     <br />
-                    愛知県名古屋市中村区名駅3丁目11番22号
+                    Nagoya, Aichi 450-0002
                   </span>
                 </address>
               </li>
@@ -151,9 +151,9 @@ export function SiteFooter() {
       <div className="border-t border-white/10">
         <div className="content-max px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <p className="text-[11px] text-white/30">
-            &copy; {new Date().getFullYear()} 株式会社 MakeCareer. All rights reserved.
+            &copy; {new Date().getFullYear()} MakeCareer Co., Ltd. All rights reserved.
           </p>
-          <nav aria-label="法的情報">
+          <nav aria-label="Legal links">
             <ul className="flex flex-wrap gap-x-5 gap-y-1">
               {LEGAL_LINKS.map((link) => (
                 <li key={link.href}>

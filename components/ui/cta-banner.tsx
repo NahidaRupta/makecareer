@@ -24,7 +24,7 @@ export function CtaBanner({
 
   return (
     <section
-      aria-label="お問い合わせ案内"
+      aria-label="Contact enquiry"
       className={`${isNavy ? "bg-navy-950" : "bg-amber-500"} section-padding`}
     >
       <div className="content-max px-4 sm:px-6 lg:px-8">
@@ -57,7 +57,7 @@ export function CtaBanner({
               }`}
             >
               <Phone size={14} strokeWidth={1.5} aria-hidden="true" />
-              <span>お電話でのご相談：0120-000-000（平日 9:00〜18:00）</span>
+              <span>Call us: 0120-000-000 (Mon–Fri, 9:00–18:00)</span>
             </a>
           </div>
 

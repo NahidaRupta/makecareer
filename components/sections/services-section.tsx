@@ -85,7 +85,7 @@ function ServiceCarousel({ prefersReducedMotion }: { prefersReducedMotion: boole
         >
           <Image
             src={CAROUSEL_IMAGES[activeIndex]}
-            alt={`サービスイメージ ${activeIndex + 1}`}
+            alt={`Service image ${activeIndex + 1}`}
             fill
             className="object-cover object-center"
             sizes="(max-width: 1024px) 100vw, 50vw"
@@ -103,7 +103,7 @@ function ServiceCarousel({ prefersReducedMotion }: { prefersReducedMotion: boole
           <button
             key={i}
             onClick={() => setActiveIndex(i)}
-            aria-label={`画像 ${i + 1} を表示`}
+            aria-label={`Show image ${i + 1}`}
             className="relative h-1.5 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
             style={{ width: i === activeIndex ? "2rem" : "0.375rem" }}
           >
@@ -151,10 +151,10 @@ export function ServicesSection() {
             variants={item}
             className="text-3xl sm:text-4xl font-extrabold text-navy-950 tracking-tight"
           >
-            サービス一覧
+            Our Service Lineup
           </motion.h2>
           <motion.p variants={item} className="mt-4 text-neutral-600 leading-relaxed">
-            製造業に関わるあらゆる人材ニーズに対応する、MakeCareerのサービスをご紹介します。
+            A full range of workforce solutions tailored to every manufacturing need.
           </motion.p>
         </motion.div>
 
@@ -201,25 +201,18 @@ export function ServicesSection() {
                       {/* Text */}
                       <div className="flex-1 min-w-0">
                         <h3
-                          className={`text-base font-bold leading-snug mb-0.5 ${
+                          className={`text-base font-bold leading-snug mb-2.5 ${
                             isFeatured ? "text-white" : "text-navy-950"
                           }`}
                         >
-                          {service.titleJa}
-                        </h3>
-                        <p
-                          className={`text-xs font-medium mb-2.5 ${
-                            isFeatured ? "text-amber-400/70" : "text-neutral-400"
-                          }`}
-                        >
                           {service.titleEn}
-                        </p>
+                        </h3>
                         <p
                           className={`text-sm leading-relaxed ${
                             isFeatured ? "text-white/70" : "text-neutral-600"
                           }`}
                         >
-                          {service.descriptionJa}
+                          {service.descriptionEn}
                         </p>
 
                         <div
@@ -229,7 +222,7 @@ export function ServicesSection() {
                               : "text-navy-500 group-hover:text-navy-700"
                           }`}
                         >
-                          詳しく見る
+                          Learn more
                           <ArrowRight
                             size={13}
                             strokeWidth={2}
@@ -257,7 +250,7 @@ export function ServicesSection() {
             href={{ pathname: "/services" }}
             className="inline-flex items-center gap-2 rounded-lg border border-navy-200 bg-navy-50 px-6 py-3 text-sm font-semibold text-navy-600 transition-all hover:bg-navy-100 hover:text-navy-700"
           >
-            すべてのサービスを見る
+            View all services
             <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />
           </Link>
         </motion.div>

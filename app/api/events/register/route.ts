@@ -15,7 +15,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     const { ok } = rateLimit(`seminar:${ip}`, 5);
     if (!ok) {
       return NextResponse.json(
-        { success: false, error: "リクエストが多すぎます。しばらく後にお試しください。" },
+        { success: false, error: "Too many requests. Please try again in a moment." },
         { status: 429 },
       );
     }
@@ -30,14 +30,14 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     const seminar = getSeminarBySlug(data.eventSlug);
     if (!seminar) {
       return NextResponse.json(
-        { success: false, error: "指定されたセミナーが見つかりません。" },
+        { success: false, error: "The requested seminar could not be found." },
         { status: 404 },
       );
     }
 
     if (seminar.spotsLeft <= 0) {
       return NextResponse.json(
-        { success: false, error: "このセミナーは満席です。" },
+        { success: false, error: "Sorry, this seminar is fully booked." },
         { status: 409 },
       );
     }
@@ -60,7 +60,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         dbError.message.includes("Unique constraint");
       if (isDuplicate) {
         return NextResponse.json(
-          { success: false, error: "このメールアドレスはすでに申し込み済みです。" },
+          { success: false, error: "This email address is already registered for this seminar." },
           { status: 409 },
         );
       }
@@ -91,13 +91,13 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
   } catch (error) {
     if (error instanceof ZodError) {
       return NextResponse.json(
-        { success: false, error: "入力内容を確認してください。", details: error.flatten().fieldErrors },
+        { success: false, error: "Please check your input and try again.", details: error.flatten().fieldErrors },
         { status: 400 },
       );
     }
     console.error("[api/events/register]", error);
     return NextResponse.json(
-      { success: false, error: "サーバーエラーが発生しました。しばらく後にお試しください。" },
+      { success: false, error: "A server error occurred. Please try again later." },
       { status: 500 },
     );
   }

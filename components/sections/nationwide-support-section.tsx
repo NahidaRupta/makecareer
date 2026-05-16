@@ -22,45 +22,45 @@ interface Region {
 
 const REGIONS: Region[] = [
   {
-    name: "中部・東海",
-    hub: "名古屋",
-    prefectures: ["愛知県", "三重県", "岐阜県", "静岡県"],
+    name: "Chubu / Tokai",
+    hub: "Nagoya",
+    prefectures: ["Aichi", "Mie", "Gifu", "Shizuoka"],
     highlight: true,
   },
   {
-    name: "関東",
-    hub: "東京・神奈川",
-    prefectures: ["東京都", "神奈川県", "埼玉県", "群馬県"],
+    name: "Kanto",
+    hub: "Tokyo / Kanagawa",
+    prefectures: ["Tokyo", "Kanagawa", "Saitama", "Gunma"],
     highlight: true,
   },
   {
-    name: "関西",
-    hub: "大阪・兵庫",
-    prefectures: ["大阪府", "兵庫県", "京都府", "滋賀県"],
+    name: "Kansai",
+    hub: "Osaka / Hyogo",
+    prefectures: ["Osaka", "Hyogo", "Kyoto", "Shiga"],
     highlight: true,
   },
   {
-    name: "九州",
-    hub: "福岡",
-    prefectures: ["福岡県", "熊本県", "大分県", "長崎県"],
+    name: "Kyushu",
+    hub: "Fukuoka",
+    prefectures: ["Fukuoka", "Kumamoto", "Oita", "Nagasaki"],
   },
   {
-    name: "北陸・信越",
-    hub: "富山・新潟",
-    prefectures: ["富山県", "石川県", "新潟県", "長野県"],
+    name: "Hokuriku / Shinetsu",
+    hub: "Toyama / Niigata",
+    prefectures: ["Toyama", "Ishikawa", "Niigata", "Nagano"],
   },
   {
-    name: "東北",
-    hub: "宮城・岩手",
-    prefectures: ["宮城県", "岩手県", "山形県", "福島県"],
+    name: "Tohoku",
+    hub: "Miyagi / Iwate",
+    prefectures: ["Miyagi", "Iwate", "Yamagata", "Fukushima"],
   },
 ];
 
 const STRENGTHS = [
-  "全国主要製造業エリアに専任コーディネーターを配置",
-  "地域の求人市場・労働慣習を熟知したローカル対応",
-  "遠隔地でも本社と連携した統一品質のサービスを提供",
-  "寮・社宅の手配、交通アクセスのサポートも対応",
+  "Dedicated coordinators placed in every major manufacturing hub",
+  "Deep knowledge of regional labour markets and local hiring norms",
+  "Consistent service quality across all locations, backed by HQ",
+  "Dormitory arrangements, housing support, and commute assistance available",
 ];
 
 export function NationwideSupportSection() {
@@ -96,10 +96,11 @@ export function NationwideSupportSection() {
             variants={item}
             className="text-3xl sm:text-4xl font-extrabold text-navy-950 tracking-tight"
           >
-            全国の製造拠点に対応
+            Coverage Across Japan&apos;s Manufacturing Hubs
           </motion.h2>
           <motion.p variants={item} className="mt-4 text-neutral-600 leading-relaxed">
-            主要製造業エリアに拠点を持ち、地域に根ざした人材サポートを全国規模で展開しています。
+            With offices in every major industrial region, we deliver locally rooted
+            staffing support at a national scale.
           </motion.p>
         </motion.div>
 
@@ -130,11 +131,11 @@ export function NationwideSupportSection() {
                   <span className="text-sm font-bold text-navy-950">{region.name}</span>
                   {region.highlight && (
                     <span className="ml-auto text-[9px] font-semibold uppercase tracking-wide text-amber-600 bg-amber-50 border border-amber-200 rounded-full px-2 py-0.5">
-                      主要拠点
+                      Key Hub
                     </span>
                   )}
                 </div>
-                <p className="text-[11px] text-neutral-400 mb-2">拠点：{region.hub}</p>
+                <p className="text-[11px] text-neutral-400 mb-2">Hub: {region.hub}</p>
                 <div className="flex flex-wrap gap-1">
                   {region.prefectures.map((pref) => (
                     <span
@@ -157,11 +158,11 @@ export function NationwideSupportSection() {
           >
             <div className="rounded-2xl bg-navy-950 p-8 lg:p-10">
               <h3 className="text-xl font-bold text-white mb-2">
-                地域密着 × 全国ネットワーク
+                Local Expertise × National Network
               </h3>
               <p className="text-sm text-white/60 mb-8 leading-relaxed">
-                各地域の製造業市場を熟知した担当者が、
-                オーダーメイドの人材ソリューションをご提供します。
+                Regional specialists who know the local market deliver
+                bespoke workforce solutions tailored to your exact needs.
               </p>
 
               <ul className="space-y-4">
@@ -178,10 +179,10 @@ export function NationwideSupportSection() {
               </ul>
 
               <div className="mt-8 pt-6 border-t border-white/10">
-                <p className="text-[11px] text-white/30 mb-1">対応エリア数</p>
+                <p className="text-[11px] text-white/30 mb-1">Coverage</p>
                 <p className="text-3xl font-extrabold text-white">
                   47
-                  <span className="text-lg font-semibold text-white/60 ml-1">都道府県</span>
+                  <span className="text-lg font-semibold text-white/60 ml-1">prefectures</span>
                 </p>
               </div>
             </div>

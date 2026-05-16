@@ -34,7 +34,7 @@ async function send(opts: {
 export async function sendContactConfirmation(to: string, name: string): Promise<void> {
   await send({
     to,
-    subject: "【MakeCareer】お問い合わせを受け付けました",
+    subject: "[MakeCareer] We've received your enquiry",
     html: contactConfirmationHtml(name),
   });
 }
@@ -49,7 +49,7 @@ export async function sendContactNotification(data: {
 }): Promise<void> {
   await send({
     to: ADMIN_EMAIL,
-    subject: `【MakeCareer】お問い合わせ: ${data.name}様`,
+    subject: `[MakeCareer] New enquiry from ${data.name}`,
     html: contactNotificationHtml(data),
   });
 }
@@ -61,7 +61,7 @@ export async function sendDownloadConfirmation(
 ): Promise<void> {
   await send({
     to,
-    subject: "【MakeCareer】資料のご案内",
+    subject: "[MakeCareer] Your free resource is ready",
     html: downloadConfirmationHtml(name, resourceTitle),
   });
 }
@@ -73,7 +73,7 @@ export async function sendDownloadNotification(data: {
 }): Promise<void> {
   await send({
     to: ADMIN_EMAIL,
-    subject: `【MakeCareer】資料ダウンロード: ${data.resourceSlug}`,
+    subject: `[MakeCareer] Download request: ${data.resourceSlug}`,
     html: downloadNotificationHtml(data),
   });
 }
@@ -89,7 +89,7 @@ export async function sendSeminarConfirmation(data: {
 }): Promise<void> {
   await send({
     to: data.to,
-    subject: `【MakeCareer】セミナーお申し込み確認: ${data.eventName}`,
+    subject: `[MakeCareer] Seminar registration confirmed: ${data.eventName}`,
     html: seminarConfirmationHtml(data),
   });
 }
@@ -104,7 +104,7 @@ export async function sendSeminarNotification(data: {
 }): Promise<void> {
   await send({
     to: ADMIN_EMAIL,
-    subject: `【MakeCareer】セミナー申し込み: ${data.eventName}`,
+    subject: `[MakeCareer] New seminar registration: ${data.eventName}`,
     html: seminarNotificationHtml(data),
   });
 }

@@ -15,25 +15,25 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://makecareer.jp";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "MakeCareer | 製造業専門 人材派遣・採用支援",
+    default: "MakeCareer | Manufacturing Staffing Specialist",
     template: "%s | MakeCareer",
   },
   description:
-    "MakeCareerは製造業に特化した人材派遣・請負・外国人材支援の専門会社です。全国47都道府県対応、年間稼働スタッフ3,000名以上。採用課題を一緒に解決します。",
+    "MakeCareer is Japan's dedicated manufacturing staffing partner. Dispatch, factory outsourcing, and skilled worker support. Nationwide coverage with 5,000+ registered staff.",
   keywords: [
-    "製造業 人材派遣",
-    "工場 人材",
-    "特定技能",
-    "外国人材",
-    "工場請負",
+    "manufacturing staffing Japan",
+    "factory workers Japan",
+    "specified skills visa",
+    "foreign workers Japan",
+    "factory outsourcing",
     "MakeCareer",
-    "メイクキャリア",
-    "愛知 製造業 求人",
+    "manufacturing recruitment Nagoya",
+    "Aichi manufacturing jobs",
   ],
   openGraph: {
     type: "website",
-    locale: "ja_JP",
-    alternateLocale: "en_US",
+    locale: "en_US",
+    alternateLocale: "ja_JP",
     siteName: "MakeCareer",
     url: siteUrl,
     images: [{ url: `${siteUrl}/images/og/og-default.png`, width: 1200, height: 630 }],
@@ -54,7 +54,7 @@ export default function RootLayout({
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
   return (
-    <html lang="ja" className={`${inter.variable} h-full`} data-scroll-behavior="smooth">
+    <html lang="en" className={`${inter.variable} h-full`} data-scroll-behavior="smooth">
       <head>
         <Script
           id="json-ld-org"
@@ -78,7 +78,7 @@ export default function RootLayout({
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:rounded-lg focus:bg-navy-950 focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-white focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2"
         >
-          メインコンテンツへスキップ
+          Skip to main content
         </a>
         {gtmId && (
           <noscript>

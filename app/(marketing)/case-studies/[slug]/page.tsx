@@ -20,7 +20,7 @@ export async function generateMetadata({
   const cs = getCaseStudyBySlug(slug);
   if (!cs) return {};
   return generatePageMetadata({
-    title: `${cs.industry} 導入事例 | MakeCareer`,
+    title: `${cs.industry} Case Study | MakeCareer`,
     description: cs.challenge,
     path: `/case-studies/${slug}`,
   });
@@ -41,10 +41,10 @@ export default async function CaseStudyDetailPage({
     <>
       <PageHero
         eyebrow="Case Study"
-        titleJa={`${cs.industry}様の導入事例`}
+        titleJa={`${cs.industry} — Case Study`}
         descriptionJa={cs.companyProfile}
         crumbs={[
-          { label: "導入事例", href: "/case-studies" },
+          { label: "Case Studies", href: "/case-studies" },
           { label: cs.industry },
         ]}
       />
@@ -72,10 +72,10 @@ export default async function CaseStudyDetailPage({
               {/* Challenge */}
               <div>
                 <h2 className="text-xs font-bold uppercase tracking-widest text-amber-500 mb-3">
-                  課題 / Challenge
+                  Challenge
                 </h2>
                 <h3 className="text-xl font-bold text-navy-950 mb-4">
-                  どんな問題を抱えていましたか？
+                  What was the problem?
                 </h3>
                 <p className="text-neutral-700 leading-relaxed">{cs.fullChallenge}</p>
               </div>
@@ -85,10 +85,10 @@ export default async function CaseStudyDetailPage({
               {/* Solution */}
               <div>
                 <h2 className="text-xs font-bold uppercase tracking-widest text-amber-500 mb-3">
-                  解決策 / Solution
+                  Solution
                 </h2>
                 <h3 className="text-xl font-bold text-navy-950 mb-4">
-                  MakeCareerはどう対応しましたか？
+                  How did MakeCareer respond?
                 </h3>
                 <p className="text-neutral-700 leading-relaxed">{cs.fullSolution}</p>
               </div>
@@ -119,7 +119,7 @@ export default async function CaseStudyDetailPage({
               <div className="sticky top-28 rounded-2xl bg-navy-950 p-7">
                 <div className="flex items-center gap-2 mb-6">
                   <TrendingUp size={18} className="text-amber-400" aria-hidden="true" />
-                  <h2 className="text-sm font-bold text-white">主な成果</h2>
+                  <h2 className="text-sm font-bold text-white">Key Results</h2>
                 </div>
                 <ul className="space-y-4">
                   {cs.results.map((result) => (
@@ -135,7 +135,7 @@ export default async function CaseStudyDetailPage({
                     href={{ pathname: "/contact" }}
                     className="flex items-center justify-center gap-2 w-full rounded-lg bg-amber-500 px-5 py-3 text-sm font-bold text-white hover:bg-amber-600 transition-colors"
                   >
-                    同様の課題を相談する
+                    Discuss a Similar Challenge
                     <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />
                   </Link>
                 </div>
@@ -150,7 +150,7 @@ export default async function CaseStudyDetailPage({
         <section aria-labelledby="related-cases-heading" className="bg-neutral-50 section-padding">
           <div className="content-max px-4 sm:px-6 lg:px-8">
             <h2 id="related-cases-heading" className="text-xl font-extrabold text-navy-950 mb-8">
-              他の導入事例
+              More Case Studies
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {related.map((rel) => (
@@ -177,11 +177,11 @@ export default async function CaseStudyDetailPage({
       )}
 
       <CtaBanner
-        titleJa="貴社でも同様の課題を解決しませんか？"
-        descriptionJa="まずは無料のご相談から。専任担当者が現状をヒアリングし、最適なプランをご提案します。"
-        primaryLabel="無料で相談する"
+        titleJa="Could we solve a similar challenge for your business?"
+        descriptionJa="Start with a free consultation. Our dedicated team will assess your situation and recommend the best solution."
+        primaryLabel="Free Consultation"
         primaryHref="/contact"
-        secondaryLabel="事例一覧に戻る"
+        secondaryLabel="Back to Case Studies"
         secondaryHref="/case-studies"
         variant="navy"
       />

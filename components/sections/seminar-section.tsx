@@ -14,7 +14,7 @@ interface Seminar {
   dateIso: string;
   time: string;
   titleJa: string;
-  format: "オンライン" | "会場" | "ハイブリッド";
+  format: "Online" | "In-Person" | "Hybrid";
   location: string;
   targetJa: string;
   spotsTotal: number;
@@ -24,46 +24,46 @@ interface Seminar {
 const SEMINARS: Seminar[] = [
   {
     slug: "2025-06-haken-basics",
-    date: "2025年6月5日（木）",
+    date: "Thursday, 5 June 2025",
     dateIso: "2025-06-05",
-    time: "14:00〜15:30",
-    titleJa: "【無料セミナー】製造業の人材派遣 基礎と活用法",
-    format: "オンライン",
-    location: "Zoom開催",
-    targetJa: "製造業の採用・人事担当者様",
+    time: "14:00–15:30",
+    titleJa: "【Free Seminar】Manufacturing Staffing: Fundamentals & Best Practices",
+    format: "Online",
+    location: "Zoom",
+    targetJa: "HR & recruitment managers in manufacturing",
     spotsTotal: 30,
     spotsLeft: 12,
   },
   {
     slug: "2025-06-ginoujisshu-guide",
-    date: "2025年6月18日（水）",
+    date: "Wednesday, 18 June 2025",
     dateIso: "2025-06-18",
-    time: "13:00〜14:30",
-    titleJa: "特定技能・技能実習 受け入れ完全ガイド",
-    format: "ハイブリッド",
-    location: "名古屋本社 + Zoom",
-    targetJa: "外国人材受け入れを検討中の企業様",
+    time: "13:00–14:30",
+    titleJa: "Complete Guide to Accepting Specified Skills & Technical Intern Workers",
+    format: "Hybrid",
+    location: "Nagoya HQ + Zoom",
+    targetJa: "Companies considering foreign worker placement",
     spotsTotal: 20,
     spotsLeft: 5,
   },
   {
     slug: "2025-07-ukeoi-cost",
-    date: "2025年7月10日（木）",
+    date: "Thursday, 10 July 2025",
     dateIso: "2025-07-10",
-    time: "15:00〜16:30",
-    titleJa: "工場請負でコスト最適化 ― 成功事例から学ぶ",
-    format: "会場",
-    location: "大阪ビジネスパーク セミナールーム",
-    targetJa: "製造ライン効率化を検討中の生産管理・工場長様",
+    time: "15:00–16:30",
+    titleJa: "Cut Costs with Factory Outsourcing — Lessons from Real Success Cases",
+    format: "In-Person",
+    location: "Osaka Business Park — Seminar Room",
+    targetJa: "Production managers & plant managers looking to optimise line efficiency",
     spotsTotal: 25,
     spotsLeft: 18,
   },
 ];
 
 const FORMAT_COLORS: Record<Seminar["format"], string> = {
-  オンライン: "bg-emerald-50 text-emerald-700 border-emerald-200",
-  会場: "bg-navy-50 text-navy-700 border-navy-200",
-  ハイブリッド: "bg-amber-50 text-amber-700 border-amber-200",
+  Online: "bg-emerald-50 text-emerald-700 border-emerald-200",
+  "In-Person": "bg-navy-50 text-navy-700 border-navy-200",
+  Hybrid: "bg-amber-50 text-amber-700 border-amber-200",
 };
 
 function SpotsBar({ total, left }: { total: number; left: number }) {
@@ -73,16 +73,16 @@ function SpotsBar({ total, left }: { total: number; left: number }) {
   return (
     <div>
       <div className="flex items-center justify-between mb-1">
-        <span className="text-[10px] text-neutral-500">残席</span>
+        <span className="text-[10px] text-neutral-500">Seats left</span>
         <span className={`text-[10px] font-semibold ${isCritical ? "text-red-500" : "text-neutral-600"}`}>
-          {left}名
+          {left}
         </span>
       </div>
       <div className="h-1.5 w-full rounded-full bg-neutral-200 overflow-hidden">
         <div
           className={`h-full rounded-full transition-all ${isCritical ? "bg-red-400" : "bg-amber-400"}`}
           style={{ width: `${pct}%` }}
-          aria-label={`残席 ${left}名 / ${total}名`}
+          aria-label={`${left} of ${total} seats remaining`}
         />
       </div>
     </div>
@@ -122,10 +122,10 @@ export function SeminarSection() {
               variants={item}
               className="text-3xl sm:text-4xl font-extrabold text-navy-950 tracking-tight"
             >
-              セミナー・説明会
+              Upcoming Seminars &amp; Events
             </motion.h2>
             <motion.p variants={item} className="mt-3 text-neutral-600 text-sm leading-relaxed">
-              採用・人材活用に役立つ無料セミナーを定期開催しています。
+              Free seminars on hiring and workforce management — held regularly.
             </motion.p>
           </div>
           <motion.div variants={item} className="mt-6 sm:mt-0 shrink-0">
@@ -133,7 +133,7 @@ export function SeminarSection() {
               href={{ pathname: "/seminars" }}
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy-600 hover:text-navy-800 transition-colors"
             >
-              すべて見る
+              View all
               <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />
             </Link>
           </motion.div>
@@ -194,7 +194,7 @@ export function SeminarSection() {
                 href={{ pathname: `/seminars/${seminar.slug}` }}
                 className="inline-flex items-center justify-center gap-2 rounded-lg bg-navy-950 px-4 py-2.5 text-sm font-semibold text-white hover:bg-navy-800 transition-colors"
               >
-                参加申し込み
+                Register Now
                 <ArrowRight size={13} strokeWidth={2} aria-hidden="true" />
               </Link>
             </motion.div>

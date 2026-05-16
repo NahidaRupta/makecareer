@@ -3,7 +3,7 @@ interface LoadingSpinnerProps {
   label?: string;
 }
 
-export function LoadingSpinner({ size = 24, label = "読み込み中..." }: LoadingSpinnerProps) {
+export function LoadingSpinner({ size = 24, label = "Loading..." }: LoadingSpinnerProps) {
   return (
     <div role="status" className="flex flex-col items-center justify-center gap-3 py-12">
       <svg

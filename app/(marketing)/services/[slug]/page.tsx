@@ -58,7 +58,7 @@ export default async function ServiceDetailPage({
         titleEn={service.taglineJa}
         descriptionJa={service.longDescriptionJa}
         crumbs={[
-          { label: "サービス一覧", href: "/services" },
+          { label: "Services", href: "/services" },
           { label: service.titleJa },
         ]}
       />
@@ -74,7 +74,7 @@ export default async function ServiceDetailPage({
                   <Icon size={22} strokeWidth={1.5} className="text-amber-400" aria-hidden="true" />
                 </div>
                 <h2 id="features-heading" className="text-xl font-extrabold text-navy-950">
-                  サービスの特徴
+                  Service Features
                 </h2>
               </div>
               <ul className="space-y-4">
@@ -94,7 +94,7 @@ export default async function ServiceDetailPage({
                   <Building2 size={22} strokeWidth={1.5} className="text-amber-600" aria-hidden="true" />
                 </div>
                 <h2 className="text-xl font-extrabold text-navy-950">
-                  こんな企業様におすすめ
+                  Best Suited For
                 </h2>
               </div>
               <ul className="space-y-3">
@@ -119,7 +119,7 @@ export default async function ServiceDetailPage({
       <section aria-labelledby="process-heading" className="bg-neutral-50 section-padding">
         <div className="content-max px-4 sm:px-6 lg:px-8">
           <h2 id="process-heading" className="text-2xl font-extrabold text-navy-950 mb-10">
-            ご利用の流れ
+            How It Works
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
             <div
@@ -147,7 +147,7 @@ export default async function ServiceDetailPage({
       <section aria-labelledby="faq-heading" className="bg-white section-padding">
         <div className="content-max px-4 sm:px-6 lg:px-8 max-w-3xl">
           <h2 id="faq-heading" className="text-2xl font-extrabold text-navy-950 mb-8">
-            よくあるご質問
+            Frequently Asked Questions
           </h2>
           <Accordion items={service.faq} />
         </div>
@@ -158,7 +158,7 @@ export default async function ServiceDetailPage({
         <section aria-labelledby="related-heading" className="bg-neutral-50 section-padding">
           <div className="content-max px-4 sm:px-6 lg:px-8">
             <h2 id="related-heading" className="text-xl font-extrabold text-navy-950 mb-8">
-              関連サービス
+              Related Services
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {related.map((rel) => {
@@ -186,11 +186,11 @@ export default async function ServiceDetailPage({
       )}
 
       <CtaBanner
-        titleJa={`${service.titleJa}のご相談はこちら`}
-        descriptionJa="専任担当者が丁寧にヒアリングし、貴社に最適な人材プランをご提案します。まずはお気軽にどうぞ。"
-        primaryLabel="無料で相談する"
+        titleJa={`Ready to get started with ${service.titleJa}?`}
+        descriptionJa="Our dedicated team will listen carefully and recommend the staffing plan that fits your business."
+        primaryLabel="Free Consultation"
         primaryHref="/contact"
-        secondaryLabel="サービス一覧に戻る"
+        secondaryLabel="Back to Services"
         secondaryHref="/services"
         variant="navy"
       />

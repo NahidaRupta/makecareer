@@ -19,26 +19,26 @@ const STEPS: Step[] = [
   {
     number: "01",
     icon: UserPlus,
-    titleJa: "無料登録・ご相談",
+    titleJa: "Free Registration",
     titleEn: "Free Registration",
     descriptionJa:
-      "お電話・Web・来社いずれかの方法で、まずはお気軽にご相談ください。登録は無料、3分で完了します。",
+      "Register by phone, online, or in person — it takes just 3 minutes and is completely free.",
   },
   {
     number: "02",
     icon: MessageSquare,
-    titleJa: "担当者との面談",
+    titleJa: "Consultation & Matching",
     titleEn: "Consultation & Matching",
     descriptionJa:
-      "専任の担当者がご希望の職種・勤務地・待遇などを詳しくお聞きし、最適な求人をご提案します。",
+      "A dedicated coordinator takes the time to understand your preferred role, location, and conditions, then suggests the best-fit jobs.",
   },
   {
     number: "03",
     icon: Briefcase,
-    titleJa: "お仕事スタート",
+    titleJa: "Start Working",
     titleEn: "Start Working",
     descriptionJa:
-      "就業開始後も担当者が定期的にフォロー。安心して長く働ける環境づくりをサポートします。",
+      "After you start, your coordinator checks in regularly to make sure you are settled and thriving in your new role.",
   },
 ];
 
@@ -74,15 +74,15 @@ export function ProcessSection() {
             variants={item}
             className="text-3xl sm:text-4xl font-extrabold text-navy-950 tracking-tight"
           >
-            3ステップで仕事が決まる
+            Get Started in 3 Simple Steps
           </motion.h2>
           <motion.p
             variants={item}
             className="mt-4 text-neutral-600 leading-relaxed"
           >
-            MakeCareerなら、登録からお仕事開始まで最短3日。
+            With MakeCareer, you can go from registration to your first day in as little as 3 days.
             <br className="hidden sm:block" />
-            担当者がしっかりサポートするので、初めての方も安心です。
+            Your dedicated coordinator is with you every step of the way.
           </motion.p>
         </motion.div>
 
@@ -126,12 +126,9 @@ export function ProcessSection() {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-lg font-bold text-navy-950 mb-1">
-                  {step.titleJa}
-                </h3>
-                <p className="text-xs font-medium text-neutral-400 mb-3">
+                <h3 className="text-lg font-bold text-navy-950 mb-3">
                   {step.titleEn}
-                </p>
+                </h3>
                 <p className="text-sm text-neutral-600 leading-relaxed max-w-xs">
                   {step.descriptionJa}
                 </p>

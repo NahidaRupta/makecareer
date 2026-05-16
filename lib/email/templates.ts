@@ -2,7 +2,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://makecareer.jp";
 
 function layout(body: string): string {
   return `<!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -32,9 +32,9 @@ function layout(body: string): string {
   </div>
   <div class="content">${body}</div>
   <div class="footer">
-    <p>株式会社MakeCareer | 愛知県名古屋市中村区名駅四丁目1-1</p>
-    <p>このメールは自動送信されています。返信はお受けできません。</p>
-    <p>お問い合わせは <a href="${BASE_URL}/contact" style="color:#2b5bb8;">${BASE_URL}/contact</a> よりお願いします。</p>
+    <p>MakeCareer Co., Ltd. | 4-1-1 Meieki, Nakamura-ku, Nagoya, Aichi 450-0002</p>
+    <p>This email was sent automatically. Please do not reply directly to this message.</p>
+    <p>For enquiries, please visit <a href="${BASE_URL}/contact" style="color:#2b5bb8;">${BASE_URL}/contact</a></p>
   </div>
 </div>
 </body>
@@ -43,16 +43,16 @@ function layout(body: string): string {
 
 export function contactConfirmationHtml(name: string): string {
   return layout(`
-    <h1>${name} 様</h1>
-    <p>この度はMakeCareerへお問い合わせいただき、誠にありがとうございます。</p>
-    <p>担当コンサルタントより、<strong>1営業日以内</strong>にご連絡いたします。しばらくお待ちください。</p>
+    <h1>Dear ${name},</h1>
+    <p>Thank you for contacting MakeCareer. We have received your enquiry.</p>
+    <p>A dedicated consultant will be in touch with you <strong>within one business day</strong>.</p>
     <hr class="divider" />
-    <p>お急ぎの場合は、下記のフリーダイヤルまでお電話ください。</p>
+    <p>If your matter is urgent, please call us on the number below.</p>
     <div class="box">
-      <p class="box-label">フリーダイヤル</p>
-      <p class="box-value">0120-000-000（平日 9:00〜18:00）</p>
+      <p class="box-label">Free Phone</p>
+      <p class="box-value">0120-000-000 (Mon–Fri, 9:00–18:00)</p>
     </div>
-    <a class="btn" href="${BASE_URL}/faq">よくあるご質問を見る</a>
+    <a class="btn" href="${BASE_URL}/faq">Browse our FAQ</a>
   `);
 }
 
@@ -65,36 +65,36 @@ export function contactNotificationHtml(data: {
   message: string;
 }): string {
   return layout(`
-    <h1>新しいお問い合わせが届きました</h1>
+    <h1>New enquiry received</h1>
     <div class="box">
-      <p class="box-label">お名前</p><p class="box-value">${data.name}</p>
+      <p class="box-label">Name</p><p class="box-value">${data.name}</p>
     </div>
-    ${data.company ? `<div class="box"><p class="box-label">会社名</p><p class="box-value">${data.company}</p></div>` : ""}
+    ${data.company ? `<div class="box"><p class="box-label">Company</p><p class="box-value">${data.company}</p></div>` : ""}
     <div class="box">
-      <p class="box-label">メールアドレス</p><p class="box-value">${data.email}</p>
+      <p class="box-label">Email</p><p class="box-value">${data.email}</p>
     </div>
-    ${data.phone ? `<div class="box"><p class="box-label">電話番号</p><p class="box-value">${data.phone}</p></div>` : ""}
-    ${data.serviceInterest ? `<div class="box"><p class="box-label">ご興味のあるサービス</p><p class="box-value">${data.serviceInterest}</p></div>` : ""}
+    ${data.phone ? `<div class="box"><p class="box-label">Phone</p><p class="box-value">${data.phone}</p></div>` : ""}
+    ${data.serviceInterest ? `<div class="box"><p class="box-label">Service of Interest</p><p class="box-value">${data.serviceInterest}</p></div>` : ""}
     <div class="box">
-      <p class="box-label">お問い合わせ内容</p>
+      <p class="box-label">Message</p>
       <p class="box-value" style="white-space:pre-wrap;">${data.message}</p>
     </div>
-    <a class="btn" href="mailto:${data.email}">返信する</a>
+    <a class="btn" href="mailto:${data.email}">Reply</a>
   `);
 }
 
 export function downloadConfirmationHtml(name: string, resourceTitle: string): string {
   return layout(`
-    <h1>${name} 様</h1>
-    <p>この度は資料をご請求いただき、ありがとうございます。</p>
+    <h1>Dear ${name},</h1>
+    <p>Thank you for requesting a resource from MakeCareer.</p>
     <div class="box">
-      <p class="box-label">ご請求資料</p>
+      <p class="box-label">Requested Resource</p>
       <p class="box-value">${resourceTitle}</p>
     </div>
-    <p>資料は下記のボタンよりダウンロードいただけます。リンクの有効期限は7日間です。</p>
-    <a class="btn" href="${BASE_URL}/downloads">資料をダウンロードする</a>
+    <p>Click the button below to download your resource. The link is valid for 7 days.</p>
+    <a class="btn" href="${BASE_URL}/downloads">Download Now</a>
     <hr class="divider" />
-    <p>他にもお役立ち資料を多数ご用意しております。ぜひご活用ください。</p>
+    <p>We have many more free guides available — explore them all on our downloads page.</p>
   `);
 }
 
@@ -104,15 +104,15 @@ export function downloadNotificationHtml(data: {
   resourceSlug: string;
 }): string {
   return layout(`
-    <h1>新しいダウンロードリクエスト</h1>
+    <h1>New download request</h1>
     <div class="box">
-      <p class="box-label">お名前</p><p class="box-value">${data.name}</p>
+      <p class="box-label">Name</p><p class="box-value">${data.name}</p>
     </div>
     <div class="box">
-      <p class="box-label">メールアドレス</p><p class="box-value">${data.email}</p>
+      <p class="box-label">Email</p><p class="box-value">${data.email}</p>
     </div>
     <div class="box">
-      <p class="box-label">資料スラッグ</p><p class="box-value">${data.resourceSlug}</p>
+      <p class="box-label">Resource</p><p class="box-value">${data.resourceSlug}</p>
     </div>
   `);
 }
@@ -126,24 +126,24 @@ export function seminarConfirmationHtml(data: {
   eventLocation: string;
 }): string {
   return layout(`
-    <h1>${data.name} 様</h1>
-    <p>この度はMakeCareerセミナーへのお申し込みありがとうございます。以下の内容で受け付けました。</p>
+    <h1>Dear ${data.name},</h1>
+    <p>Thank you for registering for a MakeCareer seminar. Your place has been confirmed.</p>
     <div class="box">
-      <p class="box-label">セミナー名</p><p class="box-value">${data.eventName}</p>
+      <p class="box-label">Seminar</p><p class="box-value">${data.eventName}</p>
     </div>
     <div class="box">
-      <p class="box-label">開催日時</p><p class="box-value">${data.eventDate} ${data.eventTime}</p>
+      <p class="box-label">Date &amp; Time</p><p class="box-value">${data.eventDate} ${data.eventTime}</p>
     </div>
     <div class="box">
-      <p class="box-label">形式</p><p class="box-value">${data.eventFormat}</p>
+      <p class="box-label">Format</p><p class="box-value">${data.eventFormat}</p>
     </div>
     <div class="box">
-      <p class="box-label">会場・接続先</p><p class="box-value">${data.eventLocation}</p>
+      <p class="box-label">Location / Access</p><p class="box-value">${data.eventLocation}</p>
     </div>
-    <p>オンライン開催の場合、開催前日までにZoom接続URLをお送りします。</p>
+    <p>For online sessions, we will send you the Zoom link before the start date.</p>
     <hr class="divider" />
-    <p>ご不明な点は下記よりお問い合わせください。</p>
-    <a class="btn" href="${BASE_URL}/contact">お問い合わせ</a>
+    <p>If you have any questions, please don't hesitate to get in touch.</p>
+    <a class="btn" href="${BASE_URL}/contact">Contact Us</a>
   `);
 }
 
@@ -156,17 +156,17 @@ export function seminarNotificationHtml(data: {
   eventSlug: string;
 }): string {
   return layout(`
-    <h1>新しいセミナー申し込みが届きました</h1>
+    <h1>New seminar registration</h1>
     <div class="box">
-      <p class="box-label">セミナー</p><p class="box-value">${data.eventName}</p>
+      <p class="box-label">Seminar</p><p class="box-value">${data.eventName}</p>
     </div>
     <div class="box">
-      <p class="box-label">お名前</p><p class="box-value">${data.name}</p>
+      <p class="box-label">Name</p><p class="box-value">${data.name}</p>
     </div>
     <div class="box">
-      <p class="box-label">メールアドレス</p><p class="box-value">${data.email}</p>
+      <p class="box-label">Email</p><p class="box-value">${data.email}</p>
     </div>
-    ${data.company ? `<div class="box"><p class="box-label">会社名</p><p class="box-value">${data.company}</p></div>` : ""}
-    ${data.phone ? `<div class="box"><p class="box-label">電話番号</p><p class="box-value">${data.phone}</p></div>` : ""}
+    ${data.company ? `<div class="box"><p class="box-label">Company</p><p class="box-value">${data.company}</p></div>` : ""}
+    ${data.phone ? `<div class="box"><p class="box-label">Phone</p><p class="box-value">${data.phone}</p></div>` : ""}
   `);
 }

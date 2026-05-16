@@ -21,38 +21,38 @@ const DOWNLOADS: Download[] = [
   {
     slug: "service-brochure",
     icon: BookOpen,
-    titleJa: "MakeCareer サービス総合パンフレット",
+    titleJa: "MakeCareer Complete Service Brochure",
     descriptionJa:
-      "人材派遣・工場請負・特定技能など全サービスの概要、料金の目安、対応エリアをまとめた資料です。",
-    pages: "全12ページ",
-    category: "サービス概要",
+      "An overview of all services — staffing, outsourcing, Specified Skills — including pricing guidance and coverage areas.",
+    pages: "12 pages",
+    category: "Services",
   },
   {
     slug: "hiring-guide",
     icon: ClipboardList,
-    titleJa: "製造業 人材採用完全ガイド",
+    titleJa: "The Complete Manufacturing Hiring Guide",
     descriptionJa:
-      "即戦力人材の確保から定着率向上まで、製造業の採用担当者が押さえるべきポイントを解説します。",
-    pages: "全20ページ",
-    category: "採用ガイド",
+      "Key strategies for securing job-ready talent and improving retention rates — essential reading for manufacturing HR teams.",
+    pages: "20 pages",
+    category: "Hiring Guide",
   },
   {
     slug: "specified-skills-guide",
     icon: Globe,
-    titleJa: "特定技能・技能実習 受け入れ手引き",
+    titleJa: "Specified Skills & Technical Intern Acceptance Handbook",
     descriptionJa:
-      "外国人材の受け入れに必要な手続き・費用・注意点を、ステップ別にわかりやすくまとめました。",
-    pages: "全16ページ",
-    category: "外国人材",
+      "A step-by-step breakdown of the procedures, costs, and requirements for accepting foreign workers in Japan.",
+    pages: "16 pages",
+    category: "Foreign Workers",
   },
   {
     slug: "dispatch-cost-calculator",
     icon: FileDown,
-    titleJa: "人材派遣コスト試算シート（Excel）",
+    titleJa: "Staffing Cost Calculator (Excel)",
     descriptionJa:
-      "派遣スタッフ活用時の総コスト・直接雇用との比較を簡単に試算できるExcelシートです。",
-    pages: "Excel形式",
-    category: "ツール",
+      "Easily estimate the total cost of dispatch staffing and compare it against direct employment with this Excel tool.",
+    pages: "Excel file",
+    category: "Tools",
   },
 ];
 
@@ -88,12 +88,12 @@ export function DownloadsSection() {
             variants={item}
             className="text-3xl sm:text-4xl font-extrabold text-navy-950 tracking-tight"
           >
-            無料資料ダウンロード
+            Free Resource Downloads
           </motion.h2>
           <motion.p variants={item} className="mt-4 text-neutral-600 leading-relaxed">
-            採用・人材活用に役立つ資料を無料でご提供しています。
+            Practical guides and tools to help you hire smarter and manage your workforce better.
             <br className="hidden sm:block" />
-            メールアドレスのご登録で、すぐにダウンロードいただけます。
+            Enter your email and download instantly.
           </motion.p>
         </motion.div>
 
@@ -127,7 +127,6 @@ export function DownloadsSection() {
                   {dl.titleJa}
                 </h3>
 
-                {/* Description */}
                 <p className="text-xs text-neutral-500 leading-relaxed mb-4">
                   {dl.descriptionJa}
                 </p>
@@ -141,7 +140,7 @@ export function DownloadsSection() {
                   className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-navy-200 px-4 py-2.5 text-xs font-semibold text-navy-600 hover:bg-navy-50 hover:border-navy-300 transition-colors"
                 >
                   <FileDown size={13} strokeWidth={2} aria-hidden="true" />
-                  無料でダウンロード
+                  Free Download
                 </Link>
               </motion.div>
             );
@@ -158,7 +157,7 @@ export function DownloadsSection() {
             href={{ pathname: "/downloads" }}
             className="inline-flex items-center gap-2 text-sm font-semibold text-navy-600 hover:text-navy-800 transition-colors"
           >
-            すべての資料を見る
+            View all resources
             <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />
           </Link>
         </motion.div>

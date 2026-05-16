@@ -8,7 +8,7 @@ import { useInView } from "@/lib/hooks/use-in-view";
 import { useReducedMotion } from "@/lib/hooks/use-reduced-motion";
 import { safeVariant, staggerContainer, fadeInUp } from "@/lib/motion/variants";
 
-type NewsCategory = "お知らせ" | "採用情報" | "イベント" | "プレスリリース";
+type NewsCategory = "Announcement" | "Jobs" | "Event" | "Press Release";
 
 interface NewsItem {
   slug: string;
@@ -19,47 +19,47 @@ interface NewsItem {
 }
 
 const CATEGORY_COLORS: Record<NewsCategory, string> = {
-  お知らせ: "bg-navy-100 text-navy-700",
-  採用情報: "bg-amber-100 text-amber-700",
-  イベント: "bg-emerald-100 text-emerald-700",
-  プレスリリース: "bg-neutral-100 text-neutral-600",
+  Announcement: "bg-navy-100 text-navy-700",
+  Jobs: "bg-amber-100 text-amber-700",
+  Event: "bg-emerald-100 text-emerald-700",
+  "Press Release": "bg-neutral-100 text-neutral-600",
 };
 
 const NEWS_ITEMS: NewsItem[] = [
   {
     slug: "2025-spring-fair",
-    date: "2025年5月10日",
+    date: "10 May 2025",
     dateIso: "2025-05-10",
-    category: "イベント",
-    titleJa: "【5月開催】愛知県 製造業合同就職フェアに出展します",
+    category: "Event",
+    titleJa: "[May] We are exhibiting at the Aichi Manufacturing Joint Job Fair",
   },
   {
     slug: "new-office-nagoya",
-    date: "2025年4月28日",
+    date: "28 April 2025",
     dateIso: "2025-04-28",
-    category: "お知らせ",
-    titleJa: "名古屋オフィスを移転しました。新住所はこちらをご確認ください。",
+    category: "Announcement",
+    titleJa: "Our Nagoya office has relocated. Please see our new address here.",
   },
   {
     slug: "staff-5000",
-    date: "2025年4月15日",
+    date: "15 April 2025",
     dateIso: "2025-04-15",
-    category: "プレスリリース",
-    titleJa: "登録スタッフ数が5,000名を突破しました",
+    category: "Press Release",
+    titleJa: "Registered staff count surpasses 5,000",
   },
   {
     slug: "toyota-area-jobs",
-    date: "2025年4月1日",
+    date: "1 April 2025",
     dateIso: "2025-04-01",
-    category: "採用情報",
-    titleJa: "トヨタ関連工場・豊田市エリアの新着求人を多数掲載中",
+    category: "Jobs",
+    titleJa: "New jobs now listed for Toyota-affiliated factories in the Toyota City area",
   },
   {
     slug: "gw-hours",
-    date: "2025年3月25日",
+    date: "25 March 2025",
     dateIso: "2025-03-25",
-    category: "お知らせ",
-    titleJa: "ゴールデンウィーク期間中の営業時間についてのご案内",
+    category: "Announcement",
+    titleJa: "Notice regarding office hours during Golden Week",
   },
 ];
 
@@ -92,18 +92,18 @@ export function NewsSection() {
               id="news-heading"
               className="text-3xl sm:text-4xl font-extrabold text-navy-950 tracking-tight"
             >
-              お知らせ
+              Latest News
             </h2>
             <p className="mt-4 text-sm text-neutral-500 leading-relaxed">
-              MakeCareerの最新情報・
+              Stay up to date with the latest
               <br />
-              イベント情報をお届けします。
+              announcements and events from MakeCareer.
             </p>
             <Link
               href={{ pathname: "/news" }}
               className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-navy-600 hover:text-navy-800 transition-colors"
             >
-              すべて見る
+              View all
               <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />
             </Link>
           </motion.div>
@@ -112,7 +112,7 @@ export function NewsSection() {
           <motion.ul
             variants={container}
             className="flex-1 divide-y divide-neutral-200"
-            aria-label="ニュース一覧"
+            aria-label="News list"
           >
             {NEWS_ITEMS.map((news) => {
               const colorClass = CATEGORY_COLORS[news.category];

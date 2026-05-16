@@ -23,7 +23,7 @@ export function HeroSection() {
         aria-hidden="true"
         className="absolute inset-0 bg-linear-to-br from-navy-950 via-navy-800 to-navy-700"
       />
-      {/* Factory image overlay — swap src once assets are ready */}
+      {/* Factory image overlay */}
       <div
         aria-hidden="true"
         className="absolute inset-0 bg-[url('/images/hero/hero.png')] bg-cover bg-center opacity-20 mix-blend-luminosity"
@@ -42,17 +42,27 @@ export function HeroSection() {
           animate="visible"
           className="max-w-3xl"
         >
-          
+          {/* Eyebrow badge */}
+          <motion.p
+            variants={item}
+            className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-1.5 text-sm font-medium text-amber-400 mb-6"
+          >
+            <span
+              aria-hidden="true"
+              className="block h-1.5 w-1.5 rounded-full bg-amber-400"
+            />
+            Staffing Solutions for Manufacturing
+          </motion.p>
 
           {/* Headline */}
           <motion.h1
             id="hero-heading"
             variants={item}
-            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-amber-400  leading-[1.1]"
+            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1]"
           >
-            勉強と仕事 -
+            Powering Japan&apos;s Manufacturing
             <br />
-            <span className="text-white">繋がりへの道を切り拓く人事</span>
+            Industry Through <span className="text-amber-400">People</span>.
           </motion.h1>
 
           {/* Sub-headline */}
@@ -60,8 +70,9 @@ export function HeroSection() {
             variants={item}
             className="mt-6 max-w-xl text-lg text-white/70 leading-relaxed"
           >
-            サディアテックは、豊富な実績を背景に、世界最大級の総合人事企業の一つです。お客様に幅広いソリューションを提供しています。
-            
+            MakeCareer is Japan&apos;s dedicated manufacturing staffing partner.
+            <br className="hidden sm:block" />
+            From rapid placements to long-term workforce solutions, we deliver.
           </motion.p>
 
           {/* CTA row */}
@@ -73,14 +84,14 @@ export function HeroSection() {
               href={{ pathname: "/contact" }}
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-amber-500 px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-amber-500/30 transition-all hover:bg-amber-600 hover:shadow-amber-500/40 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
             >
-              無料でご相談する
+              Get a Free Consultation
               <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
             </Link>
             <Link
               href={{ pathname: "/jobs" }}
               className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/10 px-7 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
-              求人を探す
+              Browse Jobs
             </Link>
           </motion.div>
 
@@ -94,10 +105,10 @@ export function HeroSection() {
               className="flex items-center gap-2 text-white/60 hover:text-white/90 transition-colors text-sm"
             >
               <Phone size={14} strokeWidth={1.5} aria-hidden="true" />
-              <span>お電話でのご相談：0120-000-000</span>
+              <span>Call us: 0120-000-000</span>
             </a>
             <span aria-hidden="true" className="h-3.5 w-px bg-white/20" />
-            <span className="text-xs text-white/40">平日 9:00〜18:00</span>
+            <span className="text-xs text-white/40">Mon–Fri, 9:00–18:00</span>
           </motion.div>
         </motion.div>
 
@@ -118,14 +129,14 @@ export function HeroSection() {
                 </div>
                 <div>
                   <p className="text-white font-semibold text-sm">MakeCareer</p>
-                  <p className="text-white/50 text-xs">製造業特化 人材派遣</p>
+                  <p className="text-white/50 text-xs">Manufacturing Staffing Specialist</p>
                 </div>
               </div>
               <div className="space-y-2.5">
                 {[
-                  { label: "登録スタッフ数", value: "5,000名+" },
-                  { label: "取引企業数", value: "200社+" },
-                  { label: "就業継続率", value: "92%" },
+                  { label: "Registered Staff", value: "5,000+" },
+                  { label: "Partner Companies", value: "200+" },
+                  { label: "Retention Rate", value: "92%" },
                 ].map(({ label, value }) => (
                   <div
                     key={label}

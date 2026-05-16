@@ -22,34 +22,34 @@ interface BlogPost {
 const POSTS: BlogPost[] = [
   {
     slug: "dispatch-vs-contract-2025",
-    date: "2025年5月8日",
+    date: "8 May 2025",
     dateIso: "2025-05-08",
-    category: "人材派遣の基礎",
-    titleJa: "派遣と請負の違いを徹底解説 ― 製造業の採用担当者が知っておくべきこと",
+    category: "Staffing Basics",
+    titleJa: "Dispatch vs. Outsourcing: What Every Manufacturing HR Manager Needs to Know",
     excerptJa:
-      "「派遣」と「請負」は似て非なる契約形態です。指揮命令関係・費用構造・法的リスクの観点から、それぞれのメリット・注意点を整理します。",
+      "Dispatch and outsourcing look similar but carry very different legal and cost implications. We break down the key differences in command structure, fees, and liability.",
     readMinutes: 8,
     imageSrc: "/images/blog/dispatch-vs-contract.jpg",
   },
   {
     slug: "specified-skills-2025",
-    date: "2025年4月22日",
+    date: "22 April 2025",
     dateIso: "2025-04-22",
-    category: "外国人材",
-    titleJa: "特定技能2号への移行とは？ 2025年最新情報と製造業での活用ポイント",
+    category: "Foreign Workers",
+    titleJa: "What Is Specified Skills Type 2? 2025 Update & How Manufacturing Benefits",
     excerptJa:
-      "特定技能2号は無期限の在留を可能にする在留資格です。製造業分野での活用メリットと、移行要件・手続きの最新情報をわかりやすく解説します。",
+      "Specified Skills Type 2 allows indefinite residence in Japan. We explain the requirements, application process, and the advantages for the manufacturing sector.",
     readMinutes: 10,
     imageSrc: "/images/blog/specified-skills-2025.jpg",
   },
   {
     slug: "retention-rate-tips",
-    date: "2025年4月10日",
+    date: "10 April 2025",
     dateIso: "2025-04-10",
-    category: "定着率改善",
-    titleJa: "派遣スタッフの定着率を上げる5つの職場環境改善策",
+    category: "Retention",
+    titleJa: "5 Workplace Improvements That Boost Dispatch Staff Retention",
     excerptJa:
-      "定着率向上には配置後のフォローが重要です。入社初日の迎え入れ方から3ヶ月後のヒアリングまで、実践的な施策を5つ紹介します。",
+      "Post-placement follow-up is the key to retention. From day-one onboarding to the 3-month check-in, here are five practical steps that actually work.",
     readMinutes: 6,
     imageSrc: "/images/blog/retention-tips.jpg",
   },
@@ -88,10 +88,10 @@ export function BlogSection() {
               variants={item}
               className="text-3xl sm:text-4xl font-extrabold text-navy-950 tracking-tight"
             >
-              コラム・お役立ち情報
+              Insights &amp; Resources
             </motion.h2>
             <motion.p variants={item} className="mt-3 text-neutral-600 text-sm leading-relaxed">
-              製造業の採用・人材活用に役立つ情報を専門家が解説します。
+              Expert guidance on hiring and workforce management in manufacturing.
             </motion.p>
           </div>
           <motion.div variants={item} className="mt-6 sm:mt-0 shrink-0">
@@ -99,7 +99,7 @@ export function BlogSection() {
               href={{ pathname: "/blog" }}
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy-600 hover:text-navy-800 transition-colors"
             >
-              すべての記事を見る
+              View all articles
               <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />
             </Link>
           </motion.div>
@@ -140,7 +140,7 @@ export function BlogSection() {
                     </span>
                     <div className="flex items-center gap-1 text-[10px] text-neutral-400">
                       <Clock size={10} aria-hidden="true" />
-                      <span>{post.readMinutes}分で読める</span>
+                      <span>{post.readMinutes} min read</span>
                     </div>
                   </div>
 
@@ -157,7 +157,7 @@ export function BlogSection() {
                       {post.date}
                     </time>
                     <span className="flex items-center gap-1 text-xs font-semibold text-navy-500 group-hover:text-navy-700 transition-colors">
-                      続きを読む
+                      Read more
                       <ArrowRight size={12} strokeWidth={2} aria-hidden="true" className="transition-transform group-hover:translate-x-0.5" />
                     </span>
                   </div>

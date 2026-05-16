@@ -10,18 +10,18 @@ import { useReducedMotion } from "@/lib/hooks/use-reduced-motion";
 import { safeVariant, staggerContainer, fadeInUp } from "@/lib/motion/variants";
 
 const JOB_CATEGORIES = [
-  "組立・検査",
-  "溶接・加工",
-  "フォークリフト",
-  "設備メンテナンス",
-  "物流・倉庫",
-  "外国人材（特定技能）",
+  "Assembly & Inspection",
+  "Welding & Machining",
+  "Forklift Operation",
+  "Equipment Maintenance",
+  "Logistics & Warehouse",
+  "Foreign Workers (Specified Skills)",
 ];
 
 const ZIGZAG_IMAGES = [
   {
     src: "/images/services/job.jpg",
-    alt: "製造業派遣の現場",
+    alt: "Manufacturing dispatch workplace",
     fromLeft: true,
     yShift: "mt-0",
     rotate: "-2deg",
@@ -29,7 +29,7 @@ const ZIGZAG_IMAGES = [
   },
   {
     src: "/images/services/service3.png",
-    alt: "工場請負の現場",
+    alt: "Factory outsourcing workplace",
     fromLeft: false,
     yShift: "mt-8",
     rotate: "1.5deg",
@@ -37,7 +37,7 @@ const ZIGZAG_IMAGES = [
   },
   {
     src: "/images/services/job2.jpeg",
-    alt: "特定技能・外国人材支援",
+    alt: "Specified Skills foreign worker support",
     fromLeft: true,
     yShift: "mt-2",
     rotate: "-1deg",
@@ -91,17 +91,17 @@ export function RecruitCtaSection() {
             variants={item}
             className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.15]"
           >
-            製造業・工場の
+            Looking for a Job
             <br />
-            お仕事を探している方へ
+            in Manufacturing?
           </motion.h2>
           <motion.p
             variants={item}
             className="mt-6 text-white/85 leading-relaxed text-lg max-w-xl mx-auto"
           >
-            未経験歓迎・寮完備・日払いOKの求人多数。
+            No experience required · Dormitory available · Daily pay options.
             <br className="hidden sm:block" />
-            あなたの希望条件に合ったお仕事を一緒に探しましょう。
+            Let&apos;s find the right job for you together.
           </motion.p>
 
           {/* Job category pills */}
@@ -130,20 +130,20 @@ export function RecruitCtaSection() {
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-8 py-4 text-base font-bold text-amber-600 shadow-lg shadow-amber-700/20 hover:bg-amber-50 hover:-translate-y-0.5 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
               <Search size={18} strokeWidth={2} aria-hidden="true" />
-              求人を探す
+              Browse Jobs
             </Link>
             <Link
               href={{ pathname: "/contact" }}
               className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-white/50 bg-transparent px-8 py-4 text-base font-bold text-white hover:bg-white/10 hover:-translate-y-0.5 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
               <Phone size={18} strokeWidth={2} aria-hidden="true" />
-              無料で相談する
+              Free Consultation
             </Link>
           </motion.div>
 
           {/* Trust note */}
           <motion.p variants={item} className="mt-8 text-sm text-white/60">
-            登録無料・面談オンラインOK・希望条件に合わない場合はご紹介しません
+            Free registration · Online interviews available · We only suggest roles that fit your needs
           </motion.p>
         </motion.div>
 
@@ -209,17 +209,17 @@ export function RecruitCtaSection() {
               For Companies
             </p>
             <h3 className="text-lg font-bold text-white">
-              採用・人材確保のご相談はこちら
+              Staffing &amp; Hiring Consultations for Companies
             </h3>
             <p className="text-sm text-white/70 mt-1">
-              急な増員・長期的な人材戦略まで、まずはお気軽にお問い合わせください。
+              Whether you need urgent scale-up or long-term workforce planning, we&apos;re ready to help.
             </p>
           </div>
           <Link
             href={{ pathname: "/contact" }}
             className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-navy-950 px-6 py-3 text-sm font-bold text-white hover:bg-navy-800 transition-colors"
           >
-            採用相談をする
+            Get in Touch
             <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />
           </Link>
         </motion.div>

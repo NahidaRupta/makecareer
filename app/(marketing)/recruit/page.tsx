@@ -6,80 +6,80 @@ import { PageHero } from "@/components/ui/page-hero";
 import { CtaBanner } from "@/components/ui/cta-banner";
 
 export const metadata: Metadata = generatePageMetadata({
-  title: "採用情報 | MakeCareer",
+  title: "Careers at MakeCareer",
   description:
-    "MakeCareerの採用情報。コンサルタント・コーディネーター・営業など、製造業人材サービスを支えるメンバーを募集しています。",
+    "Join MakeCareer's team of consultants, coordinators, and support staff. Help solve Japan's manufacturing workforce challenge from the inside.",
   path: "/recruit",
 });
 
 const JOBS = [
   {
     id: "consultant",
-    title: "人材コンサルタント",
+    title: "HR Consultant",
     titleEn: "HR Consultant",
-    type: "正社員",
-    location: "名古屋・東京・大阪・福岡",
-    hours: "9:00〜18:00（フレックスあり）",
+    type: "Full-time",
+    location: "Nagoya · Tokyo · Osaka · Fukuoka",
+    hours: "9:00–18:00 (flex available)",
     summary:
-      "製造業クライアントの採用課題をヒアリングし、最適な人材ソリューションを提案・実行します。新規開拓から既存顧客フォローまで、幅広い営業活動を担当します。",
+      "You will listen to the staffing challenges of manufacturing clients and design and deliver the right solutions. Your work spans new business development through to ongoing account management.",
     requirements: [
-      "法人営業・人材営業経験2年以上",
-      "製造業・工場領域への関心",
-      "ビジネスレベルの日本語コミュニケーション能力",
+      "2+ years of B2B or recruitment sales experience",
+      "Genuine interest in manufacturing and factory operations",
+      "Business-level Japanese communication skills",
     ],
-    preferred: ["人材派遣・請負業界の経験", "製造業での就業経験", "英語またはベトナム語スキル"],
+    preferred: ["Experience in staffing or outsourcing industry", "Work experience in a manufacturing environment", "English or Vietnamese language skills"],
   },
   {
     id: "coordinator",
-    title: "派遣コーディネーター",
+    title: "Staffing Coordinator",
     titleEn: "Staffing Coordinator",
-    type: "正社員 / 契約社員",
-    location: "名古屋・東京・大阪",
-    hours: "9:00〜18:00",
+    type: "Full-time / Contract",
+    location: "Nagoya · Tokyo · Osaka",
+    hours: "9:00–18:00",
     summary:
-      "求職者の登録対応・マッチング・就業フォローを担当します。スタッフとクライアント双方に寄り添い、長期就業・定着を支援するポジションです。",
+      "You will manage worker registration, matching, and ongoing welfare support. Your role is to stay close to both workers and clients, helping people settle and stay in their roles long term.",
     requirements: [
-      "接客・サービス・コーディネーター経験",
-      "丁寧なコミュニケーションが得意な方",
-      "多様なバックグラウンドの方への柔軟な対応力",
+      "Customer service, hospitality, or coordination background",
+      "Strong communication skills and a caring approach",
+      "Ability to work with people from diverse backgrounds",
     ],
-    preferred: ["人材業界・派遣コーディネーター経験", "多言語スキル（特にベトナム語・英語）"],
+    preferred: ["Prior experience in staffing or dispatch coordination", "Multilingual skills — particularly Vietnamese or English"],
   },
   {
     id: "support-staff",
-    title: "外国人材サポートスタッフ",
+    title: "Multicultural Support Staff",
     titleEn: "Multicultural Support Staff",
-    type: "正社員 / 契約社員",
-    location: "名古屋・東京",
-    hours: "9:00〜18:00（シフト制あり）",
+    type: "Full-time / Contract",
+    location: "Nagoya · Tokyo",
+    hours: "9:00–18:00 (shift patterns available)",
     summary:
-      "ベトナム・フィリピン等の外国人材の入国サポートから就業後フォローまでを担当。生活面の相談にも対応し、外国人スタッフが安心して働ける環境づくりを支援します。",
+      "You will support international workers from Vietnam, the Philippines, and other countries — from arrival logistics through to day-to-day living assistance. Your goal is to help foreign workers feel genuinely supported in Japan.",
     requirements: [
-      "ベトナム語または英語の実務スキル（TOEIC650点以上、もしくは同等）",
-      "異文化コミュニケーションへの関心・経験",
+      "Working proficiency in Vietnamese or English (TOEIC 650+ or equivalent)",
+      "Interest in and experience with cross-cultural communication",
     ],
-    preferred: ["特定技能・技能実習制度に関する知識", "外国人材支援・通訳経験"],
+    preferred: ["Knowledge of Specified Skills or Technical Intern programmes", "Experience in foreign worker support or interpreting"],
   },
 ];
 
 const BENEFITS = [
-  { icon: Heart, label: "健康・社会保険完備", body: "雇用・労災・健康・厚生年金の各種保険完備。定期健康診断実施。" },
-  { icon: BookOpen, label: "研修・成長支援", body: "入社後の充実した研修プログラム。外部セミナー・資格取得支援制度あり。" },
-  { icon: Clock, label: "フレックス制度", body: "コアタイム11:00〜15:00のフレックスタイム制を導入（職種により異なる）。" },
-  { icon: Users, label: "多様なチーム", body: "20代〜50代、日本人・外国籍のメンバーが活躍。多様な背景を尊重する職場環境。" },
-  { icon: Briefcase, label: "キャリアパス", body: "コンサルタント→シニアコンサルタント→マネージャーまでの明確なキャリアパス。" },
-  { icon: MapPin, label: "転勤なし選択可", body: "エリア限定勤務制度あり。ライフスタイルに合わせた働き方を選択できます。" },
+  { icon: Heart, label: "Full Social Insurance", body: "Employment, industrial accident, health, and pension insurance all included. Regular health check-ups provided." },
+  { icon: BookOpen, label: "Training & Development", body: "Comprehensive onboarding programme. Support for external seminars and professional qualification costs." },
+  { icon: Clock, label: "Flex-Time", body: "Core hours 11:00–15:00 with flexible start and finish times (varies by role)." },
+  { icon: Users, label: "Diverse Team", body: "Team members in their 20s to 50s, Japanese and international. A workplace that respects every background." },
+  { icon: Briefcase, label: "Clear Career Path", body: "Defined progression from Consultant through to Senior Consultant and Manager." },
+  { icon: MapPin, label: "Location Flexibility", body: "Region-specific employment options available. Choose where you work to suit your lifestyle." },
 ];
 
 export default function RecruitPage() {
   return (
     <>
       <PageHero
-        eyebrow="Recruit"
-        titleJa="採用情報"
-        titleEn="Join MakeCareer"
-        descriptionJa="製造業の未来を一緒につくるメンバーを募集しています。コンサルタント・コーディネーター・外国人材サポートなど多様なポジションがあります。"
-        crumbs={[{ label: "採用情報" }]}
+        eyebrow="Careers"
+        titleJa="Join MakeCareer"
+        titleEn="Help shape the future of manufacturing in Japan"
+        descriptionJa="We're hiring consultants, coordinators, and multicultural support staff who want to make a real difference on the factory floor."
+        crumbs={[{ label: "Careers" }]}
         variant="light"
       />
 
@@ -92,16 +92,16 @@ export default function RecruitPage() {
                 Message from CEO
               </p>
               <h2 id="message-heading" className="text-2xl font-extrabold text-white leading-snug mb-5">
-                「人の力」で製造業を変えていける仕事です
+                This is a job where people truly change the manufacturing industry.
               </h2>
               <p className="text-white/70 leading-relaxed text-sm mb-4">
-                私たちが向き合うのは、人手不足で悩む工場と、より良い仕事を求める求職者です。双方の課題を解決することで、製造業全体が前進します。
+                We work at the intersection of factories struggling to find workers and job seekers looking for something better. When we get that match right, it moves the whole industry forward.
               </p>
               <p className="text-white/70 leading-relaxed text-sm">
-                MakeCareerでは、経験者はもちろん、業界未経験でも「人と働くことが好き」という気持ちを大切にしています。あなたの熱意を、ぜひ現場で活かしてください。
+                At MakeCareer, experience in the sector is valuable — but what matters most is a genuine desire to connect with people. Bring that energy and you will make an impact from day one.
               </p>
               <p className="mt-6 text-sm font-bold text-white">
-                代表取締役 山田 浩二
+                CEO, Koji Yamada
               </p>
             </div>
             <div className="flex justify-center lg:justify-end">
@@ -110,7 +110,7 @@ export default function RecruitPage() {
                   <div className="h-20 w-20 rounded-full bg-navy-700 mx-auto mb-3 flex items-center justify-center">
                     <Users size={32} strokeWidth={1} className="text-navy-400" aria-hidden="true" />
                   </div>
-                  <p className="text-xs text-navy-400">代表写真</p>
+                  <p className="text-xs text-navy-400">CEO photo coming soon</p>
                 </div>
               </div>
             </div>
@@ -122,7 +122,7 @@ export default function RecruitPage() {
       <section aria-labelledby="benefits-heading" className="bg-neutral-50 section-padding">
         <div className="content-max px-4 sm:px-6 lg:px-8">
           <h2 id="benefits-heading" className="text-2xl font-extrabold text-navy-950 text-center mb-10">
-            働く環境・待遇
+            Benefits &amp; Work Environment
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {BENEFITS.map((b) => (
@@ -142,7 +142,7 @@ export default function RecruitPage() {
       <section aria-labelledby="jobs-heading" className="bg-white section-padding">
         <div className="content-max px-4 sm:px-6 lg:px-8">
           <h2 id="jobs-heading" className="text-2xl font-extrabold text-navy-950 mb-10">
-            募集ポジション
+            Open Positions
           </h2>
 
           <div className="space-y-8">
@@ -180,13 +180,13 @@ export default function RecruitPage() {
                 <div className="p-6 grid grid-cols-1 lg:grid-cols-3 gap-8">
                   <div className="lg:col-span-1">
                     <p className="text-xs font-bold text-neutral-400 uppercase tracking-wider mb-2">
-                      職務内容
+                      Role Overview
                     </p>
                     <p className="text-sm text-neutral-700 leading-relaxed">{job.summary}</p>
                   </div>
                   <div className="lg:col-span-1">
                     <p className="text-xs font-bold text-neutral-400 uppercase tracking-wider mb-3">
-                      必須条件
+                      Requirements
                     </p>
                     <ul className="space-y-2">
                       {job.requirements.map((r) => (
@@ -199,7 +199,7 @@ export default function RecruitPage() {
                   </div>
                   <div className="lg:col-span-1">
                     <p className="text-xs font-bold text-neutral-400 uppercase tracking-wider mb-3">
-                      歓迎条件
+                      Nice to Have
                     </p>
                     <ul className="space-y-2">
                       {job.preferred.map((p) => (
@@ -217,7 +217,7 @@ export default function RecruitPage() {
                     href={{ pathname: "/contact" }}
                     className="inline-flex items-center gap-2 rounded-lg bg-navy-950 px-5 py-2.5 text-sm font-bold text-white hover:bg-navy-800 transition-colors"
                   >
-                    このポジションに応募する
+                    Apply for This Role
                     <ArrowRight size={13} strokeWidth={2} aria-hidden="true" />
                   </Link>
                 </div>
@@ -231,14 +231,14 @@ export default function RecruitPage() {
       <section aria-labelledby="flow-heading" className="bg-neutral-50 section-padding">
         <div className="content-max px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto text-center">
           <h2 id="flow-heading" className="text-2xl font-extrabold text-navy-950 mb-10">
-            選考の流れ
+            Application Process
           </h2>
           <ol className="grid grid-cols-1 sm:grid-cols-4 gap-0 relative">
             {[
-              { step: "01", label: "エントリー" },
-              { step: "02", label: "書類選考" },
-              { step: "03", label: "面接（1〜2回）" },
-              { step: "04", label: "内定・入社" },
+              { step: "01", label: "Apply" },
+              { step: "02", label: "CV Review" },
+              { step: "03", label: "Interview (1–2 rounds)" },
+              { step: "04", label: "Offer & Start" },
             ].map((s, i) => (
               <li key={s.step} className="flex flex-col items-center gap-2 relative">
                 {i < 3 && (
@@ -252,17 +252,17 @@ export default function RecruitPage() {
             ))}
           </ol>
           <p className="mt-8 text-xs text-neutral-500 leading-relaxed">
-            書類選考の結果は1週間以内にご連絡いたします。面接は対面またはオンラインで実施します。
+            We will contact you with a CV review decision within one week. Interviews can be held in person or online.
           </p>
         </div>
       </section>
 
       <CtaBanner
-        titleJa="一緒に製造業の未来を変えませんか？"
-        descriptionJa="お気軽にエントリーをどうぞ。まずはカジュアルな面談から歓迎しています。"
-        primaryLabel="エントリーする"
+        titleJa="Ready to help shape the future of manufacturing?"
+        descriptionJa="We welcome applications at any time — including casual chats before you decide. Get in touch."
+        primaryLabel="Apply Now"
         primaryHref="/contact"
-        secondaryLabel="会社概要を見る"
+        secondaryLabel="About MakeCareer"
         secondaryHref="/company"
         variant="amber"
       />

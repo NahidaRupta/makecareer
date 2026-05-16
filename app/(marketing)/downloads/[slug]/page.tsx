@@ -53,7 +53,7 @@ export default function DownloadGatePage() {
         <div className="content-max px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-2 text-xs text-neutral-500">
           <Link href={{ pathname: "/downloads" }} className="hover:text-navy-700 transition-colors flex items-center gap-1">
             <ArrowLeft size={12} aria-hidden="true" />
-            資料ダウンロード一覧
+            Resource Library
           </Link>
           <span>/</span>
           <span className="text-neutral-700">{download.titleJa}</span>
@@ -84,7 +84,7 @@ export default function DownloadGatePage() {
                 {/* Highlights */}
                 <div className="rounded-xl bg-neutral-50 border border-neutral-100 p-4">
                   <p className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-3">
-                    収録内容
+                    What&apos;s Inside
                   </p>
                   <ul className="space-y-2">
                     {download.contentHighlights.map((h) => (
@@ -105,27 +105,27 @@ export default function DownloadGatePage() {
               <div className="rounded-2xl bg-white border border-emerald-200 p-10 text-center">
                 <CheckCircle2 size={56} strokeWidth={1.5} className="text-emerald-500 mx-auto mb-4" />
                 <h2 className="text-xl font-bold text-navy-950 mb-3">
-                  ダウンロードの準備ができました
+                  Your download is ready
                 </h2>
                 <p className="text-sm text-neutral-600 leading-relaxed mb-6">
-                  ご登録のメールアドレスにダウンロードリンクをお送りしました。
-                  メールが届かない場合はスパムフォルダをご確認ください。
+                  We&apos;ve sent a download link to your email address.
+                  If you don&apos;t see it, please check your spam folder.
                 </p>
                 <Link
                   href={{ pathname: "/downloads" }}
                   className="inline-flex items-center gap-2 text-sm font-semibold text-navy-600 hover:text-navy-800 transition-colors"
                 >
                   <ArrowLeft size={14} aria-hidden="true" />
-                  他の資料を見る
+                  Browse Resources
                 </Link>
               </div>
             ) : (
               <div className="rounded-2xl bg-white border border-neutral-200 p-8">
                 <h2 className="text-xl font-extrabold text-navy-950 mb-2">
-                  無料でダウンロード
+                  Free Download
                 </h2>
                 <p className="text-sm text-neutral-500 mb-7">
-                  お名前とメールアドレスをご入力ください。ダウンロードリンクをお送りします。
+                  Enter your name and email address to receive a link to this resource.
                 </p>
 
                 <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-5">
@@ -135,13 +135,13 @@ export default function DownloadGatePage() {
 
                   <div>
                     <label htmlFor="dl-name" className="block text-xs font-semibold text-navy-950 mb-1.5">
-                      お名前 <span className="text-red-500">*</span>
+                      Full Name <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="dl-name"
                       type="text"
                       autoComplete="name"
-                      placeholder="山田 太郎"
+                      placeholder="Jane Smith"
                       className={`${inputBase} ${errors.name ? "border-red-400" : ""}`}
                       {...register("name")}
                     />
@@ -155,13 +155,13 @@ export default function DownloadGatePage() {
 
                   <div>
                     <label htmlFor="dl-email" className="block text-xs font-semibold text-navy-950 mb-1.5">
-                      メールアドレス <span className="text-red-500">*</span>
+                      Email Address <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="dl-email"
                       type="email"
                       autoComplete="email"
-                      placeholder="taro@company.co.jp"
+                      placeholder="jane@company.co.jp"
                       className={`${inputBase} ${errors.email ? "border-red-400" : ""}`}
                       {...register("email")}
                     />
@@ -176,7 +176,7 @@ export default function DownloadGatePage() {
                   {status === "error" && (
                     <div className="flex items-start gap-2 rounded-lg bg-red-50 border border-red-200 p-4 text-sm text-red-700">
                       <AlertCircle size={16} className="shrink-0 mt-0.5" aria-hidden="true" />
-                      <span>送信に失敗しました。しばらくしてから再度お試しください。</span>
+                      <span>Submission failed. Please try again in a moment.</span>
                     </div>
                   )}
 
@@ -186,11 +186,11 @@ export default function DownloadGatePage() {
                     className="w-full flex items-center justify-center gap-2 rounded-lg bg-amber-500 px-6 py-4 text-sm font-bold text-white hover:bg-amber-600 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
                   >
                     <FileDown size={16} aria-hidden="true" />
-                    {isSubmitting ? "送信中..." : "ダウンロードリンクを受け取る（無料）"}
+                    {isSubmitting ? "Sending..." : "Get Free Download Link"}
                   </button>
 
                   <p className="text-center text-[11px] text-neutral-400 leading-relaxed">
-                    ご入力いただいた情報は、資料送付およびMakeCareerからのご案内にのみ使用します。
+                    Your information will only be used to deliver this resource and for relevant communications from MakeCareer.
                   </p>
                 </form>
               </div>

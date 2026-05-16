@@ -7,17 +7,17 @@ import { PageHero } from "@/components/ui/page-hero";
 import { CtaBanner } from "@/components/ui/cta-banner";
 
 export const metadata: Metadata = generatePageMetadata({
-  title: "無料資料ダウンロード | MakeCareer",
+  title: "Free Resource Downloads | MakeCareer",
   description:
-    "製造業の採用・人材活用に役立つ無料資料を公開中。サービスパンフレット・採用ガイド・特定技能受け入れ手引きなど、ダウンロード後すぐにご活用いただけます。",
+    "Download free guides and brochures on manufacturing staffing, workforce planning, and foreign worker onboarding. Ready to use immediately after download.",
   path: "/downloads",
 });
 
 const CATEGORY_COLORS: Record<string, string> = {
-  サービス概要: "bg-navy-50 text-navy-700 border-navy-200",
-  採用ガイド: "bg-amber-50 text-amber-700 border-amber-200",
-  外国人材: "bg-emerald-50 text-emerald-700 border-emerald-200",
-  ツール: "bg-neutral-100 text-neutral-600 border-neutral-200",
+  "Service Guide": "bg-navy-50 text-navy-700 border-navy-200",
+  "Hiring Guide": "bg-amber-50 text-amber-700 border-amber-200",
+  "Foreign Workers": "bg-emerald-50 text-emerald-700 border-emerald-200",
+  Tools: "bg-neutral-100 text-neutral-600 border-neutral-200",
 };
 
 export default function DownloadsPage() {
@@ -25,17 +25,17 @@ export default function DownloadsPage() {
     <>
       <PageHero
         eyebrow="Free Downloads"
-        titleJa="無料資料ダウンロード"
-        titleEn="Download Free Resources"
-        descriptionJa="採用・人材活用に役立つ資料を無料でご提供しています。メールアドレスのご登録のみでダウンロードいただけます。"
-        crumbs={[{ label: "無料資料ダウンロード" }]}
+        titleJa="Free Resource Downloads"
+        titleEn="Practical guides for HR and operations teams"
+        descriptionJa="Free guides on staffing, workforce planning, and foreign worker onboarding — available instantly with just your email address."
+        crumbs={[{ label: "Downloads" }]}
       />
 
       {/* Download grid */}
       <section aria-labelledby="downloads-list-heading" className="bg-white section-padding">
         <div className="content-max px-4 sm:px-6 lg:px-8">
           <h2 id="downloads-list-heading" className="sr-only">
-            資料一覧
+            Resource list
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
             {DOWNLOADS.map((dl) => (
@@ -93,7 +93,7 @@ export default function DownloadsPage() {
                     className="flex items-center justify-center gap-2 w-full rounded-lg bg-navy-950 px-5 py-3 text-sm font-bold text-white hover:bg-navy-800 transition-colors"
                   >
                     <FileDown size={15} strokeWidth={2} aria-hidden="true" />
-                    無料でダウンロード
+                    Free Download
                     <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />
                   </Link>
                 </div>
@@ -104,9 +104,9 @@ export default function DownloadsPage() {
       </section>
 
       <CtaBanner
-        titleJa="資料だけでなく、専門家に直接ご相談も"
-        descriptionJa="コンサルタントによる個別ヒアリング・お見積もりは無料です。お気軽にご連絡ください。"
-        primaryLabel="無料で相談する"
+        titleJa="Want to speak with an expert directly?"
+        descriptionJa="Individual consultations and cost estimates are free. Get in touch at any time."
+        primaryLabel="Free Consultation"
         primaryHref="/contact"
         variant="navy"
       />

@@ -14,7 +14,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     const { ok } = rateLimit(`contact:${ip}`, 5);
     if (!ok) {
       return NextResponse.json(
-        { success: false, error: "リクエストが多すぎます。しばらく後にお試しください。" },
+        { success: false, error: "Too many requests. Please try again in a moment." },
         { status: 429 },
       );
     }
@@ -56,13 +56,13 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
   } catch (error) {
     if (error instanceof ZodError) {
       return NextResponse.json(
-        { success: false, error: "入力内容を確認してください。", details: error.flatten().fieldErrors },
+        { success: false, error: "Please check your input and try again.", details: error.flatten().fieldErrors },
         { status: 400 },
       );
     }
     console.error("[api/contact]", error);
     return NextResponse.json(
-      { success: false, error: "サーバーエラーが発生しました。しばらく後にお試しください。" },
+      { success: false, error: "A server error occurred. Please try again later." },
       { status: 500 },
     );
   }

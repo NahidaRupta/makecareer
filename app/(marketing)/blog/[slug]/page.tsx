@@ -23,7 +23,7 @@ export async function generateMetadata({
   const post = getBlogPostBySlug(slug);
   if (!post) return {};
   return generatePageMetadata({
-    title: `${post.titleJa} | MakeCareer コラム`,
+    title: `${post.titleJa} | MakeCareer Insights`,
     description: post.excerptJa,
     path: `/blog/${slug}`,
   });
@@ -60,7 +60,7 @@ export default async function BlogPostPage({
         <div className="content-max px-4 sm:px-6 lg:px-8 py-3">
           <Breadcrumbs
             crumbs={[
-              { label: "コラム", href: "/blog" },
+              { label: "Insights", href: "/blog" },
               { label: post.titleJa },
             ]}
           />
@@ -79,7 +79,7 @@ export default async function BlogPostPage({
                 </span>
                 <div className="flex items-center gap-1.5 text-xs text-neutral-400">
                   <Clock size={12} aria-hidden="true" />
-                  {post.readMinutes}分で読める
+                  {post.readMinutes} min read
                 </div>
               </div>
 
@@ -152,7 +152,7 @@ export default async function BlogPostPage({
                   className="flex items-center gap-2 text-sm font-semibold text-navy-600 hover:text-navy-800 transition-colors"
                 >
                   <ArrowLeft size={14} aria-hidden="true" />
-                  コラム一覧へ
+                  Back to Insights
                 </Link>
               </div>
             </article>
@@ -172,14 +172,14 @@ export default async function BlogPostPage({
                     </div>
                   </div>
                   <p className="text-xs text-neutral-500 leading-relaxed">
-                    製造業専門の人材コンサルタントとして10年以上の経験を持つ。企業の採用課題から外国人材受け入れまで幅広くサポート。
+                    Manufacturing recruitment specialist with over 10 years of experience. Supports companies with hiring challenges and foreign worker integration.
                   </p>
                 </div>
 
                 {/* Related posts */}
                 {related.length > 0 && (
                   <div className="rounded-2xl border border-neutral-200 bg-white p-6">
-                    <h3 className="text-sm font-bold text-navy-950 mb-4">関連記事</h3>
+                    <h3 className="text-sm font-bold text-navy-950 mb-4">Related Articles</h3>
                     <ul className="space-y-4">
                       {related.map((rel) => (
                         <li key={rel.slug}>
@@ -208,15 +208,15 @@ export default async function BlogPostPage({
 
                 {/* CTA card */}
                 <div className="rounded-2xl bg-navy-950 p-6">
-                  <h3 className="text-sm font-bold text-white mb-2">採用のお悩み、相談しませんか？</h3>
+                  <h3 className="text-sm font-bold text-white mb-2">Need help with your hiring?</h3>
                   <p className="text-xs text-white/60 leading-relaxed mb-4">
-                    専任コンサルタントが無料でヒアリングし、最適な人材プランをご提案します。
+                    Our specialist consultants offer a free consultation and recommend the best staffing plan for you.
                   </p>
                   <Link
                     href={{ pathname: "/contact" }}
                     className="flex items-center justify-center gap-2 w-full rounded-lg bg-amber-500 px-4 py-2.5 text-sm font-bold text-white hover:bg-amber-600 transition-colors"
                   >
-                    無料で相談する
+                    Get a Free Consultation
                     <ArrowRight size={13} strokeWidth={2} aria-hidden="true" />
                   </Link>
                 </div>
@@ -227,11 +227,11 @@ export default async function BlogPostPage({
       </div>
 
       <CtaBanner
-        titleJa="製造業の採用課題を一緒に解決しましょう"
-        descriptionJa="人材派遣・請負・外国人材など、貴社の状況に合ったプランを無料でご提案します。"
-        primaryLabel="無料で相談する"
+        titleJa="Let's solve your manufacturing staffing challenge together"
+        descriptionJa="Staffing, outsourcing, foreign workers — we'll recommend the right plan for your business at no cost."
+        primaryLabel="Free Consultation"
         primaryHref="/contact"
-        secondaryLabel="他のコラムを読む"
+        secondaryLabel="Browse Insights"
         secondaryHref="/blog"
         variant="navy"
       />

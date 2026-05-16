@@ -17,57 +17,57 @@ export const SERVICES: ServiceData[] = [
   {
     slug: "haken",
     iconKey: "Factory",
-    titleJa: "製造業 人材派遣",
-    titleEn: "Manufacturing Dispatch",
-    taglineJa: "即戦力スタッフを最短翌日から",
+    titleJa: "Manufacturing Staffing",
+    titleEn: "Manufacturing Staffing",
+    taglineJa: "Ready-to-deploy talent, next-day if needed",
     descriptionJa:
-      "ライン作業・組立・検査など、製造現場に即戦力のスタッフを派遣。短期〜長期まで柔軟に対応します。",
+      "Line assembly, inspection, and production floor roles filled fast. Short-term to long-term — we flex to match your production schedule.",
     longDescriptionJa:
-      "MakeCareerの製造業人材派遣サービスは、自動車・電機・食品・化学など幅広い製造分野に対応しています。登録スタッフ5,000名以上のプールから、ご要望の職種・スキルレベル・勤務地条件に合った人材をスピーディにご提案。急な欠員対応から長期の人員補強まで、柔軟な対応が可能です。就業開始後も専任コーディネーターが定期的なフォローを行い、スタッフの安定稼働をサポートします。",
+      "MakeCareer's manufacturing staffing service covers automotive, electronics, food, chemical, and a wide range of other sectors. With a pool of 5,000+ registered workers, we quickly match candidates to your required role, skill level, and location — from urgent cover to long-term headcount. After placement, a dedicated coordinator provides regular check-ins to keep your workforce stable.",
     features: [
-      "最短翌営業日から就業開始可能",
-      "経験・スキル別に最適なスタッフを選定",
-      "就業中の定期フォローで定着率92%を維持",
-      "繁忙期の増員・閑散期の調整にも柔軟対応",
+      "Placement as fast as the next business day",
+      "Candidates screened and matched by skill and experience",
+      "92% retention rate, maintained through ongoing coordinator support",
+      "Flexible scale-up during peak periods and scale-down in quiet seasons",
     ],
     targetCompanies: [
-      "急な欠員・増員に対応したい製造メーカー",
-      "季節変動や需要変動が大きい工場",
-      "正社員採用の前に試用期間を設けたい企業",
-      "多品種少量生産でラインの編成が変わりやすい工場",
+      "Manufacturers needing to respond quickly to sudden vacancies or ramp-ups",
+      "Factories with significant seasonal or demand-driven staffing fluctuations",
+      "Companies wanting a trial period before committing to direct hires",
+      "High-mix, low-volume factories where line configurations change frequently",
     ],
     process: [
       {
-        titleJa: "ヒアリング・ご提案",
+        titleJa: "Consultation & Proposal",
         descriptionJa:
-          "必要なスキル・人数・期間・勤務条件をお聞きし、最適な人材プランをご提案します。",
+          "We gather your requirements — skill set, headcount, duration, and shift conditions — then propose the best staffing plan for your operation.",
       },
       {
-        titleJa: "スタッフのマッチング",
+        titleJa: "Candidate Matching",
         descriptionJa:
-          "登録スタッフデータベースから条件に合った候補者を選定。事前に職務経歴・スキルをご確認いただけます。",
+          "We screen our registered workforce and present shortlisted candidates with work histories and skills for your review before placement.",
       },
       {
-        titleJa: "就業開始・フォローアップ",
+        titleJa: "Placement & Follow-up",
         descriptionJa:
-          "就業開始後も定期的な面談・状況確認を実施。問題があれば迅速に対応します。",
+          "After workers start, we conduct regular check-ins and status reviews. Any issues are handled promptly so your line keeps running.",
       },
     ],
     faq: [
       {
-        question: "派遣スタッフを依頼してから就業開始まで、どれくらいかかりますか？",
+        question: "How long does it take from request to first day on-site?",
         answer:
-          "ご依頼内容によって異なりますが、最短翌営業日から就業開始が可能なケースもあります。通常は1〜3営業日でご紹介できます。",
+          "It depends on the requirements, but same-week placement is possible in many cases. Typically we can introduce candidates within 1–3 business days.",
       },
       {
-        question: "派遣スタッフの指揮命令は誰が行いますか？",
+        question: "Who directs the dispatch workers on the job?",
         answer:
-          "派遣スタッフへの指揮命令は、派遣先企業（御社）の担当者が行います。業務内容・時間・場所の指示を出していただけます。",
+          "In a dispatch arrangement, your company's supervisors issue instructions to the workers regarding tasks, hours, and location.",
       },
       {
-        question: "派遣期間に上限はありますか？",
+        question: "Is there a maximum dispatch period?",
         answer:
-          "同一の組織単位（課・グループなど）で同一スタッフを派遣できる期間は最大3年です。事業所単位での期間については別途ご相談ください。",
+          "Under Japanese law, the same worker can be dispatched to the same organisational unit for a maximum of three years. Please contact us for details on site-level limits.",
       },
     ],
     relatedSlugs: ["ukeoi", "maintenance"],
@@ -75,52 +75,52 @@ export const SERVICES: ServiceData[] = [
   {
     slug: "ukeoi",
     iconKey: "ClipboardList",
-    titleJa: "工場請負",
+    titleJa: "Factory Outsourcing",
     titleEn: "Factory Outsourcing",
-    taglineJa: "製造ラインをまるごとお任せ",
+    taglineJa: "Hand the entire production line to us",
     descriptionJa:
-      "製造ラインの一部または全体を請負契約で運営。品質管理・生産管理も含めた一括サポートが可能です。",
+      "We take over part or all of your production line under a contract arrangement, handling quality and production management as a single, accountable partner.",
     longDescriptionJa:
-      "工場請負は、製造工程の一部または全体をMakeCareerが受託し、当社のスタッフが業務を遂行するサービスです。指揮命令は当社が行うため、管理コストを大幅に削減できます。品質管理・生産管理・安全管理を含めた包括的な運営が可能で、コア業務への集中と生産効率の向上を実現します。長期的なパートナーとして製造現場の課題を継続的に改善します。",
+      "In factory outsourcing, MakeCareer takes responsibility for executing a defined scope of manufacturing work. Our team manages its own workers — you don't need to direct them — which significantly reduces your supervisory overhead. We handle quality control, safety management, and production KPIs as an integrated package, freeing you to focus on core business while we continuously improve the line.",
     features: [
-      "現場管理をMakeCareerが一括対応・指揮命令不要",
-      "品質管理・安全管理も含めたワンストップ運営",
-      "固定費の変動費化でコスト構造を最適化",
-      "生産量の増減に合わせた柔軟なスタッフ調整",
+      "Full on-site management by MakeCareer — no direct supervision needed from your side",
+      "Quality control, safety, and production management all included",
+      "Convert fixed labour costs into a variable, output-linked expense",
+      "Flexible worker adjustment as production volumes rise and fall",
     ],
     targetCompanies: [
-      "管理コストを削減してコア業務に集中したい企業",
-      "特定工程の品質を一定に保ちたいメーカー",
-      "ノンコア業務をアウトソースしたい製造業",
-      "夜間・休日の稼働など柔軟な生産体制が必要な工場",
+      "Manufacturers that want to cut management overhead and focus on their core business",
+      "Factories that need consistent quality on specific production processes",
+      "Companies looking to outsource non-core operations",
+      "Plants requiring flexible operations including night shifts and weekends",
     ],
     process: [
       {
-        titleJa: "現場視察・業務分析",
+        titleJa: "Site Visit & Process Analysis",
         descriptionJa:
-          "現場を実際に視察し、対象業務・作業手順・品質基準を詳細に把握します。",
+          "We visit your facility to thoroughly understand the target processes, work procedures, and quality standards before committing to a scope.",
       },
       {
-        titleJa: "契約・体制構築",
+        titleJa: "Contract & Team Setup",
         descriptionJa:
-          "請負契約を締結し、専任管理者とスタッフの配置体制を構築。必要な設備・資材の確認も行います。",
+          "We formalise the outsourcing contract and establish the on-site management structure, including a dedicated site manager and workers.",
       },
       {
-        titleJa: "稼働開始・継続改善",
+        titleJa: "Operations & Continuous Improvement",
         descriptionJa:
-          "稼働開始後もKPIを定期的に共有し、生産性向上・品質改善を継続的に行います。",
+          "After go-live, we share KPIs regularly and drive ongoing productivity and quality improvements as your long-term partner.",
       },
     ],
     faq: [
       {
-        question: "請負と派遣の最大の違いは何ですか？",
+        question: "What is the key difference between dispatch and outsourcing?",
         answer:
-          "派遣はスタッフへの指揮命令が派遣先企業にあります。請負はMakeCareerが業務を受託し、スタッフへの指揮命令も当社が行います。管理工数の削減や偽装請負リスクの回避が可能です。",
+          "With dispatch, your company directs the workers. With outsourcing, MakeCareer manages them and delivers an agreed output. Outsourcing reduces your management burden and eliminates the risk of misclassified employment.",
       },
       {
-        question: "対応できる業種・工程を教えてください。",
+        question: "What industries and processes do you cover?",
         answer:
-          "自動車・電機・食品・化学・樹脂など幅広い製造業に対応しています。ライン作業・組立・検査・梱包・物流など多様な工程をカバーしています。",
+          "We handle automotive, electronics, food, chemicals, plastics, and more. Processes include line assembly, inspection, packing, and logistics.",
       },
     ],
     relatedSlugs: ["haken", "ginoujisshu"],
@@ -128,57 +128,57 @@ export const SERVICES: ServiceData[] = [
   {
     slug: "ginoujisshu",
     iconKey: "Globe",
-    titleJa: "特定技能・技能実習",
+    titleJa: "Specified Skills & Technical Intern",
     titleEn: "Specified Skills / Technical Intern",
-    taglineJa: "外国人材の受け入れをトータルサポート",
+    taglineJa: "End-to-end support for bringing international workers to Japan",
     descriptionJa:
-      "外国人材の受け入れをトータルサポート。ビザ申請から入社後のフォローまで、安心して任せられます。",
+      "Full-cycle support for foreign worker onboarding — from visa applications to on-the-job follow-up. We handle everything so you can focus on your factory.",
     longDescriptionJa:
-      "国内人材の不足が深刻化する中、特定技能・技能実習制度を活用した外国人材の受け入れは、製造業の持続的な成長に不可欠です。MakeCareerは、在留資格の手続き・入国支援・住居手配・日本語サポートまで、受け入れに関わるすべてのプロセスをワンストップでサポートします。受け入れ経験豊富な専任スタッフが、コンプライアンスに配慮しながら安心・安全な雇用環境の構築をお手伝いします。",
+      "As domestic labour shortages intensify, the Specified Skills and Technical Intern programmes are essential for manufacturing sustainability. MakeCareer provides a one-stop service covering residence status procedures, arrival logistics, housing arrangements, and Japanese language support. Our experienced team ensures a compliant, well-supported employment environment from day one.",
     features: [
-      "在留資格申請から入国・生活支援まで一括対応",
-      "受け入れ機関・監理団体との連携で手続きを簡略化",
-      "日本語教育・生活オリエンテーションを実施",
-      "コンプライアンス遵守の受け入れ体制を構築",
+      "End-to-end support: visa application, arrival, housing, and daily life assistance",
+      "Coordination with registered support organisations to simplify paperwork",
+      "Japanese language training and workplace orientation on arrival",
+      "Compliant onboarding framework built to meet all regulatory requirements",
     ],
     targetCompanies: [
-      "国内人材不足を外国人材で補いたい製造業",
-      "特定技能制度を初めて活用する企業",
-      "外国人スタッフの生活サポートまで任せたい工場",
-      "技能実習から特定技能への移行を検討している企業",
+      "Manufacturers looking to supplement their workforce with foreign talent",
+      "Companies taking on Specified Skills workers for the first time",
+      "Factories that want daily-life support handled by a professional partner",
+      "Employers considering transitioning Technical Interns to Specified Skills status",
     ],
     process: [
       {
-        titleJa: "受け入れ計画の策定",
+        titleJa: "Intake Planning",
         descriptionJa:
-          "必要な人数・職種・国籍・期間を整理し、最適な制度（特定技能/技能実習）を選定します。",
+          "We clarify the headcount, roles, nationalities, and duration you need, then recommend the most suitable programme (Specified Skills vs. Technical Intern).",
       },
       {
-        titleJa: "書類手続き・入国支援",
+        titleJa: "Documentation & Arrival Support",
         descriptionJa:
-          "在留資格申請・航空券手配・住居の確保など、入国前の準備をすべてサポートします。",
+          "We manage the residence status application, flight arrangements, and housing preparation — everything before the workers arrive.",
       },
       {
-        titleJa: "就業開始・定着支援",
+        titleJa: "Onboarding & Retention Support",
         descriptionJa:
-          "就業開始後も日本語サポート・生活相談窓口を設け、スタッフの定着と安定稼働を支援します。",
+          "After arrival, we provide Japanese language support and a daily-life help desk to keep workers settled, motivated, and on the job.",
       },
     ],
     faq: [
       {
-        question: "特定技能と技能実習はどう違いますか？",
+        question: "What is the difference between Specified Skills and Technical Intern?",
         answer:
-          "技能実習は技術移転を目的とした制度（最大5年）。特定技能は即戦力の労働力確保を目的とし、1号は最大5年・2号は無期限更新が可能です。MakeCareerでは状況に応じて最適な制度をご提案します。",
+          "Technical Intern Training focuses on skills transfer (up to 5 years). Specified Skills Type 1 is capped at 5 years; Type 2 allows indefinite renewal. MakeCareer recommends the right programme based on your situation.",
       },
       {
-        question: "受け入れにかかる費用の目安を教えてください。",
+        question: "What are the typical costs involved?",
         answer:
-          "在留資格申請費用・渡航費・住居費・教育費などが必要です。費用は国籍・人数・期間によって異なりますので、まずはお見積もりのご依頼をお願いします。",
+          "Costs include visa fees, flights, housing, and training. The total varies by nationality, headcount, and duration — please request a free quote.",
       },
       {
-        question: "どの国籍の人材を紹介してもらえますか？",
+        question: "Which nationalities can you source?",
         answer:
-          "ベトナム・フィリピン・インドネシア・ミャンマー・タイ・中国などのアジア各国の人材をご紹介できます。",
+          "We work with talent from Vietnam, the Philippines, Indonesia, Myanmar, Thailand, China, and other Asian countries.",
       },
     ],
     relatedSlugs: ["haken", "ukeoi"],
@@ -186,52 +186,52 @@ export const SERVICES: ServiceData[] = [
   {
     slug: "maintenance",
     iconKey: "Wrench",
-    titleJa: "設備メンテナンス人材",
+    titleJa: "Maintenance Staffing",
     titleEn: "Maintenance Staffing",
-    taglineJa: "生産設備の安定稼働を支えるプロ人材",
+    taglineJa: "Specialists who keep your production equipment running",
     descriptionJa:
-      "設備保全・電気・機械メンテナンスに特化したスタッフを提供。生産設備の安定稼働を支えます。",
+      "Certified mechanical and electrical maintenance technicians, placed to protect your uptime and prevent costly production stoppages.",
     longDescriptionJa:
-      "設備メンテナンス人材は、製造ラインの心臓部とも言える設備の安定稼働を担う専門職です。MakeCareerでは、機械保全・電気保全・設備管理の資格・経験を持つスペシャリストをご紹介しています。定期点検から故障対応・改善提案まで、設備トラブルによる生産停止のリスクを最小化します。",
+      "Maintenance staff are the backbone of any production line. MakeCareer places specialists qualified in mechanical maintenance, electrical maintenance, and facilities management. From scheduled inspections to emergency breakdowns, our technicians minimise downtime risk and can also propose line improvements to reduce operating costs.",
     features: [
-      "機械保全・電気保全の有資格者を多数登録",
-      "予防保全から緊急対応まで幅広くカバー",
-      "設備改善・コスト削減の提案も対応",
-      "夜間・休日の緊急対応チームも編成可能",
+      "Large pool of workers with mechanical and electrical maintenance certifications",
+      "Coverage from preventive maintenance to emergency breakdowns",
+      "Improvement proposals to reduce equipment-related costs",
+      "24/7 emergency response teams available on request",
     ],
     targetCompanies: [
-      "設備トラブルによる生産停止リスクを減らしたい工場",
-      "保全担当者の高齢化・後継者不足に悩む企業",
-      "設備保全をアウトソースしてコアに集中したいメーカー",
-      "新鋭設備の導入に伴いメンテナンス人員を強化したい企業",
+      "Factories looking to reduce the risk of production stoppages from equipment failures",
+      "Companies facing an ageing maintenance workforce with no succession plan",
+      "Manufacturers that want to outsource maintenance and focus on production",
+      "Sites introducing new equipment and needing specialist technicians",
     ],
     process: [
       {
-        titleJa: "設備・業務内容のヒアリング",
+        titleJa: "Equipment & Scope Review",
         descriptionJa:
-          "対象設備の種類・メーカー・稼働状況と、必要なスキル・資格を確認します。",
+          "We assess the equipment types, manufacturers, current condition, and the specific skills and certifications required.",
       },
       {
-        titleJa: "適任スタッフの選定・面接",
+        titleJa: "Candidate Screening & Interview",
         descriptionJa:
-          "保有資格・実務経験・過去の対応事例を精査し、最適な候補者をご提案します。",
+          "We review certifications, hands-on experience, and past maintenance cases to present the most suitable candidates.",
       },
       {
-        titleJa: "就業・定期レポート",
+        titleJa: "Placement & Monthly Reporting",
         descriptionJa:
-          "就業開始後は月次で業務報告・設備状況レポートを提出。継続的な改善を図ります。",
+          "After placement, we submit monthly work reports and equipment status updates to support ongoing improvement.",
       },
     ],
     faq: [
       {
-        question: "保有資格の確認はできますか？",
+        question: "Can I verify a candidate's certifications in advance?",
         answer:
-          "機械保全技能士・電気工事士・危険物取扱者など、各種資格の保有状況を事前にお確認いただけます。",
+          "Yes — we can provide evidence of qualifications such as Mechanical Maintenance Technician, Electrical Construction Engineer, and Hazardous Materials Handler before placement.",
       },
       {
-        question: "緊急時の対応も可能ですか？",
+        question: "Can you handle emergency call-outs?",
         answer:
-          "設備トラブルの緊急対応チームを編成しており、24時間365日の対応が可能なプランもご用意しています。",
+          "We have dedicated emergency response teams and can arrange 24/7 coverage plans to minimise your downtime risk.",
       },
     ],
     relatedSlugs: ["haken", "ukeoi"],
@@ -239,52 +239,52 @@ export const SERVICES: ServiceData[] = [
   {
     slug: "butsuryu",
     iconKey: "Truck",
-    titleJa: "物流・倉庫作業",
+    titleJa: "Logistics & Warehousing",
     titleEn: "Logistics & Warehousing",
-    taglineJa: "繁忙期の変動にも即対応",
+    taglineJa: "Scale your warehouse team up or down — instantly",
     descriptionJa:
-      "ピッキング・梱包・在庫管理など物流・倉庫業務に対応したスタッフを派遣。繁忙期の変動にも対応します。",
+      "Picking, packing, inventory management, and forklift operation: we supply experienced warehouse workers who are ready to hit the ground running.",
     longDescriptionJa:
-      "ECの拡大や多頻度小口配送の増加により、物流・倉庫現場の人材需要は年々高まっています。MakeCareerでは、ピッキング・梱包・仕分け・棚卸し・フォークリフト操作まで、倉庫・物流業務全般に対応したスタッフをご提供します。繁忙期の突発的な増員にも、登録スタッフのプールから迅速に対応します。",
+      "The growth of e-commerce and frequent small-batch deliveries means warehouse staffing demand has never been higher. MakeCareer supplies workers across all logistics functions — picking, packing, sorting, stocktaking, and forklift operation. When a peak period hits, our registered worker pool means we can respond fast, even at scale.",
     features: [
-      "ピッキング・梱包・仕分け・棚卸しなど全工程対応",
-      "フォークリフト免許保有者も多数登録",
-      "繁忙期の緊急増員にも最短即日対応",
-      "WMS・ハンディターミナル経験者も紹介可能",
+      "Full warehouse operations covered: picking, packing, sorting, and stocktaking",
+      "Large pool of forklift-licensed operators (reach and counterbalance)",
+      "Emergency scale-up for busy periods — same-day in some cases",
+      "WMS and handheld terminal experience available on request",
     ],
     targetCompanies: [
-      "EC・通販の出荷業務で繁忙期の人手不足に悩む企業",
-      "倉庫スタッフの入れ替わりが多く採用コストがかさむ企業",
-      "季節性の高い商品を扱い、人員の増減が必要な企業",
-      "フォークリフトオペレーターを急ぎ確保したい物流会社",
+      "E-commerce and mail-order businesses struggling with peak season demand",
+      "Warehouses with high turnover that want to reduce recurring recruitment costs",
+      "Companies with strongly seasonal products needing flexible headcount",
+      "Logistics firms needing forklift operators at short notice",
     ],
     process: [
       {
-        titleJa: "業務量・ピーク時期の確認",
+        titleJa: "Volume & Peak Period Review",
         descriptionJa:
-          "繁閑の波・対象業務・必要スキルをヒアリングし、最適な配置計画を立案します。",
+          "We discuss your seasonal patterns, specific tasks, and required skills to build an optimal staffing plan.",
       },
       {
-        titleJa: "スタッフの選定・配置",
+        titleJa: "Candidate Selection & Placement",
         descriptionJa:
-          "経験・資格（フォークリフト等）・体力的適性を考慮して候補者を選定します。",
+          "We screen for relevant experience, forklift licences, and physical suitability before confirming the placement.",
       },
       {
-        titleJa: "稼働・労務管理",
+        titleJa: "Operations & Labour Management",
         descriptionJa:
-          "就業後の勤怠管理・安全衛生管理をMakeCareerが行い、安心して業務に集中いただけます。",
+          "MakeCareer handles attendance tracking and health and safety compliance so you can focus on the work.",
       },
     ],
     faq: [
       {
-        question: "フォークリフト免許を持ったスタッフは紹介できますか？",
+        question: "Can you supply forklift-licensed workers?",
         answer:
-          "フォークリフト運転技能講習修了者を多数登録しています。免許の有無・機種（リーチ式・カウンター式など）のご要望もご指定いただけます。",
+          "Yes — we have many registered workers who have completed forklift operation training. You can specify the licence type (reach, counterbalance, etc.) and we will match accordingly.",
       },
       {
-        question: "夜間・早朝シフトのスタッフは対応可能ですか？",
+        question: "Can workers cover night and early-morning shifts?",
         answer:
-          "夜間・早朝・土日勤務に対応できるスタッフも多数登録しています。シフトの詳細をお聞かせください。",
+          "Many of our registered workers are available for night, early-morning, and weekend shifts. Please share your shift requirements and we will find the right people.",
       },
     ],
     relatedSlugs: ["haken", "ukeoi"],

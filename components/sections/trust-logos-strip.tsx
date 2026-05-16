@@ -13,14 +13,14 @@ interface LogoItem {
 }
 
 const LOGOS: LogoItem[] = [
-  { name: "トヨタ自動車", industry: "自動車", src: "/images/logos/toyota.svg" },
-  { name: "デンソー", industry: "電装部品", src: "/images/logos/denso.svg" },
-  { name: "パナソニック", industry: "電機", src: "/images/logos/panasonic.svg" },
-  { name: "アイシン", industry: "自動車部品", src: "/images/logos/aisin.svg" },
-  { name: "ホンダ", industry: "自動車", src: "/images/logos/honda.svg" },
-  { name: "キヤノン", industry: "精密機器", src: "/images/logos/canon.svg" },
-  { name: "日立製作所", industry: "電機", src: "/images/logos/hitachi.svg" },
-  { name: "三菱電機", industry: "電機", src: "/images/logos/mitsubishi.svg" },
+  { name: "Toyota", industry: "Automotive", src: "/images/logos/toyota.svg" },
+  { name: "Denso", industry: "Auto Parts", src: "/images/logos/denso.svg" },
+  { name: "Panasonic", industry: "Electronics", src: "/images/logos/panasonic.svg" },
+  { name: "Aisin", industry: "Auto Parts", src: "/images/logos/aisin.svg" },
+  { name: "Honda", industry: "Automotive", src: "/images/logos/honda.svg" },
+  { name: "Canon", industry: "Precision Equipment", src: "/images/logos/canon.svg" },
+  { name: "Hitachi", industry: "Electronics", src: "/images/logos/hitachi.svg" },
+  { name: "Mitsubishi Electric", industry: "Electronics", src: "/images/logos/mitsubishi.svg" },
 ];
 
 export function TrustLogosStrip() {
@@ -33,7 +33,7 @@ export function TrustLogosStrip() {
   return (
     <section
       ref={ref as React.RefObject<HTMLElement>}
-      aria-label="取引実績企業"
+      aria-label="Companies we work with"
       className="bg-neutral-50 border-y border-neutral-100 py-10"
     >
       <div className="content-max px-4 sm:px-6 lg:px-8">
@@ -43,7 +43,7 @@ export function TrustLogosStrip() {
           animate={inView ? "visible" : "hidden"}
           className="text-center text-xs font-semibold uppercase tracking-widest text-neutral-400 mb-8"
         >
-          全国の製造業大手・中堅企業をサポート
+          Trusted by Japan&apos;s Leading Manufacturers
         </motion.p>
 
         <motion.div

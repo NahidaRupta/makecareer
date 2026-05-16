@@ -17,7 +17,7 @@ export function Breadcrumbs({ crumbs, light = false }: BreadcrumbsProps) {
   const chevronColor = light ? "text-white/30" : "text-neutral-300";
 
   return (
-    <nav aria-label="パンくずリスト">
+    <nav aria-label="Breadcrumb">
       <ol className="flex flex-wrap items-center gap-1 text-xs">
         <li>
           <Link
@@ -25,7 +25,7 @@ export function Breadcrumbs({ crumbs, light = false }: BreadcrumbsProps) {
             className={`flex items-center gap-0.5 transition-colors ${textBase}`}
           >
             <Home size={11} aria-hidden="true" />
-            <span className="sr-only">ホーム</span>
+            <span className="sr-only">Home</span>
           </Link>
         </li>
 

@@ -11,14 +11,14 @@ import type { StatItem } from "@/types";
 const STATS: StatItem[] = [
   {
     value: 5000,
-    unit: "名",
+    unit: "",
     suffix: "+",
     label: "Registered Staff",
     labelJa: "登録スタッフ数",
   },
   {
     value: 200,
-    unit: "社",
+    unit: "",
     suffix: "+",
     label: "Partner Companies",
     labelJa: "取引企業数",
@@ -32,9 +32,9 @@ const STATS: StatItem[] = [
   },
   {
     value: 15,
-    unit: "年",
+    unit: "",
     suffix: "+",
-    label: "Industry Experience",
+    label: "Years Experience",
     labelJa: "業界経験",
   },
 ];
@@ -51,7 +51,7 @@ function StatCounter({ stat, active }: StatCounterProps) {
     <div className="text-center px-4">
       <div className="flex items-baseline justify-center gap-0.5">
         <span className="text-4xl sm:text-5xl font-extrabold tabular-nums text-navy-950">
-          {count.toLocaleString("ja-JP")}
+          {count.toLocaleString("en-US")}
         </span>
         <span className="text-2xl sm:text-3xl font-bold text-amber-500">
           {stat.unit}
@@ -59,7 +59,7 @@ function StatCounter({ stat, active }: StatCounterProps) {
         </span>
       </div>
       <p className="mt-1.5 text-sm font-medium text-neutral-500">
-        {stat.labelJa}
+        {stat.label}
       </p>
     </div>
   );
@@ -75,7 +75,7 @@ export function StatsBand() {
   return (
     <section
       ref={ref as React.RefObject<HTMLElement>}
-      aria-label="実績数値"
+      aria-label="Key metrics"
       className="bg-white border-y border-neutral-200 py-14 sm:py-16"
     >
       <div className="content-max px-4 sm:px-6 lg:px-8">
@@ -85,7 +85,7 @@ export function StatsBand() {
           animate={inView ? "visible" : "hidden"}
           className="text-center text-xs font-semibold uppercase tracking-widest text-neutral-400 mb-10"
         >
-          実績で選ばれる MakeCareer
+          Why Clients Choose MakeCareer
         </motion.p>
 
         <motion.div

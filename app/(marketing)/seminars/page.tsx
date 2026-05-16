@@ -7,16 +7,16 @@ import { PageHero } from "@/components/ui/page-hero";
 import { CtaBanner } from "@/components/ui/cta-banner";
 
 export const metadata: Metadata = generatePageMetadata({
-  title: "セミナー・説明会 | MakeCareer",
+  title: "Seminars & Events | MakeCareer",
   description:
-    "MakeCareerが定期開催する製造業向け無料セミナー・説明会の一覧。人材派遣の基礎から外国人材受け入れまで、採用課題を解決するセミナーです。",
+    "Free seminars and information sessions for manufacturers. Topics range from staffing fundamentals to foreign worker onboarding — register online today.",
   path: "/seminars",
 });
 
 const FORMAT_COLORS = {
-  オンライン: "bg-emerald-50 text-emerald-700 border-emerald-200",
-  会場: "bg-navy-50 text-navy-700 border-navy-200",
-  ハイブリッド: "bg-amber-50 text-amber-700 border-amber-200",
+  Online: "bg-emerald-50 text-emerald-700 border-emerald-200",
+  "In-Person": "bg-navy-50 text-navy-700 border-navy-200",
+  Hybrid: "bg-amber-50 text-amber-700 border-amber-200",
 } as const;
 
 function SpotsIndicator({ total, left }: { total: number; left: number }) {
@@ -28,10 +28,11 @@ function SpotsIndicator({ total, left }: { total: number; left: number }) {
         <div
           className={`h-full rounded-full ${isCritical ? "bg-red-400" : "bg-amber-400"}`}
           style={{ width: `${pct}%` }}
+          aria-label={`${left} of ${total} spots remaining`}
         />
       </div>
       <span className={`text-xs font-semibold ${isCritical ? "text-red-500" : "text-neutral-600"}`}>
-        残{left}名
+        {left} spots left
       </span>
     </div>
   );
@@ -42,17 +43,17 @@ export default function SeminarsPage() {
     <>
       <PageHero
         eyebrow="Events & Seminars"
-        titleJa="セミナー・説明会"
-        titleEn="Free Seminars for Manufacturers"
-        descriptionJa="製造業の採用・人材活用に役立つ無料セミナーを定期開催しています。オンライン・会場どちらでもご参加いただけます。"
-        crumbs={[{ label: "セミナー・説明会" }]}
+        titleJa="Free Seminars for Manufacturers"
+        titleEn="Learn from specialists, ask your questions"
+        descriptionJa="Regular free seminars on manufacturing staffing and workforce management. Join us online or in person."
+        crumbs={[{ label: "Seminars" }]}
       />
 
       {/* Upcoming seminars */}
       <section aria-labelledby="seminars-heading" className="bg-white section-padding">
         <div className="content-max px-4 sm:px-6 lg:px-8">
           <h2 id="seminars-heading" className="text-2xl font-extrabold text-navy-950 mb-10">
-            開催予定のセミナー
+            Upcoming Seminars
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -109,7 +110,7 @@ export default function SeminarsPage() {
                   {/* Agenda preview */}
                   <div className="mt-5 rounded-xl bg-neutral-50 border border-neutral-100 p-4">
                     <p className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-3">
-                      プログラム
+                      Agenda
                     </p>
                     <ol className="space-y-1.5">
                       {seminar.agenda.map((a) => (
@@ -126,7 +127,7 @@ export default function SeminarsPage() {
                       href={{ pathname: `/seminars/${seminar.slug}` }}
                       className="flex items-center justify-center gap-2 w-full rounded-lg bg-navy-950 px-4 py-3 text-sm font-bold text-white hover:bg-navy-800 transition-colors"
                     >
-                      参加申し込み
+                      Register Now
                       <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />
                     </Link>
                   </div>
@@ -141,18 +142,18 @@ export default function SeminarsPage() {
       <section aria-labelledby="join-heading" className="bg-neutral-50 section-padding">
         <div className="content-max px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto text-center">
           <h2 id="join-heading" className="text-2xl font-extrabold text-navy-950 mb-4">
-            参加方法
+            How to Register
           </h2>
           <p className="text-neutral-600 leading-relaxed mb-10">
-            参加は無料です。フォームよりお申し込みいただき、開催当日にご参加ください。
+            Attendance is free. Complete the registration form and join on the day.
             <br className="hidden sm:block" />
-            オンライン開催の場合はZoomのURLを事前にお送りします。
+            For online sessions, we will send you the Zoom link in advance.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
-              { step: "01", label: "申し込みフォームに入力" },
-              { step: "02", label: "確認メールを受け取る" },
-              { step: "03", label: "当日ご参加" },
+              { step: "01", label: "Fill in the registration form" },
+              { step: "02", label: "Receive your confirmation email" },
+              { step: "03", label: "Join on the day" },
             ].map((s) => (
               <div key={s.step} className="flex flex-col items-center gap-2">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-navy-950 text-amber-400 font-extrabold">
@@ -166,11 +167,11 @@ export default function SeminarsPage() {
       </section>
 
       <CtaBanner
-        titleJa="セミナー以外のご相談もお気軽に"
-        descriptionJa="個別のご相談・現場視察・お見積もりはいつでも承っています。"
-        primaryLabel="無料で相談する"
+        titleJa="Prefer a one-to-one conversation?"
+        descriptionJa="Individual consultations, site visits, and estimates are available at any time — just get in touch."
+        primaryLabel="Free Consultation"
         primaryHref="/contact"
-        secondaryLabel="資料をダウンロード"
+        secondaryLabel="Download Free Guides"
         secondaryHref="/downloads"
         variant="navy"
       />

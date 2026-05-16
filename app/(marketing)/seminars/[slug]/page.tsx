@@ -19,9 +19,9 @@ import { eventRegisterSchema, type EventRegisterInput } from "@/lib/validations/
 import { getSeminarBySlug } from "@/lib/data/seminars";
 
 const FORMAT_COLORS = {
-  オンライン: "bg-emerald-50 text-emerald-700 border-emerald-200",
-  会場: "bg-navy-50 text-navy-700 border-navy-200",
-  ハイブリッド: "bg-amber-50 text-amber-700 border-amber-200",
+  Online: "bg-emerald-50 text-emerald-700 border-emerald-200",
+  "In-Person": "bg-navy-50 text-navy-700 border-navy-200",
+  Hybrid: "bg-amber-50 text-amber-700 border-amber-200",
 } as const;
 
 function SpotsBar({ total, left }: { total: number; left: number }) {
@@ -36,7 +36,7 @@ function SpotsBar({ total, left }: { total: number; left: number }) {
         />
       </div>
       <span className={`text-xs font-semibold whitespace-nowrap ${isCritical ? "text-red-500" : "text-neutral-600"}`}>
-        残{left}名 / 定員{total}名
+        {left} spots left of {total}
       </span>
     </div>
   );
@@ -82,7 +82,7 @@ export default function SeminarRegistrationPage() {
       setStatus("success");
     } catch (err) {
       setStatus("error");
-      setErrorMessage(err instanceof Error ? err.message : "送信に失敗しました。");
+      setErrorMessage(err instanceof Error ? err.message : "Submission failed. Please try again in a moment.");
     }
   }
 
@@ -90,7 +90,7 @@ export default function SeminarRegistrationPage() {
     "w-full rounded-lg border border-neutral-200 bg-white px-4 py-3 text-sm text-navy-950 placeholder-neutral-400 focus:border-navy-500 focus:outline-none focus:ring-2 focus:ring-navy-500/20 transition-colors";
 
   const formatColor =
-    FORMAT_COLORS[seminar.format] ?? "bg-neutral-100 text-neutral-600 border-neutral-200";
+    FORMAT_COLORS[seminar.format as keyof typeof FORMAT_COLORS] ?? "bg-neutral-100 text-neutral-600 border-neutral-200";
 
   return (
     <div className="min-h-[calc(100vh-80px)] bg-neutral-50">
@@ -102,7 +102,7 @@ export default function SeminarRegistrationPage() {
             className="hover:text-navy-700 transition-colors flex items-center gap-1"
           >
             <ArrowLeft size={12} aria-hidden="true" />
-            セミナー一覧
+            Seminars
           </Link>
           <span aria-hidden="true">/</span>
           <span className="text-neutral-700 line-clamp-1">{seminar.titleJa}</span>
@@ -154,7 +154,7 @@ export default function SeminarRegistrationPage() {
                 {/* Agenda */}
                 <div className="mt-6 rounded-xl bg-neutral-50 border border-neutral-100 p-5">
                   <p className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-4">
-                    プログラム
+                    Agenda
                   </p>
                   <ol className="space-y-3">
                     {seminar.agenda.map((a, i) => (
@@ -193,27 +193,27 @@ export default function SeminarRegistrationPage() {
                   aria-hidden="true"
                 />
                 <h2 className="text-lg font-bold text-navy-950 mb-3">
-                  お申し込みを受け付けました
+                  Registration confirmed
                 </h2>
                 <p className="text-sm text-neutral-600 leading-relaxed mb-6">
-                  ご登録のメールアドレスに確認メールをお送りしました。
-                  開催前日にもご連絡いたします。
+                  We&apos;ve sent a confirmation email to your address.
+                  We&apos;ll also send a reminder the day before the event.
                 </p>
                 <Link
                   href={{ pathname: "/seminars" }}
                   className="inline-flex items-center gap-2 text-sm font-semibold text-navy-600 hover:text-navy-800 transition-colors"
                 >
                   <ArrowLeft size={14} aria-hidden="true" />
-                  他のセミナーを見る
+                  View More Seminars
                 </Link>
               </div>
             ) : (
               <div className="rounded-2xl bg-white border border-neutral-200 p-7">
                 <h2 className="text-lg font-extrabold text-navy-950 mb-1">
-                  参加申し込み（無料）
+                  Register (Free)
                 </h2>
                 <p className="text-xs text-neutral-500 mb-6">
-                  お名前とメールアドレスをご入力ください。確認メールをお送りします。
+                  Enter your details below. We&apos;ll send a confirmation email once you register.
                 </p>
 
                 <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-4">
@@ -224,13 +224,13 @@ export default function SeminarRegistrationPage() {
 
                   <div>
                     <label htmlFor="reg-name" className="block text-xs font-semibold text-navy-950 mb-1.5">
-                      お名前 <span className="text-red-500">*</span>
+                      Full Name <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="reg-name"
                       type="text"
                       autoComplete="name"
-                      placeholder="山田 太郎"
+                      placeholder="Jane Smith"
                       className={`${inputBase} ${errors.name ? "border-red-400" : ""}`}
                       {...register("name")}
                     />
@@ -244,13 +244,13 @@ export default function SeminarRegistrationPage() {
 
                   <div>
                     <label htmlFor="reg-email" className="block text-xs font-semibold text-navy-950 mb-1.5">
-                      メールアドレス <span className="text-red-500">*</span>
+                      Email Address <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="reg-email"
                       type="email"
                       autoComplete="email"
-                      placeholder="taro@company.co.jp"
+                      placeholder="jane@company.co.jp"
                       className={`${inputBase} ${errors.email ? "border-red-400" : ""}`}
                       {...register("email")}
                     />
@@ -264,13 +264,13 @@ export default function SeminarRegistrationPage() {
 
                   <div>
                     <label htmlFor="reg-company" className="block text-xs font-semibold text-navy-950 mb-1.5">
-                      会社名
+                      Company Name
                     </label>
                     <input
                       id="reg-company"
                       type="text"
                       autoComplete="organization"
-                      placeholder="株式会社〇〇製作所"
+                      placeholder="ABC Manufacturing Co., Ltd."
                       className={inputBase}
                       {...register("company")}
                     />
@@ -278,7 +278,7 @@ export default function SeminarRegistrationPage() {
 
                   <div>
                     <label htmlFor="reg-phone" className="block text-xs font-semibold text-navy-950 mb-1.5">
-                      電話番号
+                      Phone Number
                     </label>
                     <input
                       id="reg-phone"
@@ -293,7 +293,7 @@ export default function SeminarRegistrationPage() {
                   {(status === "error" || status === "full") && (
                     <div className="flex items-start gap-2 rounded-lg bg-red-50 border border-red-200 p-4 text-sm text-red-700">
                       <AlertCircle size={16} className="shrink-0 mt-0.5" aria-hidden="true" />
-                      <span>{errorMessage || "送信に失敗しました。しばらくしてから再度お試しください。"}</span>
+                      <span>{errorMessage || "Submission failed. Please try again in a moment."}</span>
                     </div>
                   )}
 
@@ -303,14 +303,14 @@ export default function SeminarRegistrationPage() {
                     className="w-full flex items-center justify-center gap-2 rounded-lg bg-amber-500 px-6 py-4 text-sm font-bold text-white hover:bg-amber-600 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
                   >
                     {isSubmitting
-                      ? "送信中..."
+                      ? "Sending..."
                       : seminar.spotsLeft <= 0
-                        ? "満席のためお申し込みできません"
-                        : "申し込む（無料）"}
+                        ? "Fully Booked"
+                        : "Register (Free)"}
                   </button>
 
                   <p className="text-center text-[11px] text-neutral-400 leading-relaxed">
-                    ご入力いただいた情報は、セミナー運営およびMakeCareerからのご案内にのみ使用します。
+                    Your information will be used only for seminar operations and relevant communications from MakeCareer.
                   </p>
                 </form>
               </div>

@@ -20,36 +20,36 @@ const BADGES: ComplianceBadge[] = [
     icon: ShieldCheck,
     titleJa: "一般労働者派遣事業許可",
     titleEn: "General Worker Dispatch License",
-    detail: "愛知労働局長許可",
-    number: "（派）第○○-○○○号",
+    detail: "Aichi Labour Bureau — Certified",
+    number: "No. ○○-○○○",
   },
   {
     icon: FileCheck2,
     titleJa: "有料職業紹介事業許可",
     titleEn: "Paid Employment Placement License",
-    detail: "愛知労働局長許可",
-    number: "（有）第○○-○○○号",
+    detail: "Aichi Labour Bureau — Certified",
+    number: "No. ○○-○○○",
   },
   {
     icon: Award,
     titleJa: "プライバシーマーク認定",
     titleEn: "Privacy Mark Certified",
-    detail: "個人情報の適切な取扱いを認定",
-    number: "第○○○○○○号",
+    detail: "Certified for proper handling of personal information",
+    number: "No. ○○○○○○",
   },
   {
     icon: BadgeCheck,
     titleJa: "ISO 9001 認証取得",
     titleEn: "ISO 9001 Certified",
-    detail: "品質マネジメントシステム国際規格",
+    detail: "International quality management system standard",
   },
 ];
 
 const COMMITMENTS = [
-  "スタッフ・企業様の個人情報を厳重に管理",
-  "法令遵守を徹底したコンプライアンス体制",
-  "労働基準法・派遣法に基づく適正な雇用管理",
-  "定期的な社内研修によるサービス品質の向上",
+  "Strict protection of all staff and client personal data",
+  "Full legal compliance and robust internal governance",
+  "Employment management aligned with Japan's Labour Standards and Dispatch laws",
+  "Regular staff training to continuously raise service quality",
 ];
 
 export function ComplianceSection() {
@@ -84,10 +84,11 @@ export function ComplianceSection() {
             variants={item}
             className="text-3xl sm:text-4xl font-extrabold text-navy-950 tracking-tight"
           >
-            許認可・コンプライアンス
+            Licenses &amp; Compliance
           </motion.h2>
           <motion.p variants={item} className="mt-4 text-neutral-600 leading-relaxed">
-            MakeCareerは適切な許認可のもと、法令を遵守した人材サービスを提供しています。
+            MakeCareer holds all required licences and operates in full compliance
+            with Japanese labour law.
           </motion.p>
         </motion.div>
 
@@ -109,10 +110,9 @@ export function ComplianceSection() {
                 <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-navy-950">
                   <Icon size={24} strokeWidth={1.5} className="text-amber-400" aria-hidden="true" />
                 </div>
-                <h3 className="text-sm font-bold text-navy-950 leading-snug mb-1">
-                  {badge.titleJa}
+                <h3 className="text-sm font-bold text-navy-950 leading-snug mb-3">
+                  {badge.titleEn}
                 </h3>
-                <p className="text-[10px] text-neutral-400 mb-3">{badge.titleEn}</p>
                 <p className="text-[11px] text-neutral-500 leading-relaxed">{badge.detail}</p>
                 {badge.number && (
                   <p className="mt-1 text-[10px] text-neutral-400 font-mono">{badge.number}</p>
@@ -130,7 +130,7 @@ export function ComplianceSection() {
           className="rounded-2xl bg-navy-950 p-8 lg:p-10"
         >
           <motion.h3 variants={item} className="text-lg font-bold text-white mb-6">
-            コンプライアンスへの取り組み
+            Our Compliance Commitments
           </motion.h3>
           <motion.ul
             variants={container}

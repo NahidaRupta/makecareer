@@ -14,9 +14,9 @@ import { PageHero } from "@/components/ui/page-hero";
 import { CtaBanner } from "@/components/ui/cta-banner";
 
 export const metadata: Metadata = generatePageMetadata({
-  title: "サービス一覧 | MakeCareer",
+  title: "Our Services | MakeCareer",
   description:
-    "MakeCareerが提供する製造業・工場向け人材サービスの一覧。人材派遣・工場請負・特定技能・設備メンテナンス・物流倉庫まで幅広くご対応します。",
+    "MakeCareer's full service range for manufacturing and factory operations: staffing dispatch, outsourcing, Specified Skills, maintenance, and logistics staffing.",
   path: "/services",
 });
 
@@ -29,11 +29,11 @@ const ICON_MAP = {
 } as const;
 
 const SERVICE_POINTS: Record<string, string[]> = {
-  haken: ["最短翌日配置", "5,000名登録", "期間・規模を柔軟調整"],
-  ukeoi: ["指揮命令不要", "品質管理込み", "固定費を変動費化"],
-  ginoujisshu: ["ビザ申請から対応", "生活サポート付", "受け入れ実績多数"],
-  maintenance: ["有資格者多数登録", "緊急対応チーム", "月次報告レポート"],
-  butsuryu: ["フォークリフト対応", "繁忙期即日対応", "WMS経験者も紹介"],
+  haken: ["Next-day placement available", "5,000+ registered workers", "Flexible short or long-term"],
+  ukeoi: ["No direct supervision needed", "Quality management included", "Convert fixed costs to variable"],
+  ginoujisshu: ["Visa support included", "Daily-life assistance", "Proven track record"],
+  maintenance: ["Certified technicians", "Emergency response team", "Monthly reporting included"],
+  butsuryu: ["Forklift operators available", "Same-day peak-season cover", "WMS experience available"],
 };
 
 export default function ServicesPage() {
@@ -41,10 +41,10 @@ export default function ServicesPage() {
     <>
       <PageHero
         eyebrow="Services"
-        titleJa="サービス一覧"
-        titleEn="Our Services"
-        descriptionJa="製造業・工場に関わるあらゆる人材ニーズに対応。ご要望に合わせて最適なサービスをご提案します。"
-        crumbs={[{ label: "サービス一覧" }]}
+        titleJa="Our Services"
+        titleEn="Manufacturing staffing solutions, end to end"
+        descriptionJa="We cover every manufacturing workforce need — from rapid placements to full line outsourcing and international talent support."
+        crumbs={[{ label: "Services" }]}
       />
 
       {/* Services grid */}
@@ -54,7 +54,7 @@ export default function ServicesPage() {
       >
         <div className="content-max px-4 sm:px-6 lg:px-8">
           <h2 id="services-list-heading" className="sr-only">
-            サービス詳細
+            Service details
           </h2>
 
           <div className="grid grid-cols-1 gap-6">
@@ -133,7 +133,7 @@ export default function ServicesPage() {
                         <ArrowRight size={18} strokeWidth={2} aria-hidden="true" />
                       </span>
                       <span className="text-xs font-semibold text-navy-700">
-                        詳しく見る
+                        Learn more
                       </span>
                     </Link>
                   </div>
@@ -145,11 +145,11 @@ export default function ServicesPage() {
       </section>
 
       <CtaBanner
-        titleJa="どのサービスが最適か迷われていますか？"
-        descriptionJa="専任コンサルタントが貴社の状況をヒアリングし、最適なサービスをご提案します。まずはお気軽にご相談ください。"
-        primaryLabel="無料で相談する"
+        titleJa="Not sure which service fits your needs?"
+        descriptionJa="A dedicated consultant will review your situation and recommend the right solution. Free, no obligation."
+        primaryLabel="Free Consultation"
         primaryHref="/contact"
-        secondaryLabel="資料をダウンロード"
+        secondaryLabel="Download a Guide"
         secondaryHref="/downloads"
         variant="navy"
       />

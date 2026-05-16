@@ -17,9 +17,9 @@ import { RecruitCtaSection } from "@/components/sections/recruit-cta-section";
 import { ContactSection } from "@/components/sections/contact-section";
 
 export const metadata: Metadata = generatePageMetadata({
-  title: "MakeCareer | 製造業・工場 人材派遣 全国対応",
+  title: "MakeCareer | Manufacturing Staffing & Workforce Solutions in Japan",
   description:
-    "MakeCareerは製造業・工場に特化した人材派遣会社。登録スタッフ5,000名以上、取引企業200社超、全国対応。人材派遣・工場請負・特定技能まで、採用のお悩みをすべて解決します。",
+    "MakeCareer is Japan's manufacturing staffing specialist. 5,000+ registered workers, 200+ partner companies, nationwide coverage. Staffing, outsourcing & skilled worker support — all in one place.",
   path: "/",
 });
 
