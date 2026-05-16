@@ -39,6 +39,7 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     remotePatterns: [],
     minimumCacheTTL: 60 * 60 * 24 * 30,
+    qualities: [75, 85, 90],
   },
 
   compress: true,

@@ -42,27 +42,17 @@ export function HeroSection() {
           animate="visible"
           className="max-w-3xl"
         >
-          {/* Eyebrow badge */}
-          <motion.p
-            variants={item}
-            className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-1.5 text-sm font-medium text-amber-400 mb-6"
-          >
-            <span
-              aria-hidden="true"
-              className="block h-1.5 w-1.5 rounded-full bg-amber-400"
-            />
-            製造業・工場への人材派遣
-          </motion.p>
+          
 
           {/* Headline */}
           <motion.h1
             id="hero-heading"
             variants={item}
-            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1]"
+            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-amber-400  leading-[1.1]"
           >
-            日本のモノづくりを、
+            勉強と仕事 -
             <br />
-            <span className="text-amber-400">人材の力</span>で支える。
+            <span className="text-white">繋がりへの道を切り拓く人事</span>
           </motion.h1>
 
           {/* Sub-headline */}
@@ -70,9 +60,8 @@ export function HeroSection() {
             variants={item}
             className="mt-6 max-w-xl text-lg text-white/70 leading-relaxed"
           >
-            MakeCareerは製造業・工場に特化した人材派遣会社です。
-            <br className="hidden sm:block" />
-            即戦力の確保から長期雇用まで、企業様のニーズに応えます。
+            サディアテックは、豊富な実績を背景に、世界最大級の総合人事企業の一つです。お客様に幅広いソリューションを提供しています。
+            
           </motion.p>
 
           {/* CTA row */}
