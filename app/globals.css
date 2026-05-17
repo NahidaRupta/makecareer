@@ -146,3 +146,20 @@ nav ol {
     transition-duration: 0.01ms !important;
   }
 }
+
+@theme {
+  /* ... keep your existing theme variables here if any ... */
+
+  /* 1. Define the animation rule */
+  --animate-marquee: marquee 25s linear infinite;
+
+  /* 2. Write keyframes using standard native CSS syntax */
+  @keyframes marquee {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}

@@ -10,28 +10,28 @@ import type { StatItem } from "@/types";
 
 const STATS: StatItem[] = [
   {
-    value: 5000,
+    value: 500,
     unit: "",
     suffix: "+",
-    label: "Registered Staff",
+    label: "Clients Served",
     labelJa: "登録スタッフ数",
   },
   {
-    value: 200,
+    value: 50,
     unit: "",
     suffix: "+",
     label: "Partner Companies",
     labelJa: "取引企業数",
   },
   {
-    value: 92,
+    value: 100,
     unit: "%",
     suffix: "",
-    label: "Retention Rate",
+    label: "Permit Granted",
     labelJa: "就業継続率",
   },
   {
-    value: 15,
+    value: 30,
     unit: "",
     suffix: "+",
     label: "Years Experience",
@@ -85,7 +85,7 @@ export function StatsBand() {
           animate={inView ? "visible" : "hidden"}
           className="text-center text-xs font-semibold uppercase tracking-widest text-neutral-400 mb-10"
         >
-          Why Clients Choose MakeCareer
+          Why Clients Choose SadiaTec
         </motion.p>
 
         <motion.div

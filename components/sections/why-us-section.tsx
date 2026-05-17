@@ -18,51 +18,51 @@ const REASONS: (DifferentiatorItem & { icon: React.ElementType })[] = [
   {
     icon: ShieldCheck,
     headingJa: "製造業に特化した専門性",
-    headingEn: "Manufacturing Expertise",
+    headingEn: "Reliable Local ISP",
     bodyJa:
       "15年以上の製造業特化の実績。工場・ライン作業から技術職まで、現場を知るコーディネーターが的確なマッチングを実現します。",
     bodyEn:
-      "Over 15 years focused exclusively on manufacturing. Our coordinators understand the shop floor and make accurate placements.",
+      "Fast & stable broadband internet service in Dhaka, especially Uttara.",
     iconName: "ShieldCheck",
   },
   {
     icon: Users,
     headingJa: "5,000名を超える登録スタッフ",
-    headingEn: "5,000+ Registered Staff",
+    headingEn: "Telecom Expertise",
     bodyJa:
       "幅広い職種・スキルを持つスタッフが即日〜短期間での配置に対応。急な欠員や繁忙期の増員にも迅速に対応します。",
     bodyEn:
-      "A large pool of skilled workers ready for same-day to short-notice assignments — ideal for sudden vacancies or peak seasons.",
+      "Complete connectivity solutions including internet, phone & data services.",
     iconName: "Users",
   },
   {
     icon: Clock,
     headingJa: "最短即日のスピード対応",
-    headingEn: "Same-Day Response",
+    headingEn: "Japan Opportunities",
     bodyJa:
       "お問い合わせから最短即日でスタッフをご紹介。生産ラインを止めない迅速なサポートを提供します。",
     bodyEn:
-      "From inquiry to placement in as little as one day — keeping your production line running without interruption.",
+      "Authorized partner for Japan Technical Intern Training & work programs.",
     iconName: "Clock",
   },
   {
     icon: MapPin,
     headingJa: "全国の製造拠点をカバー",
-    headingEn: "Nationwide Coverage",
+    headingEn: "Value-Added Services",
     bodyJa:
       "愛知・大阪・神奈川をはじめ、全国の主要な製造業集積エリアに対応。地域密着型のサポートネットワークを持ちます。",
     bodyEn:
-      "From Aichi and Osaka to Kanagawa and beyond — nationwide coverage of Japan's major industrial hubs.",
+      "Internet + IPTV + international calling in one package.",
     iconName: "MapPin",
   },
   {
     icon: HeartHandshake,
     headingJa: "スタッフ・企業双方に寄り添う支援",
-    headingEn: "Dual-Side Support",
+    headingEn: "Local Customer Support",
     bodyJa:
       "企業様の生産性向上とスタッフのキャリア発展、両方を大切にした長期的なパートナーシップを目指します。",
     bodyEn:
-      "We care equally about your productivity and your workers' growth, building partnerships that last.",
+      "Established Dhaka-based company with fast & friendly local support.",
     iconName: "HeartHandshake",
   },
 ];
@@ -92,7 +92,7 @@ export function WhyUsSection() {
             variants={item}
             className="text-xs font-semibold uppercase tracking-widest text-amber-500 mb-3"
           >
-            Why MakeCareer
+            Why SadiaTec
           </motion.p>
           <motion.h2
             id="why-us-heading"
@@ -105,8 +105,7 @@ export function WhyUsSection() {
             variants={item}
             className="mt-4 text-neutral-600 leading-relaxed"
           >
-            Our deep expertise on the manufacturing floor gives us a genuine
-            edge in finding and placing the right talent.
+             we believe that the true potential of any organization lies in its people.
           </motion.p>
         </motion.div>
 
