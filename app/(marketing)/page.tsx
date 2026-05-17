@@ -17,9 +17,9 @@ import { RecruitCtaSection } from "@/components/sections/recruit-cta-section";
 import { ContactSection } from "@/components/sections/contact-section";
 
 export const metadata: Metadata = generatePageMetadata({
-  title: "MakeCareer | Manufacturing Staffing & Workforce Solutions in Japan",
+  title: "SadiaTec",
   description:
-    "MakeCareer is Japan's manufacturing staffing specialist. 5,000+ registered workers, 200+ partner companies, nationwide coverage. Staffing, outsourcing & skilled worker support — all in one place.",
+    "SadiaTec is Japan's manufacturing staffing specialist.",
   path: "/",
 });
 
