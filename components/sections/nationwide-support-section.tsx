@@ -2,192 +2,222 @@
 
 import type React from "react";
 import { motion } from "framer-motion";
-import { MapPin, CheckCircle2 } from "lucide-react";
+import { MapPin, ShieldCheck, Layers, BadgeCheck } from "lucide-react";
 import { useInView } from "@/lib/hooks/use-in-view";
 import { useReducedMotion } from "@/lib/hooks/use-reduced-motion";
-import {
-  safeVariant,
-  staggerContainer,
-  fadeInUp,
-  fadeInLeft,
-  fadeInRight,
-} from "@/lib/motion/variants";
-
-interface Region {
-  name: string;
-  hub: string;
-  prefectures: string[];
-  highlight?: boolean;
-}
-
-const REGIONS: Region[] = [
-  {
-    name: "Chubu / Tokai",
-    hub: "Nagoya",
-    prefectures: ["Aichi", "Mie", "Gifu", "Shizuoka"],
-    highlight: true,
-  },
-  {
-    name: "Kanto",
-    hub: "Tokyo / Kanagawa",
-    prefectures: ["Tokyo", "Kanagawa", "Saitama", "Gunma"],
-    highlight: true,
-  },
-  {
-    name: "Kansai",
-    hub: "Osaka / Hyogo",
-    prefectures: ["Osaka", "Hyogo", "Kyoto", "Shiga"],
-    highlight: true,
-  },
-  {
-    name: "Kyushu",
-    hub: "Fukuoka",
-    prefectures: ["Fukuoka", "Kumamoto", "Oita", "Nagasaki"],
-  },
-  {
-    name: "Hokuriku / Shinetsu",
-    hub: "Toyama / Niigata",
-    prefectures: ["Toyama", "Ishikawa", "Niigata", "Nagano"],
-  },
-  {
-    name: "Tohoku",
-    hub: "Miyagi / Iwate",
-    prefectures: ["Miyagi", "Iwate", "Yamagata", "Fukushima"],
-  },
-];
-
-const STRENGTHS = [
-  "Dedicated coordinators placed in every major manufacturing hub",
-  "Deep knowledge of regional labour markets and local hiring norms",
-  "Consistent service quality across all locations, backed by HQ",
-  "Dormitory arrangements, housing support, and commute assistance available",
-];
+import { safeVariant, staggerContainer, fadeInUp } from "@/lib/motion/variants";
 
 export function NationwideSupportSection() {
-  const { ref, inView } = useInView({ once: true });
+  const { ref, inView } = useInView({ once: true, rootMargin: "-80px" });
   const prefersReducedMotion = useReducedMotion();
 
-  const container = safeVariant(staggerContainer, prefersReducedMotion);
-  const item = safeVariant(fadeInUp, prefersReducedMotion);
-  const leftItem = safeVariant(fadeInLeft, prefersReducedMotion);
-  const rightItem = safeVariant(fadeInRight, prefersReducedMotion);
+  const containerVariants = safeVariant(staggerContainer, prefersReducedMotion);
+  const itemVariants = safeVariant(fadeInUp, prefersReducedMotion);
+
+  // Custom Framer Motion settings for the legal document vector animation
+  const documentStackVariants = {
+    hidden: { scale: 0.8, opacity: 0 },
+    visible: { 
+      scale: 1, 
+      opacity: 1,
+      transition: { duration: 0.5, ease: "easeOut", staggerChildren: 0.12 } 
+    }
+  } as const;;
+
+  const leafPageVariants = {
+    hidden: { opacity: 0, y: 15, rotate: 0 },
+    visible: { opacity: 1, y: 0, rotate: -6, transition: { duration: 0.4 } }
+  };
+
+  const centerPageVariants = {
+    hidden: { opacity: 0, y: 15, rotate: 0 },
+    visible: { opacity: 1, y: 0, rotate: 6, transition: { duration: 0.4 } }
+  };
+
+  const mainPageVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
+  };
+
+  const pencilVariants = {
+    hidden: { opacity: 0, x: 30, y: 30, scale: 0.6 },
+    visible: { 
+      opacity: 1, 
+      x: 0, 
+      y: 0, 
+      scale: 1,
+      transition: { delay: 0.6, duration: 0.5, type: "spring", stiffness: 120 } 
+    }
+  } as const;;
 
   return (
     <section
       ref={ref as React.RefObject<HTMLElement>}
-      aria-labelledby="nationwide-heading"
-      className="bg-neutral-50 section-padding"
+      className="bg-slate-50/50 py-20 text-slate-900 overflow-hidden"
     >
-      <div className="content-max px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         <motion.div
-          variants={container}
+          variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="text-center max-w-2xl mx-auto mb-14"
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch"
         >
-          <motion.p
-            variants={item}
-            className="text-xs font-semibold uppercase tracking-widest text-amber-500 mb-3"
-          >
-            Nationwide Coverage
-          </motion.p>
-          <motion.h2
-            id="nationwide-heading"
-            variants={item}
-            className="text-3xl sm:text-4xl font-extrabold text-navy-950 tracking-tight"
-          >
-            Coverage Across Japan&apos;s Manufacturing Hubs
-          </motion.h2>
-          <motion.p variants={item} className="mt-4 text-neutral-600 leading-relaxed">
-            With offices in every major industrial region, we deliver locally rooted
-            staffing support at a national scale.
-          </motion.p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Region grid */}
+          
+          {/* 1. LEFT CONTAINER: Experience and Success Rate */}
           <motion.div
-            variants={leftItem}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+            variants={itemVariants}
+            whileHover={prefersReducedMotion ? {} : { y: -4 }}
+            className="lg:col-span-4 bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/60 shadow-xs flex flex-col items-center text-center justify-center min-h-[400px]"
           >
-            {REGIONS.map((region) => (
-              <div
-                key={region.name}
-                className={`rounded-xl border p-5 transition-shadow hover:shadow-md ${
-                  region.highlight
-                    ? "border-navy-200 bg-white"
-                    : "border-neutral-200 bg-neutral-50/80"
-                }`}
-              >
-                <div className="flex items-center gap-2 mb-3">
-                  <MapPin
-                    size={14}
-                    strokeWidth={2}
-                    className={region.highlight ? "text-amber-500" : "text-neutral-400"}
-                    aria-hidden="true"
-                  />
-                  <span className="text-sm font-bold text-navy-950">{region.name}</span>
-                  {region.highlight && (
-                    <span className="ml-auto text-[9px] font-semibold uppercase tracking-wide text-amber-600 bg-amber-50 border border-amber-200 rounded-full px-2 py-0.5">
-                      Key Hub
-                    </span>
-                  )}
-                </div>
-                <p className="text-[11px] text-neutral-400 mb-2">Hub: {region.hub}</p>
-                <div className="flex flex-wrap gap-1">
-                  {region.prefectures.map((pref) => (
-                    <span
-                      key={pref}
-                      className="text-[10px] text-neutral-600 bg-neutral-100 rounded px-1.5 py-0.5"
-                    >
-                      {pref}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
+            <div className="w-20 h-20 rounded-full bg-blue-500 flex items-center justify-center text-white shadow-lg shadow-blue-500/20 mb-8 shrink-0">
+              <BadgeCheck className="w-10 h-10" strokeWidth={1.5} />
+            </div>
+            
+            <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mb-4 leading-tight">
+              Experience and Success Rate
+            </h3>
+            <p className="text-sm sm:text-base text-slate-500 leading-relaxed max-w-xs font-normal">
+              Our extensive experience and impressive success rate speak for themselves. We have a proven track record of delivering outstanding results that pave the way for a bright future in Japan.
+            </p>
           </motion.div>
 
-          {/* Strengths panel */}
+          {/* 2. RIGHT CONTAINER: Environmental Image Feature */}
           <motion.div
-            variants={rightItem}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
+            variants={itemVariants}
+            className="lg:col-span-8 relative rounded-3xl overflow-hidden min-h-[400px] group border border-slate-200/40 shadow-sm"
           >
-            <div className="rounded-2xl bg-navy-950 p-8 lg:p-10">
-              <h3 className="text-xl font-bold text-white mb-2">
-                Local Expertise × National Network
+            <img
+              src="/images/nation.png"
+              alt="Successful placement regional landscapes in Japan"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-103"
+            />
+            <div className="absolute inset-0 bg-linear-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
+            
+            <div className="absolute inset-x-0 bottom-0 p-8 sm:p-12 flex flex-col justify-end text-left max-w-3xl">
+              <h3 className="text-2xl sm:text-3xl font-black text-white mb-4 tracking-tight leading-tight">
+                Successful Experiences
               </h3>
-              <p className="text-sm text-white/60 mb-8 leading-relaxed">
-                Regional specialists who know the local market deliver
-                bespoke workforce solutions tailored to your exact needs.
+              <p className="text-sm sm:text-base text-slate-200/90 leading-relaxed font-normal">
+                Many students and professionals, especially from Bangladesh, have successfully transformed their lives through our services. Their stories of achievement and growth are a testament to our commitment and expertise.
               </p>
-
-              <ul className="space-y-4">
-                {STRENGTHS.map((strength) => (
-                  <li key={strength} className="flex items-start gap-3">
-                    <CheckCircle2
-                      size={18}
-                      className="text-amber-400 shrink-0 mt-0.5"
-                      aria-hidden="true"
-                    />
-                    <span className="text-sm text-white/80 leading-relaxed">{strength}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-8 pt-6 border-t border-white/10">
-                <p className="text-[11px] text-white/30 mb-1">Coverage</p>
-                <p className="text-3xl font-extrabold text-white">
-                  47
-                  <span className="text-lg font-semibold text-white/60 ml-1">prefectures</span>
-                </p>
-              </div>
             </div>
           </motion.div>
-        </div>
+
+          {/* 3. LOWER LEFT CONTAINER: Legal and Reliable Processes Banner (WITH INTERACTIVE VECTOR POP-UP) */}
+          <motion.div
+            variants={itemVariants}
+            whileHover={prefersReducedMotion ? {} : { y: -4 }}
+            className="lg:col-span-7 bg-emerald-900 text-white rounded-3xl p-8 sm:p-12 shadow-md shadow-emerald-950/5 border border-emerald-800 flex flex-col items-center text-center justify-center min-h-[400px]"
+          >
+            
+            {/* ── CUSTOM PURE VECTOR DOCUMENT STACK ANIMATION ── */}
+            <motion.div 
+              className="relative w-32 h-32 flex items-center justify-center mb-6 shrink-0"
+              variants={documentStackVariants}
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"}
+            >
+              {/* Outer Circular Light Teal Container Base */}
+              <div className="absolute inset-0 rounded-full bg-emerald-500/20 border border-emerald-400/20 backdrop-blur-xs scale-95" />
+              <div className="absolute w-20 h-20 rounded-full bg-teal-200/90 flex items-center justify-center shadow-inner" />
+
+              {/* Document Sheet 1 (Left Angled Layer) */}
+              <motion.div 
+                variants={leafPageVariants}
+                className="absolute w-11 h-14 bg-white/95 rounded-sm shadow-sm p-1.5 flex flex-col justify-between origin-bottom-left"
+              >
+                <div className="w-5 h-1.5 bg-slate-200 rounded-xs" />
+                <div className="space-y-1 my-auto">
+                  <div className="w-full h-0.5 bg-slate-100 rounded-xs" />
+                  <div className="w-full h-0.5 bg-slate-100 rounded-xs" />
+                  <div className="w-4/5 h-0.5 bg-slate-100 rounded-xs" />
+                </div>
+                <div className="w-2 h-2 rounded-full bg-slate-200 ml-auto" />
+              </motion.div>
+
+              {/* Document Sheet 2 (Right Angled Layer) */}
+              <motion.div 
+                variants={centerPageVariants}
+                className="absolute w-11 h-14 bg-white/95 rounded-sm shadow-sm p-1.5 flex flex-col justify-between origin-bottom-right"
+              >
+                <div className="w-4 h-1.5 bg-slate-200 rounded-xs" />
+                <div className="space-y-1 my-auto">
+                  <div className="w-full h-0.5 bg-slate-100 rounded-xs" />
+                  <div className="w-full h-0.5 bg-slate-100 rounded-xs" />
+                  <div className="w-full h-0.5 bg-slate-100 rounded-xs" />
+                </div>
+                <div className="w-2 h-2 rounded-full bg-slate-200" />
+              </motion.div>
+
+              {/* Main Front Document Sheet (With Smile Vector Badge) */}
+              <motion.div 
+                variants={mainPageVariants}
+                className="absolute w-12 h-15 bg-white rounded-xs shadow-md p-2 flex flex-col justify-between z-10 border border-white"
+              >
+                {/* Yellow Smile Emblem */}
+                <div className="w-4 h-4 rounded-full bg-amber-400 flex items-center justify-center mx-auto mb-1 shadow-2xs">
+                  <span className="text-[9px] text-slate-800 font-bold leading-none select-none">☺</span>
+                </div>
+                {/* Dynamic Alignment Rows */}
+                <div className="space-y-1 flex-1 flex flex-col justify-center">
+                  <div className="w-full h-0.5 bg-slate-300 rounded-xs" />
+                  <div className="w-full h-0.5 bg-slate-300 rounded-xs" />
+                  <div className="w-full h-0.5 bg-slate-300 rounded-xs" />
+                  <div className="w-3/4 h-0.5 bg-slate-300 rounded-xs" />
+                </div>
+                <div className="flex justify-between items-center mt-1">
+                  <div className="w-3 h-1 bg-slate-200 rounded-xs" />
+                  <div className="w-3 h-1 bg-slate-200 rounded-xs" />
+                </div>
+              </motion.div>
+
+              {/* Dynamic Overlay Pencil Vector (Pops into placement) */}
+              <motion.div 
+                variants={pencilVariants}
+                className="absolute w-12 h-2.5 z-20 origin-center rotate-[-35deg] translate-x-2 translate-y-3 filter drop-shadow-[0_2px_3px_rgba(0,0,0,0.25)]"
+              >
+                <div className="relative w-full h-full bg-slate-800 rounded-xs flex items-center overflow-hidden">
+                  {/* Lead tip point */}
+                  <div className="absolute left-0 top-0 bottom-0 w-2 bg-amber-200 [clip-path:polygon(100%_0,0_50%,100%_100%)] flex items-center">
+                    <div className="w-0.5 h-0.5 bg-slate-900 rounded-full" />
+                  </div>
+                  {/* Metallic back ring */}
+                  <div className="absolute right-0 top-0 bottom-0 w-1.5 bg-amber-500" />
+                </div>
+              </motion.div>
+            </motion.div>
+
+            <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-4 leading-tight">
+              Legal and Reliable Processes
+            </h3>
+            <p className="text-sm sm:text-base text-emerald-100/80 leading-relaxed max-w-xl font-normal">
+              We adhere strictly to legal standards and follow reliable, transparent processes at every step. This ensures that your transition is smooth, secure, and compliant with all regulations.
+            </p>
+          </motion.div>
+
+          {/* 4. LOWER RIGHT CONTAINER: All in One Solution */}
+          <motion.div
+            variants={itemVariants}
+            whileHover={prefersReducedMotion ? {} : { y: -4 }}
+            className="lg:col-span-5 bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/60 shadow-xs flex flex-col items-center text-center justify-center min-h-[400px]"
+          >
+            <div className="w-20 h-20 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-500 mb-8 shrink-0 shadow-xs">
+              <Layers className="w-10 h-10" strokeWidth={1.5} />
+            </div>
+
+            <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mb-4 leading-tight">
+              All in One Solution
+            </h3>
+            <p className="text-sm sm:text-base text-slate-500 leading-relaxed max-w-sm font-normal">
+              Our all-in-one solution is a comprehensive, streamlined service designed to cover every aspect of your journey to success in Japan. We integrate expert guidance, legal compliance, and personalized support.
+            </p>
+          </motion.div>
+
+        </motion.div>
+
+        
+
       </div>
     </section>
   );

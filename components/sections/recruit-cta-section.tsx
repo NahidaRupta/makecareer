@@ -4,43 +4,102 @@ import type React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Search, Phone, ArrowRight } from "lucide-react";
+import { ArrowRight, FileText, CheckCircle, Search, UserCheck } from "lucide-react";
 import { useInView } from "@/lib/hooks/use-in-view";
 import { useReducedMotion } from "@/lib/hooks/use-reduced-motion";
 import { safeVariant, staggerContainer, fadeInUp } from "@/lib/motion/variants";
 
-const JOB_CATEGORIES = [
-  "Assembly & Inspection",
-  "Welding & Machining",
-  "Forklift Operation",
-  "Equipment Maintenance",
-  "Logistics & Warehouse",
-  "Foreign Workers (Specified Skills)",
+// Clean data structural mapping parsed from your latest job openings image
+const OPENINGS_DATA = [
+  {
+    title: "Senior Software Engineer",
+    isUrgent: true,
+    meta: [
+      { label: "Company", value: "Tech Corp" },
+      { label: "Location", value: "Remote" },
+      { label: "Salary", value: "$120k - $150k" },
+    ],
+    posted: "2024-02-15",
+  },
+  {
+    title: "Product Manager",
+    isUrgent: true,
+    meta: [
+      { label: "Company", value: "Innovation Labs" },
+      { label: "Location", value: "Tokyo, Japan" },
+      { label: "Salary", value: "$100k - $130k" },
+    ],
+    posted: "2024-02-14",
+  },
+  {
+    title: "UX Designer",
+    isUrgent: false,
+    meta: [
+      { label: "Company", value: "Creative Minds" },
+      { label: "Location", value: "Osaka, Japan" },
+      { label: "Salary", value: "$90k - $115k" },
+    ],
+    posted: "2024-02-10",
+  },
 ];
 
-const ZIGZAG_IMAGES = [
+// Structural mapping parsed from the multi-step pipeline image row
+const PROCESS_STEPS = [
+  {
+    num: "1",
+    icon: Search,
+    title: "Application Process",
+    desc: "We start by guiding you through our straightforward application process, designed to capture your unique needs and qualifications. Our team is available to assist you from the very first step.",
+  },
+  {
+    num: "2",
+    icon: FileText,
+    title: "Required Documents",
+    desc: "A clear list of all necessary documents will be provided to ensure that your application is complete and accurate. We help you gather and verify every document, so you never miss a detail.",
+  },
+  {
+    num: "3",
+    icon: UserCheck,
+    title: "Interview and Screening Process",
+    desc: "Once your application is submitted, we conduct through interviews and screening sessions. This process is designed to understand your profile better and match the best opportunities available in Japan.",
+  },
+];
+
+// Split the zigzag images into left and right side configurations
+const LEFT_ZIGZAG = [
   {
     src: "/images/services/job.jpg",
     alt: "Manufacturing dispatch workplace",
     fromLeft: true,
-    yShift: "mt-0",
-    rotate: "-2deg",
+    yShift: "top-[15%]",
+    rotate: "-4deg",
     floatDelay: 0.8,
   },
   {
     src: "/images/services/service3.png",
     alt: "Factory outsourcing workplace",
-    fromLeft: false,
-    yShift: "mt-8",
-    rotate: "1.5deg",
-    floatDelay: 1.1,
+    fromLeft: true,
+    yShift: "top-[50%]",
+    rotate: "3deg",
+    floatDelay: 1.2,
   },
+];
+
+const RIGHT_ZIGZAG = [
   {
     src: "/images/services/job2.jpeg",
     alt: "Specified Skills foreign worker support",
-    fromLeft: true,
-    yShift: "mt-2",
-    rotate: "-1deg",
+    fromLeft: false,
+    yShift: "top-[20%]",
+    rotate: "4deg",
+    floatDelay: 1.0,
+  },
+  {
+    src: "/images/services/service1.png", // Reusing a placeholder to make it 2 images on the right
+    alt: "Global career integration workspace",
+    fromLeft: false,
+    yShift: "top-[55%]",
+    rotate: "-3deg",
     floatDelay: 1.4,
   },
 ];
@@ -56,9 +115,9 @@ export function RecruitCtaSection() {
     <section
       ref={ref as React.RefObject<HTMLElement>}
       aria-labelledby="recruit-cta-heading"
-      className="relative overflow-hidden bg-amber-500 section-padding"
+      className="relative overflow-hidden bg-amber-500 py-16 lg:py-24"
     >
-      {/* Background decoration */}
+      {/* ── Background Decoration Layer (Retained & Untouched) ── */}
       <div
         aria-hidden="true"
         className="absolute inset-0 bg-linear-to-br from-amber-400 via-amber-500 to-amber-600"
@@ -72,157 +131,221 @@ export function RecruitCtaSection() {
         className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-white/10 blur-3xl pointer-events-none"
       />
 
-      <div className="content-max relative px-4 sm:px-6 lg:px-8">
-        {/* ── For Job Seekers CTA ── */}
+      {/* ── Left Side Floating Images (Desktop only) ── */}
+      <div className="hidden xl:block absolute left-4 top-0 bottom-0 w-48 pointer-events-none z-10">
+        {LEFT_ZIGZAG.map((img, i) => (
+          <motion.div
+            key={`left-${i}`}
+            className={`absolute left-0 ${img.yShift}`}
+            initial={{ opacity: 0, x: -60 }}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -60 }}
+            transition={{ duration: 0.8, delay: i * 0.25, ease: "easeOut" }}
+          >
+            <motion.div
+              animate={inView && !prefersReducedMotion ? { y: [0, -10, 0] } : { y: 0 }}
+              transition={{ duration: 4 + i * 0.5, repeat: Infinity, ease: "easeInOut", delay: img.floatDelay }}
+              style={{ rotate: img.rotate }}
+              className="overflow-hidden rounded-2xl ring-2 ring-white/25 shadow-xl shadow-amber-950/40"
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                width={160}
+                height={120}
+                className="w-40 h-28 object-cover"
+              />
+            </motion.div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* ── Right Side Floating Images (Desktop only) ── */}
+      <div className="hidden xl:block absolute right-4 top-0 bottom-0 w-48 pointer-events-none z-10">
+        {RIGHT_ZIGZAG.map((img, i) => (
+          <motion.div
+            key={`right-${i}`}
+            className={`absolute right-0 ${img.yShift}`}
+            initial={{ opacity: 0, x: 60 }}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 60 }}
+            transition={{ duration: 0.8, delay: i * 0.25, ease: "easeOut" }}
+          >
+            <motion.div
+              animate={inView && !prefersReducedMotion ? { y: [0, -10, 0] } : { y: 0 }}
+              transition={{ duration: 4.2 + i * 0.5, repeat: Infinity, ease: "easeInOut", delay: img.floatDelay }}
+              style={{ rotate: img.rotate }}
+              className="overflow-hidden rounded-2xl ring-2 ring-white/25 shadow-xl shadow-amber-950/40"
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                width={160}
+                height={120}
+                className="w-40 h-28 object-cover"
+              />
+            </motion.div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* ── Main Layout Content Container ── */}
+      <div className="content-max relative px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto z-20">
+        
+        {/* ── PART 1: HEADLINE SECTION ── */}
         <motion.div
           variants={container}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="text-center max-w-3xl mx-auto"
+          className="text-center max-w-3xl mx-auto mb-12"
         >
           <motion.p
             variants={item}
-            className="text-xs font-bold uppercase tracking-widest text-white/70 mb-4"
+            className="text-xs font-bold uppercase tracking-widest text-white/80 mb-3"
           >
-            For Job Seekers
+            Opportunities
           </motion.p>
           <motion.h2
             id="recruit-cta-heading"
             variants={item}
-            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.15]"
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight"
           >
-            Looking for a Job
-            <br />
-            in Manufacturing?
+            Our Latest Openings
           </motion.h2>
-          <motion.p
-            variants={item}
-            className="mt-6 text-white/85 leading-relaxed text-lg max-w-xl mx-auto"
-          >
-            No experience required · Dormitory available · Daily pay options.
-            <br className="hidden sm:block" />
-            Let&apos;s find the right job for you together.
-          </motion.p>
-
-          {/* Job category pills */}
-          <motion.div
-            variants={container}
-            className="flex flex-wrap justify-center gap-2 mt-8"
-          >
-            {JOB_CATEGORIES.map((cat) => (
-              <motion.span
-                key={cat}
-                variants={item}
-                className="rounded-full border border-white/30 bg-white/15 px-4 py-1.5 text-sm font-medium text-white backdrop-blur-sm"
-              >
-                {cat}
-              </motion.span>
-            ))}
-          </motion.div>
-
-          {/* CTAs */}
-          <motion.div
-            variants={item}
-            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            <Link
-              href={{ pathname: "/jobs" }}
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-8 py-4 text-base font-bold text-amber-600 shadow-lg shadow-amber-700/20 hover:bg-amber-50 hover:-translate-y-0.5 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-            >
-              <Search size={18} strokeWidth={2} aria-hidden="true" />
-              Browse Jobs
-            </Link>
-            <Link
-              href={{ pathname: "/contact" }}
-              className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-white/50 bg-transparent px-8 py-4 text-base font-bold text-white hover:bg-white/10 hover:-translate-y-0.5 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-            >
-              <Phone size={18} strokeWidth={2} aria-hidden="true" />
-              Free Consultation
-            </Link>
-          </motion.div>
-
-          {/* Trust note */}
-          <motion.p variants={item} className="mt-8 text-sm text-white/60">
-            Free registration · Online interviews available · We only suggest roles that fit your needs
-          </motion.p>
         </motion.div>
 
-        {/* ── Zigzag service images ── */}
+        {/* ── PART 2: THE JOB CARD GRID WITH AMBER BRAND HARMONIZATION ── */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20"
+        >
+          {OPENINGS_DATA.map((job, idx) => (
+            <motion.div
+              key={idx}
+              variants={item}
+              className="bg-white/95 backdrop-blur-md rounded-2xl p-6 shadow-xl shadow-amber-950/10 flex flex-col justify-between text-left border border-white/20 transition-all hover:-translate-y-1"
+            >
+              <div>
+                <span
+                  className={`inline-block text-xs font-bold px-2.5 py-1 rounded-full mb-4 ${
+                    job.isUrgent
+                      ? "bg-rose-500 text-white"
+                      : "bg-amber-100 text-amber-800"
+                  }`}
+                >
+                  {job.isUrgent ? "Urgent" : "Standard"}
+                </span>
+                
+                <h3 className="text-xl font-extrabold text-slate-900 mb-4 tracking-tight">
+                  {job.title}
+                </h3>
+
+                <div className="space-y-2 text-sm text-slate-600 mb-8">
+                  {job.meta.map((m, mIdx) => (
+                    <p key={mIdx}>
+                      <span className="font-semibold text-slate-400 mr-1">{m.label}:</span>
+                      {m.value}
+                    </p>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+                <span className="text-xs text-slate-400 font-medium">
+                  Posted: {job.posted}
+                </span>
+                <Link
+                  href={{ pathname: "/apply" }}
+                  className="inline-flex items-center justify-center bg-amber-600 text-white text-xs font-bold px-4 py-2 rounded-lg hover:bg-amber-700 transition-colors shadow-sm"
+                >
+                  Apply Now
+                </Link>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* ── PART 3: RECRUITMENT FLOW SECTION BRAND INTEGRATION ── */}
+        <div className="flex justify-center mb-12">
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 border border-white/20 text-white font-bold text-sm backdrop-blur-xs">
+            <span className="p-1 bg-white text-amber-600 rounded-md shadow-xs">
+              <CheckCircle size={14} strokeWidth={2.5} />
+            </span>
+            Recruitment Process
+          </div>
+        </div>
+
+        {/* Horizontal Timeline Array */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8 text-left mb-20"
+        >
+          {PROCESS_STEPS.map((step, sIdx) => {
+            const StepIcon = step.icon;
+            return (
+              <motion.div key={sIdx} variants={item} className="relative group">
+                <div className="flex items-center mb-5">
+                  <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-white text-amber-600 font-extrabold text-base shadow-md group-hover:scale-105 transition-transform shrink-0 z-10">
+                    {step.num}
+                  </div>
+                  {sIdx < PROCESS_STEPS.length - 1 && (
+                    <div className="hidden lg:block w-full h-[2px] bg-white/30 ml-4 rounded-full" />
+                  )}
+                </div>
+
+                <div className="flex items-center gap-2 mb-2">
+                  <StepIcon size={18} className="text-white/80 shrink-0" />
+                  <h4 className="text-lg font-bold text-white tracking-tight">
+                    {step.title}
+                  </h4>
+                </div>
+                
+                <p className="text-sm text-white/80 leading-relaxed max-w-sm">
+                  {step.desc}
+                </p>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+
+        {/* ── PART 4: MOBILE ONLY IMAGES LIST (Hidden on Desktop viewports) ── */}
         <div
-          className="mt-14 mb-2 flex items-start justify-center gap-4 sm:gap-6 lg:gap-10"
+          className="mt-12 mb-6 flex xl:hidden items-center justify-center gap-4 sm:gap-6"
           aria-hidden="true"
         >
-          {ZIGZAG_IMAGES.map((img, i) => (
-            <motion.div
-              key={img.src}
-              className={img.yShift}
-              initial={{ opacity: 0, x: img.fromLeft ? -56 : 56 }}
-              animate={
-                inView
-                  ? { opacity: 1, x: 0 }
-                  : { opacity: 0, x: img.fromLeft ? -56 : 56 }
-              }
-              transition={{
-                duration: 0.75,
-                delay: prefersReducedMotion ? 0 : i * 0.22,
-                ease: [0.25, 0.46, 0.45, 0.94],
-              }}
-            >
-              {/* Floating wrapper — perpetual gentle bob */}
-              <motion.div
-                animate={
-                  inView && !prefersReducedMotion
-                    ? { y: [0, -9, 0] }
-                    : { y: 0 }
-                }
-                transition={{
-                  duration: 3.8 + i * 0.4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: img.floatDelay,
-                }}
-                style={{ rotate: img.rotate }}
-                className="overflow-hidden rounded-2xl ring-2 ring-white/25 shadow-xl shadow-amber-900/30"
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  width={176}
-                  height={132}
-                  className="block w-24 h-18 sm:w-36 sm:h-28 lg:w-44 lg:h-32 object-cover"
-                  sizes="(max-width: 640px) 96px, (max-width: 1024px) 144px, 176px"
-                />
-              </motion.div>
-            </motion.div>
+          {[LEFT_ZIGZAG[0], RIGHT_ZIGZAG[0]].map((img, i) => (
+            <div key={`mobile-${i}`} style={{ rotate: img.rotate }} className="overflow-hidden rounded-xl ring-2 ring-white/25 shadow-lg w-32 h-24 relative">
+              <Image src={img.src} alt={img.alt} fill className="object-cover" />
+            </div>
           ))}
         </div>
 
-        {/* ── For Companies strip ── */}
+        {/* ── PART 5: CONTACT TRANSITION BANNER STRIP ── */}
         <motion.div
           variants={item}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="mt-12 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-sm p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6"
+          className="mt-12 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6"
         >
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-white/60 mb-1">
-              For Companies
+          <div className="text-left">
+            <p className="text-xs font-semibold uppercase tracking-widest text-white/70 mb-1">
+              Have questions regarding application pipelines?
             </p>
-            <h3 className="text-lg font-bold text-white">
-              Staffing &amp; Hiring Consultations for Companies
+            <h3 className="text-xl font-extrabold text-white tracking-tight">
+              Get detailed advice on your profile match parameters
             </h3>
-            <p className="text-sm text-white/70 mt-1">
-              Whether you need urgent scale-up or long-term workforce planning, we&apos;re ready to help.
-            </p>
           </div>
           <Link
             href={{ pathname: "/contact" }}
-            className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-navy-950 px-6 py-3 text-sm font-bold text-white hover:bg-navy-800 transition-colors"
+            className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-slate-900 px-6 py-3.5 text-sm font-bold text-white hover:bg-slate-800 transition-colors shadow-lg"
           >
             Get in Touch
-            <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />
+            <ArrowRight size={14} strokeWidth={2.5} aria-hidden="true" />
           </Link>
         </motion.div>
+
       </div>
     </section>
   );

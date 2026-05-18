@@ -16,6 +16,7 @@ import { NewsSection } from "@/components/sections/news-section";
 import { RecruitCtaSection } from "@/components/sections/recruit-cta-section";
 import { ContactSection } from "@/components/sections/contact-section";
 
+
 export const metadata: Metadata = generatePageMetadata({
   title: "SadiaTec",
   description:
@@ -44,8 +45,7 @@ export default function HomePage() {
       {/* 6. Case studies — 3 success stories on navy bg */}
       <CaseStudiesSection />
 
-      {/* 7. Nationwide support — region coverage map + strengths */}
-      <NationwideSupportSection />
+      
 
       {/* 8. Company — profile table + office image */}
       <CompanySection />
@@ -54,10 +54,12 @@ export default function HomePage() {
       <ComplianceSection />
 
       {/* 10. Seminars — upcoming events cards */}
-      <SeminarSection />
+      {/* <SeminarSection /> */}
 
       {/* 11. Downloads — free PDF resource cards */}
       <DownloadsSection />
+      {/* 7. Nationwide support — region coverage map + strengths */}
+      <NationwideSupportSection />
 
       {/* 12. Blog — latest 3 articles */}
       <BlogSection />

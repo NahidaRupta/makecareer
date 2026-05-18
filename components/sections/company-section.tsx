@@ -117,9 +117,9 @@ export function CompanySection() {
             <div className="absolute -bottom-4 -left-4 rounded-xl bg-amber-500 px-5 py-4 shadow-lg shadow-amber-500/30">
               <p className="text-xs font-semibold text-white/80 mb-0.5">In business for</p>
               <p className="text-2xl font-extrabold text-white leading-none">
-                15<span className="text-base font-semibold ml-0.5">+ years</span>
+                30<span className="text-base font-semibold ml-0.5">+ years</span>
               </p>
-              <p className="text-[10px] text-white/70 mt-0.5">Manufacturing staffing expertise</p>
+              
             </div>
           </motion.div>
         </div>
